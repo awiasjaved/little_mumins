@@ -25,12 +25,12 @@ const TopNav = () => {
   }, []);
 
   const items = [
-    { name: "ROOMS", link: "#latest" },
-    { name: "WELLNESS", link: "#masteri" },
-    { name: "GASTRO", link: "#extend" },
-    { name: "HOTEL", link: "#explore" },
-    { name: "EVENTS", link: "#besbok" },
-    { name: "CONTACTS", link: "#step" },
+    { name: "BOOK SHOP", link: "#latest", color: "text-pink-500" },
+    { name: "ABOUT US", link: "#masteri", color: "text-blue-400" },
+    { name: "BY AGE", link: "#extend", color: "text-green-500" },
+    { name: "BY TYPE", link: "#explore", color: "text-orange-500" },
+    { name: "FREEBIES", link: "#besbok", color: "text-yellow-400" },
+    { name: "CONTACT US", link: "#step", color: "text-purple-500" },
   ];
 
   const navTextColor =
@@ -59,36 +59,17 @@ const TopNav = () => {
               </button>
             </div>
             {/* Center Logo & Icons */}
-            <div className={`flex items-center sm:space-x-4 ${navTextColor}`}>
-              <div className={`hidden sm:block ${navTextColor}`}>2 0 0 5</div>
-              <div className="bg-white rounded-full h-14 w-14 flex items-center justify-center">
-                <div className="text-[#1D3B46] backdrop-blur-lg text-2xl font-serif">
-                  KM
-                </div>
-              </div>
-              <div className={`hidden md:flex items-center space-x-1 ${navTextColor}`}>
-                {[1, 2, 3, 4].map((_, index) => (
-                  <FaRegStar key={index} />
-                ))}
-              </div>
-            </div>
-            {/* Booking Button */}
             <div>
-              <button className="btn flex items-center space-x-2 cursor-pointer">
-                <span>Booking</span>
-                <GiShoppingBag />
-              </button>
-            </div>
-          </div>
-          {/* Desktop Navigation */}
-          <div>
             <nav
-              className={`hidden sm:flex justify-center space-x-8 md:space-x-12 lg:space-x-16 py-4 font-light border-t border-b p-4 ${navTextColor} ${borderColor}`}
+              className={`hidden sm:flex justify-center space-x-8 md:space-x-12 lg:space-x-16 py-4 font-light p-4 ${navTextColor} ${borderColor}`}
             >
-              <ul className={`flex items-center ${navTextColor}`}>
+              <ul className="flex items-center">
                 {items.map((item) => (
-                  <li key={item.name} className={`py-2 px-4 text-lg flex ${navTextColor}`}>
-                    <Link href={item.link} className="hover:underline">
+                  <li key={item.name} className="py-2 px-4 text-lg flex">
+                    <Link
+                      href={item.link}
+                      className={`hover:underline hover:scale-105 hover:font-semibold hover:drop-shadow-md transition-all duration-300 font-medium ${item.color}`}
+                    >
                       {item.name}
                     </Link>
                   </li>
@@ -96,9 +77,20 @@ const TopNav = () => {
               </ul>
             </nav>
           </div>
+            {/* Booking Button */}
+            <div>
+              <button className="btn flex items-center space-x-2 cursor-pointer">
+                <span>Basket</span>
+                <GiShoppingBag />
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+         
         </div>
 
-        {/* Mobile Full-Screen Menu with Framer Motion Animation */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -108,16 +100,7 @@ const TopNav = () => {
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="fixed inset-0 z-50 bg-black bg-opacity-90 flex flex-col items-center justify-center h-screen w-screen"
             >
-              {/* ✅ MenuList ko prop pass kiya for closing */}
               <MenuList closeMenu={() => setMobileMenuOpen(false)} />
-
-              {/* Close Button */}
-              {/* <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="absolute top-6 right-6 text-white text-3xl"
-              >
-                ✕
-              </button> */}
             </motion.div>
           )}
         </AnimatePresence>
@@ -126,5 +109,4 @@ const TopNav = () => {
   );
 };
 
-// ✅ Dynamic Import Fix for SSR
 export default dynamic(() => Promise.resolve(TopNav), { ssr: false });

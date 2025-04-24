@@ -39,23 +39,32 @@
   }
   
   .iconWrapper {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 2px solid grey;
+    background-color: rgba(106, 130, 206, 0.459);
+    /* border: 2px solid grey; */
     border-radius: 50%;
     width: 48px;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: grey;
+    color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
   }
   
   .iconWrapper:hover {
-    background-color: grey;
-    color: black;
+    background: linear-gradient(
+      135deg,
+      #f53030,   
+      #55f77e,   
+      #144be2,   
+      #eab308,  
+      #ef4444    
+    );
+    color: white;
+    border-color: transparent;
   }
+  
   
   /* 🔥 Fix for mobile video being cut from sides */
   @media (max-width: 768px) {
