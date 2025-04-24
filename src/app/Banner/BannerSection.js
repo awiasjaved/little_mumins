@@ -121,7 +121,7 @@ function BannerSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
         >
-          Ultima Collection
+         LITTLE MUMINS
         </motion.h1>
 
         {/* Buttons with Staggered Fade-Up Animation */}
