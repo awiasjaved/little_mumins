@@ -1,6 +1,6 @@
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
-
+import Story from '../OurStory/Story';
 export default function AboutPage() {
   return (
     <>
@@ -15,6 +15,7 @@ export default function AboutPage() {
       </div>
       
     </div>
+    <Story/>
     <Footer/>
     </>
   );
