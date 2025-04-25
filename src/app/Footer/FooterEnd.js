@@ -1,117 +1,103 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-const FooterEnd = () => {
-  return (
-    <footer className="bg-gray-800 text-white py-10">
-    {/* Top section with logos */}
-    <div className="container mx-auto px-8">
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <Link href="/">
-            <div className="text-white text-2xl font-light">
-              ULTIMA
-              <div className="text-xs tracking-wider">COLLECTION</div>
-            </div>
-          </Link>
-        </div>
-        
-        <div className="flex items-center space-x-12">
-          <Link href="/" className="block">
-            <div className="text-right">
-              <div className="text-sm">Serandipians</div>
-              <div className="text-xs text-gray-400">Pure the Adventure</div>
-            </div>
-          </Link>
-          
-          <Link href="/" className="block">
-            <div className="text-right">
-              <div className="text-sm">THE SET</div>
-            </div>
-          </Link>
-        </div>
-      </div>
-      
-      {/* Divider line */}
-      <hr className="border-gray-700 mb-8" />
-      
-      {/* Footer columns */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Column 1 */}
-        <div>
-          <h3 className="text-lg mb-4">Ultima Collection</h3>
-          <ul className="space-y-2 text-gray-400">
-            <li><Link href="/about" className="hover:text-white">About</Link></li>
-            <li><Link href="/services" className="hover:text-white">Services</Link></li>
-            <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
-            <li>
-              <div className="flex items-center">
-                <Link href="/capital" className="hover:text-white">Ultima Capital</Link>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-        {/* Column 2 */}
-        <div>
-          <h3 className="text-lg mb-4">More Information</h3>
-          <ul className="space-y-2 text-gray-400">
-            <li><Link href="/trade-media" className="hover:text-white">Trade & Media</Link></li>
-            <li><Link href="/terms" className="hover:text-white">Terms</Link></li>
-            <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
-            <li><Link href="/cookies-policy" className="hover:text-white">Cookies Policy</Link></li>
-          </ul>
-        </div>
-        
-        {/* Column 3 */}
-        <div>
-          <h3 className="text-lg mb-4">Follow Us</h3>
-          <ul className="space-y-2 text-gray-400">
-            <li><Link href="https://instagram.com" className="hover:text-white">Instagram</Link></li>
-            <li><Link href="https://facebook.com" className="hover:text-white">Facebook</Link></li>
-            <li><Link href="https://linkedin.com" className="hover:text-white">LinkedIn</Link></li>
-          </ul>
-        </div>
-        
-        {/* Column 4 */}
-        <div>
-          <h3 className="text-lg mb-4">Get In Touch</h3>
-          <div className="text-sm text-gray-400">
-            <p className="mb-2 uppercase font-semibold text-white">Contact Us</p>
-            <p className="mb-1">Reservations:</p>
-            <p className="mb-4">reservation@ultimamanagement.com</p>
-            
-            <p className="mb-1">General enquiries:</p>
-            <p className="mb-1">+41 22 779 33 33</p>
-            <p>info@ultimamanagement.com</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    {/* Bottom copyright section */}
-    <div className="container mx-auto px-8 mt-10">
-      <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6">
-        <div className="flex items-center">
-          <div className="bg-blue-500 rounded-full p-2 mr-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <span className="text-sm text-gray-400">Copyright ©2024 Ultima Collection.</span>
-        </div>
-        
-        <div className="flex space-x-6 mt-4 md:mt-0">
-          <Link href="/privacy-policy" className="text-sm text-gray-400 hover:text-white">Privacy Policy</Link>
-          <Link href="/terms-conditions" className="text-sm text-gray-400 hover:text-white">Terms & Conditions</Link>
-        </div>
-      </div>
-    </div>
-  </footer>
-  )
-}
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import Logo from "../assets/images/little_mumins_5.png"
+import FooterLogo from "../assets/images/Footer.png"
 
-export default FooterEnd
+const Footer = () => {
+  return (
+    <footer
+      className="bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: {FooterLogo} }}
+    >
+    
+      <div className="bg-gray-100/90 py-12">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Column 1 - Logo and Social Icons */}
+            <div className="flex flex-col items-start md:items-start">
+              <Image 
+                src={Logo} 
+                alt="Flowers of Jannat Logo" 
+                width={250} 
+                height={250} 
+                className="mb-6"
+              />
+              <div className="flex space-x-4 mt-4">
+                <Link href="https://facebook.com" className="text-gray-600 hover:text-gray-800">
+                  <FaFacebookF size={20} />
+                </Link>
+                <Link href="https://instagram.com" className="text-gray-600 hover:text-gray-800">
+                  <FaInstagram size={20} />
+                </Link>
+                <Link href="https://whatsapp.com" className="text-gray-600 hover:text-gray-800">
+                  <FaWhatsapp size={20} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Column 2 - About Us */}
+            <div>
+              <h3 className="text-xl font-script mb-4 text-gray-800">About Us</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li><Link href="/about-us" className="hover:text-gray-900">About Us</Link></li>
+                <li><Link href="/contact-us" className="hover:text-gray-900">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3 - Categories */}
+            <div>
+              <h3 className="text-xl font-script mb-4 text-gray-800">Categories</h3>
+              <ul className="space-y-2 text-gray-700 max-h-64 overflow-y-auto pr-2">
+                <li><Link href="/categories/arabic-products" className="hover:text-gray-900">Arabic Products</Link></li>
+                <li><Link href="/categories/activity-books" className="hover:text-gray-900">Activity Books</Link></li>
+                <li><Link href="/categories/board-books" className="hover:text-gray-900">Board Books</Link></li>
+                <li><Link href="/categories/cloth-and-sensory-books" className="hover:text-gray-900">Cloth Books and Sensory Books</Link></li>
+                <li><Link href="/categories/dua-books" className="hover:text-gray-900">Dua Books</Link></li>
+                <li><Link href="/categories/urdu-books" className="hover:text-gray-900">Urdu Books</Link></li>
+                <li><Link href="/categories/story-books" className="hover:text-gray-900">Story Books</Link></li>
+                <li><Link href="/categories/ramadan-and-eid" className="hover:text-gray-900">Ramadan and Eid</Link></li>
+                <li><Link href="/categories/hajj-umrah-and-eid" className="hover:text-gray-900">Hajj, Umrah and Eid</Link></li>
+                <li><Link href="/categories/hadith-seerah-islamic-history" className="hover:text-gray-900">Hadith, Seerah and Islamic History</Link></li>
+                <li><Link href="/categories/posters" className="hover:text-gray-900">Posters</Link></li>
+                <li><Link href="/categories/stickers-and-cards" className="hover:text-gray-900">Stickers and Cards</Link></li>
+                <li><Link href="/categories/games-and-puzzles" className="hover:text-gray-900">Games and Puzzles</Link></li>
+                <li><Link href="/categories/binders" className="hover:text-gray-900">Binders</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 4 - Information + Search */}
+            <div>
+              <h3 className="text-xl font-script mb-4 text-gray-800">Information</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li><Link href="/faqs" className="hover:text-gray-900">FAQs</Link></li>
+                <li><Link href="/refund-policy" className="hover:text-gray-900">Refund Policy</Link></li>
+                <li><Link href="/terms-and-conditions" className="hover:text-gray-900">Terms & Conditions</Link></li>
+              </ul>
+
+              {/* Search Box */}
+              <div className="mt-8">
+                <p className="text-gray-700 mb-2">Looking for a specific product?</p>
+                <div className="flex">
+                  <input 
+                    type="text" 
+                    placeholder="Search products..." 
+                    className="border border-gray-300 rounded-l px-4 py-2 w-full focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  />
+                  <button className="bg-gray-800 text-white rounded-r px-4 py-2 hover:bg-gray-700 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
