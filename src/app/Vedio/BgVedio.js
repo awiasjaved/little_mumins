@@ -24,12 +24,22 @@ const letter = {
   },
 };
 
+const textBottomToTop = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 const BgVedio = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [videoSrc, setVideoSrc] = useState("/assets/Ultima_2.mp4");
   const [showText, setShowText] = useState(true); // for repeating text
+  const [showBottomText, setShowBottomText] = useState(true); // for the new text
 
   useEffect(() => {
     const checkScreen = () => {
@@ -118,6 +128,23 @@ const BgVedio = () => {
         </AnimatePresence>
       </div>
 
+      {/* Bottom-to-top Text */}
+      <div className="absolute bottom-70 left-32 w-full flex justify-start z-10">
+        <AnimatePresence>
+          {showBottomText && (
+            <motion.h2
+              className="text-3xl sm:text-xl md:text-2xl font-medium text-white"
+              variants={textBottomToTop}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              key="bottom-text"
+            >
+              Nurturing little hearts with stories of imaan
+            </motion.h2>
+          )}
+        </AnimatePresence>
+      </div>
       {/* Background Video */}
       <video
         ref={videoRef}
