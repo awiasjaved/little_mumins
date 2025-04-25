@@ -88,9 +88,9 @@ const TopNav = () => {
         <div className="relative z-10 items-center">
           <div className="px-2 lg:px-16 flex justify-between items-center py-1">
             {/* Logo */}
-            <div>
+            <Link href="/" className="cursor-pointer">
               <Image src={Logo} alt="Logo" width={100} height={50} />
-            </div>
+            </Link>
 
             {/* Nav Items - Desktop */}
             <nav
