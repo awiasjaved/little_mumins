@@ -6,7 +6,7 @@
 }
 @layer components{
   .btn{
-    @apply flex items-center space-x-2 bg-[#1D3B46] text-white px-6 py-3 rounded-full 
+    @apply flex items-center space-x-2 bg-[#d188d1] text-white px-6 py-3 rounded-full 
   }
 }
 @theme inline {

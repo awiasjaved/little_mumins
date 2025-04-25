@@ -7,6 +7,8 @@ import { FaRegStar } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import MenuList from "../Menu/MenuList";
+import Logo from "../assets/images/little_mumins_5.png";
+import Image from "next/image";
 
 const TopNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,7 +28,7 @@ const TopNav = () => {
 
   const items = [
     { name: "BOOK SHOP", link: "#latest", color: "text-pink-500" },
-    { name: "ABOUT US", link: "#masteri", color: "text-blue-400" },
+    { name: "ABOUT US", link: "/about", color: "text-blue-400" },
     { name: "BY AGE", link: "#extend", color: "text-green-500" },
     { name: "BY TYPE", link: "#explore", color: "text-orange-500" },
     { name: "FREEBIES", link: "#besbok", color: "text-yellow-400" },
@@ -45,38 +47,39 @@ const TopNav = () => {
 
   return (
     <>
-      <div className="backdrop-blur-lg fixed w-full z-20">
+      <div className="backdrop-blur-lg fixed w-full z-10">
         <div className="relative z-10 items-center">
-          <div className="px-4 lg:px-16 flex justify-between items-center lg:flex-row py-4">
+          <div className="px-2 lg:px-16 flex justify-between items-center lg:flex-row py-1">
             {/* Mobile Menu Button */}
             <div>
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="btn flex items-center space-x-2 cursor-pointer"
-              >
-                <GiHamburgerMenu />
-                <span>Menu</span>
-              </button>
+              <Image
+                src={Logo}
+                alt="Logo"
+            
+                width={100} 
+                height={50}
+              />
             </div>
+
             {/* Center Logo & Icons */}
             <div>
-            <nav
-              className={`hidden sm:flex justify-center space-x-8 md:space-x-12 lg:space-x-16 py-4 font-light p-4 ${navTextColor} ${borderColor}`}
-            >
-              <ul className="flex items-center">
-                {items.map((item) => (
-                  <li key={item.name} className="py-2 px-4 text-lg flex">
-                    <Link
-                      href={item.link}
-                      className={`hover:underline hover:scale-105 hover:font-semibold hover:drop-shadow-md transition-all duration-300 font-medium ${item.color}`}
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
+              <nav
+                className={`hidden sm:flex justify-center space-x-12 md:space-x-12 lg:space-x-16 py-4 font-light p-4 ${navTextColor} ${borderColor}`}
+              >
+                <ul className="flex items-center">
+                  {items.map((item) => (
+                    <li key={item.name} className="py-2 px-4 text-lg flex">
+                      <Link
+                        href={item.link}
+                        className={`hover:underline hover:scale-105 hover:font-semibold hover:drop-shadow-md transition-all duration-300 font-medium ${item.color}`}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
             {/* Booking Button */}
             <div>
               <button className="btn flex items-center space-x-2 cursor-pointer">
@@ -87,7 +90,7 @@ const TopNav = () => {
           </div>
 
           {/* Desktop Navigation */}
-         
+
         </div>
 
         {/* Mobile Menu */}

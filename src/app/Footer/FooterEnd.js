@@ -8,9 +8,11 @@ import FooterLogo from "../assets/images/Footer.png"
 const Footer = () => {
   return (
     <footer
-      className="bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: {FooterLogo} }}
-    >
+    className="bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage: `url(${FooterLogo.src})`,
+    }}
+  >
     
       <div className="bg-gray-100/90 py-12">
         <div className="container mx-auto px-4 md:px-8">
