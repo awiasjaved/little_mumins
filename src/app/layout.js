@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <link rel="shortcut icon" href="/KM logo.svg" type="image/svg+xml" />
+      <link rel="shortcut icon" href="/little.svg" type="image/svg+xml" />
       <link rel="icon" type="image/svg+xml" href="/HeyJini-icon.svg" sizes="any" />
       </head>
       <body className={`${kepler.className} antialiased`}>
