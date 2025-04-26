@@ -2,7 +2,7 @@ import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
 import Story from '../OurStory/Story';
 import Flowers from '../ShopNow/Flowers';
-export default function AboutPage() {
+const ExploreVisit = () => {
   return (
     <>
     <div
@@ -22,3 +22,5 @@ export default function AboutPage() {
     </>
   );
 }
+
+export default ExploreVisit;

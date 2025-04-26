@@ -42,7 +42,7 @@ const TopNav = () => {
     },
     {
       name: "BY AGE",
-      link: "#extend",
+      link: "/age",
       color: "text-green-500",
       subItems: [
         { name: "0-2 Years", link: "/books/0-2" },
