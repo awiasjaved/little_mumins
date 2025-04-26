@@ -16,6 +16,7 @@ const contact = () => {
       </div>
       
     </div>
+    <Flowers/>
     <Footer/>
     </>
   );

@@ -1,6 +1,6 @@
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
-import Story from '../OurStory/Story';
+
 import Flowers from '../ShopNow/Flowers';
 const type = () => {
   return (
@@ -16,6 +16,7 @@ const type = () => {
       </div>
       
     </div>
+    <Flowers/>
     <Footer/>
     </>
   );

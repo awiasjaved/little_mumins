@@ -1,6 +1,6 @@
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
-import Story from '../OurStory/Story';
+
 import Flowers from '../ShopNow/Flowers';
 const age = () => {
   return (
@@ -16,7 +16,7 @@ const age = () => {
       </div>
       
     </div>
-    <Story/>
+   
     <Flowers/>
     <Footer/>
     </>

@@ -16,6 +16,7 @@ const freebies = () => {
       </div>
       
     </div>
+    <Flowers/>
     <Footer/>
     </>
   );

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoPause } from "react-icons/io5";
 import { FaVolumeDown, FaVolumeMute, FaPlay } from "react-icons/fa";
-import styles from "../Vedio/BgVedio.module.css";
+import styles from "./BgVedio.module.css";
 
 const container = {
   hidden: {},
@@ -37,16 +37,38 @@ const BgVedio = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [videoSrc, setVideoSrc] = useState("/assets/Ultima_2.mp4");
+  const [videoSrc, setVideoSrc] = useState("/assets/Cartoon.mp4");
   const [showText, setShowText] = useState(true); // for repeating text
   const [showBottomText, setShowBottomText] = useState(true); // for the new text
+  const [isClient, setIsClient] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+
+    // Check if video file exists
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    video.onloadeddata = () => {
+      setVideoError(false);
+    };
+    video.onerror = () => {
+      console.error("Video failed to load:", videoSrc);
+      setVideoError(true);
+    };
+
+    return () => {
+      video.onloadeddata = null;
+      video.onerror = null;
+    };
+  }, [videoSrc]);
 
   useEffect(() => {
     const checkScreen = () => {
       if (window.innerWidth <= 768) {
-        setVideoSrc("/assets/Little.mp4");
+        setVideoSrc("../assets/Cartoon.mp4"); // Ensure this path is correct
       } else {
-        setVideoSrc("/assets/Ultima_2.mp4");
+        setVideoSrc("../assets/Cartoon.mp4"); // Ensure this path is correct
       }
     };
     checkScreen();
@@ -67,12 +89,6 @@ const BgVedio = () => {
       setIsMuted(!isMuted);
     }
   };
-
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   // Looping text every few seconds
   useEffect(() => {
@@ -145,18 +161,27 @@ const BgVedio = () => {
           )}
         </AnimatePresence>
       </div>
+      
       {/* Background Video */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        className={styles.video}
-        key={videoSrc}
-      >
-        <source src={videoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {videoError ? (
+        <div className={styles.videoFallback}>
+          <p>Video could not be loaded</p>
+        </div>
+      ) : (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          className={styles.video}
+          key={videoSrc}
+          onError={() => setVideoError(true)}
+          playsInline // Important for iOS
+        >
+          <source src={videoSrc} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
 
       {/* Controls */}
       <div className={styles.controls}>
