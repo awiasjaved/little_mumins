@@ -2,7 +2,8 @@
 "use client";
 
 import Image from "next/image";
-import hotel from "../assets/images/hotel.jpg";
+import StLittle from "../assets/images/script.png"
+import Market from "../assets/images/market.png"
 import apartment from "../assets/images/apartment.jpg";
 import ajiz from "../assets/images/ajiz.jpg";
 import Container from "../Container";
@@ -11,20 +12,20 @@ import { motion } from "framer-motion";
 const properties = [
   {
     id: 1,
-    title: "Villas & Chalets",
-    category: "PRIVATE HOMES",
+    title: `Join Little Mumins to spark hope and inspiration in hearts!`,
     description:
-      "Spellbinding properties in Europe's most astonishing locations, from snow-capped mountains to coastal retreats.",
-    image: hotel,
+      `Unleash your creative spirit and make a lasting impact!
+Authors craft stories that nurture faith, while illustrators bring emotions to life through art.
+At Little Mumins, let's come together to enlighten and empower the next generation.`,
+    image: StLittle,
     
   },
   {
     id: 2,
-    title: "Residences",
-    category: "PRIVATE HOMES",
+    title: `Become the light that nourishes and uplifts Iman!`,
     description:
-      "Our exclusive residences bear our signature hallmarks of design, privacy and playfulness while also offering the utmost flexibility.",
-    image: apartment,
+      `Want to spread goodness and highlight your products? Apply now for in-depth details and join our network as a valued partner. Our team will get in touch with you shortly, ready to help you grow and succeed.`,
+    image: Market,
     
   },
   {
@@ -55,7 +56,7 @@ const PropertyCard = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           <motion.div
-  className="relative h-[650px] overflow-hidden w-full rounded-xl"
+  className="relative h-[550px] overflow-hidden w-full rounded-xl"
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{
