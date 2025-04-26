@@ -52,7 +52,7 @@ const TopNav = () => {
     },
     {
       name: "BY TYPE",
-      link: "#explore",
+      link: "type",
       color: "text-orange-500",
       subItems: [
         { name: "Board Books", link: "/books/board" },
@@ -62,12 +62,12 @@ const TopNav = () => {
     },
     {
       name: "FREEBIES",
-      link: "#besbok",
+      link: "/freebies",
       color: "text-yellow-400",
     },
     {
       name: "CONTACT US",
-      link: "#step",
+      link: "/contact",
       color: "text-purple-500",
     },
   ];
