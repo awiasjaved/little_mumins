@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-
+import Muslim from "../assets/images/DayMuslim.jpg"
 const products = [
   {
     title: "Janwaron ki Dunya - Urdu Flap Book",
     price: 750,
-    image: "/images/janwaron-ki-dunya.jpg",
+    image: Muslim
   },
   {
     title: "I Am Alone - Arabic Story Book",
