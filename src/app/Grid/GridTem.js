@@ -251,7 +251,7 @@ export const GridTem = () => {
               </div>
               {!agreeTerms && (
                 <p className="text-red-500 text-sm mt-1">
-                  Please agree terms and conditions to be able to &quot;Register&quot;
+                  Please agree terms and conditions to be able to "Register"
                 </p>
               )}
             </div>

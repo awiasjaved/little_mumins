@@ -121,7 +121,7 @@ function BannerSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
         >
-          Little Mum&apos;mins
+          Little Mum'mins
         </motion.h1>
 
         {/* Buttons with Staggered Fade-Up Animation */}
