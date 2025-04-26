@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Logo from "../assets/images/little_mumins_5.png"
 import FooterLogo from "../assets/images/Footer.png"
 
-const Footer = () => {
+const FooterEnd  = () => {
   return (
     <footer
     className="bg-cover bg-center bg-no-repeat"
@@ -102,4 +102,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterEnd ;

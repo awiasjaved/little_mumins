@@ -25,11 +25,12 @@ const Flowers = () => {
         {/* Main Title */}
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-wider">
           FLOWERS OF JANNAH
+          
         </h1>
 
         {/* Tagline */}
         <p className="text-lg md:text-2xl italic text-pink-400 mb-8">
-          "Nurturing the seed of Iman in young hearts"
+          &quot;Nurturing the seed of Iman in young hearts&quot;
         </p>
 
         {/* Shop Button */}
