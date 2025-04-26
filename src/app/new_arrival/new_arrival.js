@@ -8,7 +8,7 @@ import Annah from "../assets/images/Jannah.jpg"
 import Nabi from "../assets/images/Nabi.jpg"
 import Nabi1 from "../assets/images/Nabi1.jpg"
 const new_arrival = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
     {
       title: "Janwaron ki Dunya - Urdu Flap Book",
