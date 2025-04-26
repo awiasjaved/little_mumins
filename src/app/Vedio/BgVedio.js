@@ -24,6 +24,7 @@ const letter = {
   },
 };
 
+
 const textBottomToTop = {
   hidden: { opacity: 0, y: 50 },
   show: {
