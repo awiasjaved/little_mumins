@@ -27,7 +27,7 @@ const TopNav = () => {
   const items = [
     {
       name: "BOOK SHOP",
-      link: "#latest",
+      link: "/bookshop",
       color: "text-pink-500",
       subItems: [
         { name: "All Books", link: "/books" },
@@ -60,7 +60,7 @@ const TopNav = () => {
         { name: "Activity Books", link: "/books/activity" },
       ],
     },
-    
+
     {
       name: "FREEBIES",
       link: "/freebies",
