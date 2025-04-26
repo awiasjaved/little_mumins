@@ -12,6 +12,15 @@ const kepler = localFont({
  ],
  variable:'--font-kepler-std'
 });
+const bubbleGum = localFont({
+  src: [
+    {
+      path: "../../public/Font/BubblegumSans-Regular.ttf",  // BubbleGum ka path
+      weight: "400",
+    },
+  ],
+  variable: "--font-bubblegum",
+});
 
 export const metadata = {
   title: "littlemumins",
@@ -25,7 +34,7 @@ export default function RootLayout({ children }) {
       <link rel="shortcut icon" href="/little.svg" type="image/svg+xml" />
       <link rel="icon" type="image/svg+xml" href="/HeyJini-icon.svg" sizes="any" />
       </head>
-      <body className={`${kepler.className} antialiased`}>
+      <body className={`${bubbleGum.className} antialiased`}>
         <TopNav />
         {children}
       </body>

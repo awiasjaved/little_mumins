@@ -67,15 +67,17 @@ const BgVedio = () => {
   useEffect(() => {
     const checkScreen = () => {
       if (window.innerWidth <= 768) {
-        setVideoSrc("../assets/Cartoon.mp4"); // Ensure this path is correct
+        setVideoSrc("/assets/WhoAllah.mp4"); // Small screens ke liye
       } else {
-        setVideoSrc("../assets/Cartoon.mp4"); // Ensure this path is correct
+        setVideoSrc("/assets/Cartoon.mp4"); // Large screens ke liye
       }
     };
     checkScreen();
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
+  
+  
 
   const toggleVideo = () => {
     if (videoRef.current) {

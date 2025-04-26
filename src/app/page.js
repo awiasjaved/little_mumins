@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
     <BgVedio /> 
+    <NewArrivals/>
      <VillasRoom />
-      <NewArrivals/>
       <Flowers/>
       <FooterEnd />
  
