@@ -122,6 +122,7 @@ const BgVedio = () => {
   if (!isClient) return null;
 
   return (
+    <div className="mb-1">
     <main className={styles.main}>
       {/* Animated Heading */}
       <div className={styles.content}>
@@ -194,6 +195,7 @@ const BgVedio = () => {
         </div>
       </div>
     </main>
+    </div>
   );
 };
 

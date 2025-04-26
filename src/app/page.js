@@ -2,7 +2,7 @@ import Image from "next/image";
 // import BannerSection from "./Banner/BannerSection";
 import FooterEnd from "./Footer/FooterEnd";
 // import MasterintArt from "./Mastering/MasterintArt";
-// import VillasRoom from "./Villas/Page";
+import VillasRoom from "./Villas/Page";
 // import ExploreVisit from "./Explore/ExploreVisit";
 // import ExtendPic from "./Extend/ExtendPic";
 // import BespokeExperience from "./Bespok/BespokeExperience";
@@ -23,7 +23,7 @@ export default function Home() {
        {/* <BannerSection/> */}
        
       {/* <MasterintArt /> */}
-      {/* <VillasRoom /> */}
+      <VillasRoom />
       {/* <ExploreVisit /> */}
       {/* <ExtendPic /> */}
       {/* <BespokeExperience /> */}
