@@ -29,7 +29,7 @@ const Flowers = () => {
 
         {/* Tagline */}
         <p className="text-lg md:text-2xl italic text-pink-400 mb-8">
-          "Nurturing the seed of Iman in young hearts"
+        &quot;Nurturing the seed of Iman in young hearts&quot;
         </p>
 
         {/* Shop Button */}
