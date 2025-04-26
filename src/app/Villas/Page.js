@@ -55,24 +55,25 @@ const PropertyCard = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           <motion.div
-            className="relative h-[600px] overflow-hidden w-full"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              ease: "easeOut",
-              delay: index * 0.3,
-            }}
-            viewport={{ once: false, amount: 0.3 }}
-          >
-            <Image
-              src={property.image}
-              alt={property.title}
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-500 overflow-hidden"
-            />
-          </motion.div>
+  className="relative h-[650px] overflow-hidden w-full rounded-xl"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+    delay: index * 0.3,
+  }}
+  viewport={{ once: false, amount: 0.3 }}
+>
+  <Image
+    src={property.image}
+    alt={property.title}
+    layout="fill"
+    objectFit="cover"
+    className="transition-transform duration-500 overflow-hidden rounded-xl"
+  />
+</motion.div>
+
   
           <div className="px-4 py-5">
             <div className="uppercase text-xs tracking-wider text-stone-400 mb-2">
