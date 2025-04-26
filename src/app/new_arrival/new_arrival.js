@@ -7,7 +7,7 @@ import Jannah from "../assets/images/joy.jpg"
 import Annah from "../assets/images/Jannah.jpg"
 import Nabi from "../assets/images/Nabi.jpg"
 import Nabi1 from "../assets/images/Nabi1.jpg"
-const new_arrival = () => {
+const NewArrival = () => {
   const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
     {
@@ -80,4 +80,4 @@ const new_arrival = () => {
   )
 }
 
-export default new_arrival
+export default NewArrival
