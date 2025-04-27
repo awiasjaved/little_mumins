@@ -1,21 +1,23 @@
 import Footer from '../Footer/FooterEnd';
-import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
+import bgImage from '../assets/images/gifts.png'; // apni image ka path adjust karein
 import Story from '../OurStory/Story';
 import Flowers from '../ShopNow/Flowers';
+import FreeBies from './freebies';
 const freebies = () => {
   return (
     <>
     <div
-      className="min-h-screen bg-cover bg-center"
+      className="h-[50vh]  bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
      
       <div className="text-white text-center pt-32">
-        <h1 className="text-5xl font-bold">FreeBies</h1>
-        <p className="mt-4 text-xl">Welcome to our journey!</p>
+        <h1 className="text-8xl font-bold">Lttle Mum'mins Gifts</h1>
+        
       </div>
       
     </div>
+    <FreeBies/>
     <Flowers/>
     <Footer/>
     </>

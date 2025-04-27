@@ -9,33 +9,19 @@ const BgVedio = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [videoSrc, setVideoSrc] = useState("/assets/Cartoon.mp4");
   const [isClient, setIsClient] = useState(false);
-  const [videoError, setVideoError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // << NEW STATE
 
   useEffect(() => {
     setIsClient(true);
-    const video = document.createElement("video");
-    video.src = videoSrc;
-    video.onloadeddata = () => setVideoError(false);
-    video.onerror = () => setVideoError(true);
-    return () => {
-      video.onloadeddata = null;
-      video.onerror = null;
-    };
-  }, [videoSrc]);
 
-  useEffect(() => {
-    const checkScreen = () => {
-      if (window.innerWidth <= 768) {
-        setVideoSrc("/assets/WhoAllah.mp4");
-      } else {
-        setVideoSrc("/assets/Cartoon.mp4");
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // << Mobile screen detect
     };
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleVideo = () => {
@@ -89,8 +75,8 @@ const BgVedio = () => {
     <div className="mb-5 relative w-full h-screen overflow-hidden">
       <main className={styles.main}>
         {/* Centered Content */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-10 w-[720px]">
-          {/* LITTLE MUMINS Title */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-10 w-[90%] max-w-[720px]">
+          {/* Title */}
           <motion.div
             className="flex flex-wrap justify-center text-4xl sm:text-6xl md:text-8xl font-bold"
             style={{ WebkitTextStroke: "0.5px #971a32" }}
@@ -111,7 +97,7 @@ const BgVedio = () => {
             ))}
           </motion.div>
 
-          {/* Nurturing Text with Stroke */}
+          {/* Sub text */}
           <motion.div
             className="flex flex-wrap justify-center text-[#F64F74] text-xl sm:text-2xl md:text-3xl font-semibold mb-9"
             initial={{ opacity: 0, y: 50 }}
@@ -133,11 +119,16 @@ const BgVedio = () => {
           </motion.div>
         </div>
 
-        {/* Background Video */}
-        {videoError ? (
-          <div className={styles.videoFallback}>
-            <p>Video could not be loaded</p>
-          </div>
+        {/* Background */}
+        {isMobile ? (
+          <motion.img
+            src="/assets/islamic.png" // <-- Mobile Image
+            alt="Background"
+            className={styles.video} // Reuse same style for full-screen
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          />
         ) : (
           <motion.video
             ref={videoRef}
@@ -145,27 +136,28 @@ const BgVedio = () => {
             muted
             loop
             className={styles.video}
-            key={videoSrc}
-            onError={() => setVideoError(true)}
+            key="/assets/Cartoon.mp4"
             playsInline
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: 1, scale: 1.05 }}
             transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src="/assets/Cartoon.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </motion.video>
         )}
 
         {/* Controls */}
-        <div className={styles.controls}>
-          <div className={styles.iconWrapper} onClick={toggleVideo}>
-            {isPlaying ? <IoPause size={24} /> : <FaPlay size={24} />}
+        {!isMobile && (
+          <div className={styles.controls}>
+            <div className={styles.iconWrapper} onClick={toggleVideo}>
+              {isPlaying ? <IoPause size={24} /> : <FaPlay size={24} />}
+            </div>
+            <div className={styles.iconWrapper} onClick={toggleMute}>
+              {isMuted ? <FaVolumeMute size={24} /> : <FaVolumeDown size={24} />}
+            </div>
           </div>
-          <div className={styles.iconWrapper} onClick={toggleMute}>
-            {isMuted ? <FaVolumeMute size={24} /> : <FaVolumeDown size={24} />}
-          </div>
-        </div>
+        )}
       </main>
     </div>
   );
