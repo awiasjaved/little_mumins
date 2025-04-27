@@ -6,8 +6,6 @@ import Logo from "../assets/images/babybook.png"
 const Story = () => {
     return (
         <div className="relative min-h-screen">
-            {/* Top Navigation */}
-            <TopNav />
 
             {/* Content Section */}
             <div className="px-8 lg:px-32 py-20 text-black flex flex-col lg:flex-row justify-between gap-12">
