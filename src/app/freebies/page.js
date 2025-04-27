@@ -12,7 +12,7 @@ const freebies = () => {
     >
      
       <div className="text-white text-center pt-32">
-        <h1 className="text-8xl font-bold">Lttle Mum'mins Gifts</h1>
+        <h1 className="text-8xl font-bold">Little Mum&apos;ins Gifts</h1>
         
       </div>
       

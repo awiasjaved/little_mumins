@@ -12,7 +12,7 @@ import Day from "../assets/images/DayMuslim.jpg"
 import Bismillah from "../assets/images/bismillah.jpg"
 import Safa from "../assets/images/safa.jpg"
 import Sfa from "../assets/images/sfa.jpg"
-const fouryears = () => {
+const Fouryears = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
         const [currentPage, setCurrentPage] = useState(1);
         const productsPerPage = 3;
@@ -125,4 +125,4 @@ And when the journey ends, the fun continues with exciting activities that will 
   )
 }
 
-export default fouryears
+export default Fouryears

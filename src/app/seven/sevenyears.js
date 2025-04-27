@@ -11,7 +11,7 @@ import Star from "../assets/images/Star.jpg"
 import Mekail from "../assets/images/mekail.jpg"
 import Revolution from "../assets/images/revelation.jpg"
 import Once from "../assets/images/once.jpg"
-const sevenyears = () => {
+const Sevenyears = () => {
      const [hoveredIndex, setHoveredIndex] = useState(null);
             const [currentPage, setCurrentPage] = useState(1);
             const productsPerPage = 3;
@@ -141,4 +141,4 @@ The book in your hands narrates to you the detailed stories of the Prophets (pea
   )
 }
 
-export default sevenyears
+export default Sevenyears
