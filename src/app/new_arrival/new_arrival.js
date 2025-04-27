@@ -30,6 +30,26 @@ const NewArrival = () => {
       image: Nabi,
       hoverImage: Nabi1,
     },
+    {
+      title: "Janwaron ki Dunya - Urdu Flap Book",
+      price: 750,
+      image: Muslim,
+      hoverImage: Day,
+    },
+    {
+      title: "I Am Alone - Arabic Story Book",
+      price: 400,
+      oldPrice: 650,
+      image: Jannah,
+      hoverImage: Annah,
+    },
+    {
+      title: "I Am Alone - Arabic Story Book",
+      price: 400,
+      oldPrice: 650,
+      image: Nabi,
+      hoverImage: Nabi1,
+    },
     // ... baaki products
   ];
 
@@ -64,7 +84,7 @@ const NewArrival = () => {
                 Rs {product.oldPrice}
               </span>
             )}
-            <span className="text-pink-600 font-bold">Rs {product.price}</span>
+            <span className="text-[#a84618] font-bold">Rs {product.price}</span>
           </div>
           <button className="btn mt-4  text-white py-2 px-4 rounded-ful transition">
             Add to Cart
@@ -73,7 +93,7 @@ const NewArrival = () => {
       ))}
     </div>
 
-    <button className="mt-10 bg-pink-500 text-white py-2 px-6 rounded-full hover:bg-pink-600 transition">
+    <button className="mt-10 bg-[#a84618] text-white py-2 px-6 rounded-full hover:bg-[#852b02] transition">
       View All Products →
     </button>
   </section>

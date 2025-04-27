@@ -82,65 +82,64 @@ const TopNav = () => {
     scrollPosition > 550 && scrollPosition <= 1300
       ? "border-[#1D3B46]"
       : "border-white";
-
+      const blurEffect = scrollPosition > 100 ? "backdrop-blur-lg" : "";
   return (
     <>
-      <div className="backdrop-blur-lg fixed w-full z-10">
-        <div className="relative z-10 items-center">
-          <div className="px-2 lg:px-16 flex justify-between items-center py-1">
-            {/* Logo */}
-            <Link href="/" className="cursor-pointer">
-              <Image src={Logo} alt="Logo" width={100} height={50} />
-            </Link>
+   <div className={`${blurEffect} fixed top-0 left-0 w-full z-20`}>
+  <div className="relative z-10 items-center">
+    <div className="px-1 lg:px-16 flex justify-between items-center py-0">
+      {/* Logo */}
+      <Link href="/" className="cursor-pointer">
+        <Image src={Logo} alt="Logo" width={100} height={50} />
+      </Link>
 
-            {/* Nav Items - Desktop */}
-            <nav
-              className={`hidden sm:flex justify-center space-x-8 py-4 font-light p-4 ${navTextColor} ${borderColor}`}
-            >
-              <ul className="flex items-center space-x-4">
-                {items.map((item) => (
-                  <li key={item.name} className="relative group py-2 px-4 text-lg">
-                    <Link
-                      href={item.link}
-                      className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}
-                    >
-                      {item.name}
-                      {item.subItems && <span className="text-xs">▼</span>}
-                    </Link>
+      {/* Nav Items - Desktop */}
+      <nav
+        className={`hidden sm:flex justify-center space-x-8 py-4 font-light p-4 ${navTextColor} ${borderColor}`}
+      >
+        <ul className="flex items-center space-x-4">
+          {items.map((item) => (
+            <li key={item.name} className="relative group py-2 px-4 text-lg">
+              <Link
+                href={item.link}
+                className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}
+              >
+                {item.name}
+                {item.subItems && <span className="text-xs">▼</span>}
+              </Link>
 
-                    {/* Dropdown */}
-                    {item.subItems && (
-                      <ul
-                        className="absolute left-0 mt-2 w-44 bg-white text-black shadow-lg rounded-md 
-                          opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                          group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50"
+              {/* Dropdown */}
+              {item.subItems && (
+                <ul className="absolute left-0 mt-2 w-44 bg-white text-black shadow-lg rounded-md 
+                  opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                  group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50">
+                  {item.subItems.map((subItem) => (
+                    <li key={subItem.name}>
+                      <Link
+                        href={subItem.link}
+                        className="block px-4 py-2 hover:bg-gray-100"
                       >
-                        {item.subItems.map((subItem) => (
-                          <li key={subItem.name}>
-                            <Link
-                              href={subItem.link}
-                              className="block px-4 py-2 hover:bg-gray-100"
-                            >
-                              {subItem.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+                        {subItem.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-            {/* Basket Button */}
-            <div>
-              <button className="btn flex items-center space-x-2 cursor-pointer">
-                <span>Basket</span>
-                <GiShoppingBag />
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Basket Button */}
+      <div>
+        <button className="btn flex items-center space-x-2 cursor-pointer">
+          <span>Basket</span>
+          <GiShoppingBag />
+        </button>
+      </div>
+    </div>
+  </div>
+
 
         {/* Mobile Menu */}
         <AnimatePresence>
