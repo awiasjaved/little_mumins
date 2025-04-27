@@ -30,7 +30,7 @@ const FooterEnd  = () => {
                 <Link href="https://facebook.com" className="text-gray-600 hover:text-gray-800">
                   <FaFacebookF size={20} />
                 </Link>
-                <Link href="https://instagram.com" className="text-gray-600 hover:text-gray-800">
+                <Link href="https://www.instagram.com/thelittle_mumins/?igsh=Z2dhcWM2Nm9uanRs" className="text-gray-600 hover:text-gray-800">
                   <FaInstagram size={20} />
                 </Link>
                 <Link href="https://whatsapp.com" className="text-gray-600 hover:text-gray-800">
@@ -43,8 +43,8 @@ const FooterEnd  = () => {
             <div>
               <h3 className="text-xl font-script mb-4 text-gray-800">About Us</h3>
               <ul className="space-y-2 text-gray-700">
-                <li><Link href="/about-us" className="hover:text-gray-900">About Us</Link></li>
-                <li><Link href="/contact-us" className="hover:text-gray-900">Contact Us</Link></li>
+                <li><Link href="/about" className="hover:text-gray-900">About Us</Link></li>
+                <li><Link href="/contact" className="hover:text-gray-900">Contact Us</Link></li>
               </ul>
             </div>
 
