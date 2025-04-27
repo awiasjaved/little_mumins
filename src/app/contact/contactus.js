@@ -33,32 +33,32 @@ const ContactUs = () => {
           <ul className="space-y-6 text-gray-700">
             <li className="flex items-center">
               <FaWhatsapp className="mr-3 text-pink-500 text-xl" />
-              +92-335-3569377 (+92-335-FLOWERS)
+              +92-335-3569367 (+92-335-LITTLE)
             </li>
             <li className="flex items-center">
               <FaEnvelope className="mr-3 text-pink-500 text-xl" />
-              info@flowersofjannah.com
+              info@littlemumins.com
             </li>
             <li className="flex items-center">
               <FaInstagram className="mr-3 text-pink-500 text-xl" />
               <a
-                href="https://www.instagram.com/flowersofjannah/"
+                href=""
                 className="text-pink-600 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Flowers of Jannah Books
+                Little Mumins Books
               </a>
             </li>
             <li className="flex items-center">
               <FaFacebookF className="mr-3 text-pink-500 text-xl" />
               <a
-                href="https://www.facebook.com/flowersofjannah"
+                href=""
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                facebook.com/flowersofjannah
+                facebook.com/littlemumins
               </a>
             </li>
           </ul>
