@@ -12,7 +12,7 @@ import Hoob from "../assets/images/hoob.jpg"
 import Most from "../assets/images/most.jpg"
 import Blessed from "../assets/images/blessed.jpg"
 
-const threepic = () => {
+const Threepic = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const products = [
@@ -137,4 +137,4 @@ Ameen`
   );
 };
 
-export default threepic;
+export default Threepic;

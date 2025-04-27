@@ -1,7 +1,7 @@
 "use-client";
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/three.png';
-import Three from "../threeyears/threepic"
+import Threepic from './threepic';
 import Flowers from '../ShopNow/Flowers';
 const page = () => {
   return (
@@ -15,7 +15,7 @@ const page = () => {
            <h1 className="text-7xl font-bold">About Us</h1>
          </div>
        </div>
-    <Three/>
+    <Threepic/>
     <Flowers/>
     <Footer/>
     </>
