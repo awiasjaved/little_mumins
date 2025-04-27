@@ -41,8 +41,8 @@ const TopNav = () => {
       color: "text-green-500",
       subItems: [
         { name: "0-3 Years", link: "/threeyears" },
-        { name: "3-5 Years", link: "/books/3-5" },
-        { name: "6+ Years", link: "/books/6-plus" },
+        { name: "4-6 Years", link: "/four" },
+        { name: "7-12 Years", link: "/seven" },
       ],
     },
     {
@@ -77,7 +77,7 @@ const TopNav = () => {
       ? "border-[#1D3B46]"
       : "border-white";
 
-  const blurEffect = scrollPosition > 100 ? "backdrop-blur-lg" : "";
+  const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
 
   const toggleExpand = (name) => {
     if (expandedMenu === name) {

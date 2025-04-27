@@ -12,7 +12,7 @@ const page = () => {
        >
         
          <div className="text-white text-center pt-32">
-           <h1 className="text-7xl font-bold">About Us</h1>
+           <h1 className="text-7xl font-bold">0-3years</h1>
          </div>
        </div>
     <Threepic/>
