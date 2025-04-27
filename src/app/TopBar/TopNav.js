@@ -45,7 +45,7 @@ const TopNav = () => {
       link: "/age",
       color: "text-green-500",
       subItems: [
-        { name: "0-2 Years", link: "/books/0-2" },
+        { name: "0-3 Years", link: "/threeyears" },
         { name: "3-5 Years", link: "/books/3-5" },
         { name: "6+ Years", link: "/books/6-plus" },
       ],
@@ -82,7 +82,7 @@ const TopNav = () => {
     scrollPosition > 550 && scrollPosition <= 1300
       ? "border-[#1D3B46]"
       : "border-white";
-      const blurEffect = scrollPosition > 100 ? "backdrop-blur-lg" : "";
+      const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
   return (
     <>
    <div className={`${blurEffect} fixed top-0 left-0 w-full z-20`}>
@@ -95,7 +95,7 @@ const TopNav = () => {
 
       {/* Nav Items - Desktop */}
       <nav
-        className={`hidden sm:flex justify-center space-x-8 py-1 font-light p-4 ${navTextColor} ${borderColor}`}
+        className={`hidden sm:flex justify-center space-x-8 py- font-light p-4 ${navTextColor} ${borderColor}`}
       >
         <ul className="flex items-center space-x-4">
           {items.map((item) => (
