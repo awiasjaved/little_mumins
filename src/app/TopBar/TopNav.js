@@ -2,17 +2,16 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { GiShoppingBag } from "react-icons/gi";
+import { GiHamburgerMenu, GiShoppingBag } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"; // For arrow icons
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Logo from "../assets/images/little_mumins_5.png";
 import Image from "next/image";
 
 const TopNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [expandedMenu, setExpandedMenu] = useState(null); // 👈 No typing here, pure JS
+  const [expandedMenu, setExpandedMenu] = useState(null);
 
   const handleScroll = () => {
     setScrollPosition(window.scrollY);
@@ -77,9 +76,6 @@ const TopNav = () => {
     scrollPosition > 550 && scrollPosition <= 1300
       ? "border-[#1D3B46]"
       : "border-white";
-<<<<<<< HEAD
-      const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
-=======
 
   const blurEffect = scrollPosition > 100 ? "backdrop-blur-lg" : "";
 
@@ -91,7 +87,6 @@ const TopNav = () => {
     }
   };
 
->>>>>>> 5c8a9145141fde82402fb04b8b2f746ee788f961
   return (
     <>
       <div className={`${blurEffect} fixed top-0 left-0 w-full z-20`}>
@@ -102,18 +97,6 @@ const TopNav = () => {
               <Image src={Logo} alt="Logo" width={100} height={50} />
             </Link>
 
-<<<<<<< HEAD
-      {/* Nav Items - Desktop */}
-      <nav
-        className={`hidden sm:flex justify-center space-x-8 py- font-light p-4 ${navTextColor} ${borderColor}`}
-      >
-        <ul className="flex items-center space-x-4">
-          {items.map((item) => (
-            <li key={item.name} className="relative group py-2 px-4 text-lg">
-              <Link
-                href={item.link}
-                className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}
-=======
             {/* Nav Items - Desktop */}
             <nav
               className={`hidden sm:flex justify-center space-x-8 py-1 font-light p-4 ${navTextColor} ${borderColor}`}
@@ -151,7 +134,7 @@ const TopNav = () => {
               </ul>
             </nav>
 
-            {/* Basket - Desktop only */}
+            {/* Basket - Desktop */}
             <div className="hidden sm:flex">
               <button className="btn flex items-center space-x-2 cursor-pointer">
                 <span>Basket</span>
@@ -159,12 +142,11 @@ const TopNav = () => {
               </button>
             </div>
 
-            {/* Hamburger - Mobile only */}
+            {/* Hamburger - Mobile */}
             <div className="flex sm:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-3xl text-white"
->>>>>>> 5c8a9145141fde82402fb04b8b2f746ee788f961
               >
                 <GiHamburgerMenu />
               </button>
@@ -174,71 +156,71 @@ const TopNav = () => {
 
         {/* Mobile Menu */}
         <AnimatePresence>
-  {mobileMenuOpen && (
-    <>
-      {/* Background overlay for outside click */}
-      <div
-        className="fixed inset-0 z-40"
-        onClick={() => setMobileMenuOpen(false)}
-      ></div>
-
-      {/* Actual menu */}
-      <motion.div
-        initial={{ opacity: 0, x: "100%" }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: "100%" }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute top-16 right-0 w-[220px] z-50 bg-[#5C4033]/70 backdrop-blur-md rounded-l-xl shadow-lg p-4 sm:hidden"
-      >
-        <ul className="space-y-4 text-white text-base font-semibold">
-          {items.map((item) => (
-            <li key={item.name} className="space-y-1">
+          {mobileMenuOpen && (
+            <>
+              {/* Background overlay */}
               <div
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() =>
-                  item.subItems ? toggleExpand(item.name) : setMobileMenuOpen(false)
-                }
-              >
-                <Link
-                  href={item.link}
-                  className="hover:text-yellow-400 transition duration-300"
-                >
-                  {item.name}
-                </Link>
-                {item.subItems && (
-                  <>
-                    {expandedMenu === item.name ? (
-                      <IoIosArrowUp />
-                    ) : (
-                      <IoIosArrowDown />
-                    )}
-                  </>
-                )}
-              </div>
+                className="fixed inset-0 z-40"
+                onClick={() => setMobileMenuOpen(false)}
+              ></div>
 
-              {/* Sub Items */}
-              {item.subItems && expandedMenu === item.name && (
-                <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-gray-200">
-                  {item.subItems.map((subItem) => (
-                    <li key={subItem.name}>
-                      <Link
-                        href={subItem.link}
-                        className="block hover:text-yellow-300 transition duration-300"
-                        onClick={() => setMobileMenuOpen(false)}
+              {/* Actual menu */}
+              <motion.div
+                initial={{ opacity: 0, x: "100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "100%" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute top-16 right-0 w-[220px] z-50 bg-[#5C4033]/70 backdrop-blur-md rounded-l-xl shadow-lg p-4 sm:hidden"
+              >
+                <ul className="space-y-4 text-white text-base font-semibold">
+                  {items.map((item) => (
+                    <li key={item.name} className="space-y-1">
+                      <div
+                        className="flex justify-between items-center cursor-pointer"
+                        onClick={() =>
+                          item.subItems ? toggleExpand(item.name) : setMobileMenuOpen(false)
+                        }
                       >
-                        {subItem.name}
-                      </Link>
+                        <Link
+                          href={item.link}
+                          className="hover:text-yellow-400 transition duration-300"
+                        >
+                          {item.name}
+                        </Link>
+                        {item.subItems && (
+                          <>
+                            {expandedMenu === item.name ? (
+                              <IoIosArrowUp />
+                            ) : (
+                              <IoIosArrowDown />
+                            )}
+                          </>
+                        )}
+                      </div>
+
+                      {/* Sub Items */}
+                      {item.subItems && expandedMenu === item.name && (
+                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-gray-200">
+                          {item.subItems.map((subItem) => (
+                            <li key={subItem.name}>
+                              <Link
+                                href={subItem.link}
+                                className="block hover:text-yellow-300 transition duration-300"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   ))}
                 </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-    </>
-  )}
-</AnimatePresence>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
