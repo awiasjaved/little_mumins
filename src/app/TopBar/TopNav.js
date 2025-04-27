@@ -95,7 +95,7 @@ const TopNav = () => {
 
       {/* Nav Items - Desktop */}
       <nav
-        className={`hidden sm:flex justify-center space-x-8 py-4 font-light p-4 ${navTextColor} ${borderColor}`}
+        className={`hidden sm:flex justify-center space-x-8 py-1 font-light p-4 ${navTextColor} ${borderColor}`}
       >
         <ul className="flex items-center space-x-4">
           {items.map((item) => (
