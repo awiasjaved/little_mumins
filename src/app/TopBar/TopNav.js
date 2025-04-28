@@ -146,7 +146,7 @@ const TopNav = () => {
             <div className="flex sm:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-3xl text-white"
+                className="text-3xl text-red-600"
               >
                 <GiHamburgerMenu />
               </button>
