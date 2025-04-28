@@ -7,6 +7,7 @@ import Jannah from "../assets/images/joy.jpg"
 import Annah from "../assets/images/Jannah.jpg"
 import Nabi from "../assets/images/Nabi.jpg"
 import Nabi1 from "../assets/images/Nabi1.jpg"
+import Container from "../Container";
 const NewArrival = () => {
   const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
@@ -54,6 +55,8 @@ const NewArrival = () => {
   ];
 
   return (
+
+    <Container>
     <section className="py-10 text-center">
     <h2 className="text-sm text-gray-500 uppercase">New Arrivals</h2>
     <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
@@ -97,6 +100,7 @@ const NewArrival = () => {
       View All Products →
     </button>
   </section>
+  </Container>
   )
 }
 
