@@ -31,32 +31,24 @@ const Story = () => {
                 {/* Right side (Paragraph) */}
                 <div className="max-w-2xl text-gray-800 text-justify space-y-6">
                     <p>
-                        Once upon a time, in a cozy corner of a bustling city, lived a mother
-                        blessed with a heart full of love and a home full of laughter.
-                        Her days were filled with the sweet chaos of raising young children, each day a new adventure, each moment a treasured memory. But amidst this joy, a gentle worry nestled in her heart – how to kindle the flame of Iman in her little ones in a way that was both engaging and enjoyable.
+                    Growing up, I was surrounded by the magic of stories. Every night, my mother would read to us — stories that were not just entertaining, but deeply rooted in Islamic teachings. Through tales of prophets and lessons from our faith,
                     </p>
                     <p>
-                        As she watched her children play and learn, she realized the power of stories – how they captivated young minds, igniting imagination and curiosity. She saw how her children’s eyes sparkled with wonder at the turn of every page and how they eagerly awaited the next adventure in their favorite books.
+                    we were introduced to the beauty of Islam from a young age. Those early memories instilled in me a lifelong love for reading and a deep connection to my religion.
+
                     </p>
                     <p>
                         It was then that a beautiful idea blossomed in her heart. She decided to create a world where faith and fun walked hand in hand, a world where the love for Allah and His teachings could be sown in young hearts through the magic of storytelling.
                     </p>
                     <p>
-                        Thus, Flowers of Jannah was born. It began as a humble endeavor, with the mother crafting stories in the quiet hours of the night, her heart pouring love and wisdom into every word. She envisioned books that were not only visually appealing with their vibrant illustrations and captivating characters but also rich in Islamic teachings and values.
-                        Her stories were like seeds, carefully planted in the fertile minds of children, designed to bloom into love and understanding of their faith. She created tales of kindness, bravery, and compassion, all intertwined with the teachings of Islam, making learning about faith a joyful journey for her little ones.
+                    After getting married, I realized how much things had changed. The culture of book reading had declined, and there was a visible shortage of quality children’s books — books that not only entertained but also nurtured Islamic values, did tarbiyah, and helped shape a strong, faithful next generation.
+
                     </p>
                     <p>
-                        Word of her work spread, and soon, other parents, craving the same for their children, joined her quest. Artists, writers, and educators came together, each contributing their unique talents to this noble cause. Flowers of Jannah grew from a mother’s dream into a community’s mission, touching the lives of families far and wide.
+                    It was then that, as a couple, we decided to start Little Mumins — a space dedicated to curating books that fulfill these needs. Our vision is to create an environment where children grow up surrounded by beautiful, meaningful literature that nourishes both the heart and mind. Through Little Mumins, we hope to bring back the love of reading into homes and play a small part in nurturing the future of our Ummah.
+
                     </p>
-                    <p>
-                        Today, Flowers of Jannah is more than just a publication; it’s a garden where young minds are nurtured, where the roots of Iman are strengthened, and where the love for Allah blossoms in the hearts of children. Each book we create is a labor of love, a bridge connecting young hearts to their Creator, and a spark that lights the path of faith for our future generations.
-                    </p>
-                    <p>
-                        We invite you to join us on this beautiful journey, to explore our garden of stories, and to be a part of nurturing the seeds of faith in the hearts of our children. Together, let’s watch these flowers of Jannah bloom.
-                    </p>
-                    <p>
-                        If you wish to support us in this cause, just leave us a message and we will get back to you!
-                    </p>
+                    
                 </div>
             </div>
             <div className="min-h-screen bg-white flex items-center justify-center px-4">
@@ -66,7 +58,7 @@ const Story = () => {
         
         
         <blockquote className="text-lg md:text-xl lg:text-2xl text-gray-700 font-medium mb-8 px-4">
-          As a mother, my journey with Flowers of Jannah started from a 
+          As a mother, my journey with Little mumins started from a 
           deep desire to instill Iman in my children through stories that 
           captivate and educate. What began as a personal mission has 
           now grown into a publication cherished by families, bringing us 
