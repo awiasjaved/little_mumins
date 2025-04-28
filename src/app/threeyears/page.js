@@ -1,7 +1,7 @@
 "use client";
 import Footer from '../Footer/FooterEnd';
-import bgImageDesktop from '../assets/images/threeyears.jpg';
-import bgImageMobile from '../assets/images/mobilethreeyears.jpg';
+import bgImageDesktop from '../assets/images/teensaal.jpg';
+import bgImageMobile from '../assets/images/mobileteen.jpg';
 import Threepic from './threepic';
 import Flowers from '../ShopNow/Flowers';
 
@@ -10,20 +10,21 @@ const Page = () => {
     <>
       {/* Desktop Background */}
       <div
-        className="hidden md:block h-[70vh] bg-cover bg-center"
+        className="hidden md:block h-[70vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
       >
-        <div className="text-white text-center pt-32">
+        <div className="absolute bottom-0 left-8 text-white pb-4">
           <h1 className="text-7xl font-bold">0-3years</h1>
         </div>
       </div>
 
       {/* Mobile Background */}
+      {/* Mobile Background */}
       <div
-        className="block md:hidden h-[50vh] bg-cover bg-center"
+        className="block md:hidden h-[50vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImageMobile.src})` }}
       >
-        <div className="text-white text-center pt-24">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center">
           <h1 className="text-4xl font-bold">0-3years</h1>
         </div>
       </div>
