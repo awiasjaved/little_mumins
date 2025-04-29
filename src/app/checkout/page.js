@@ -124,10 +124,10 @@ export default function CheckoutPage() {
             <span>
               Bank Deposit
               <div className="bg-gray-100 p-2 text-xs mt-1 rounded">
-                Transfer your order's payment to our bank account and avoid the hassle of cash on delivery.
-                After checking out with "bank transfer", message us on WhatsApp at <strong>+92335369377</strong> for details.
-                <textarea className="mt-2 w-full p-1 border text-xs rounded" rows="2" placeholder="Enter reference or bank note (optional)" />
-              </div>
+  Transfer your order&apos;s payment to our bank account and avoid the hassle of cash on delivery.
+  After checking out with &quot;bank transfer&quot;, message us on WhatsApp at <strong>+92335369377</strong> for details.
+  <textarea className="mt-2 w-full p-1 border text-xs rounded" rows="2" placeholder="Enter reference or bank note (optional)" />
+</div>
             </span>
           </label>
         </div>

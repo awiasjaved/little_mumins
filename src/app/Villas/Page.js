@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Market from "../assets/images/market.png";
+import Market from "../assets/images/plase.jpg";
 import Container from "../Container";
 import { motion } from "framer-motion";
 
