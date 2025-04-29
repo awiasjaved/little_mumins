@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { GiHamburgerMenu, GiShoppingBag } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,29 +11,27 @@ const TopNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [expandedMenu, setExpandedMenu] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
 
-  const handleScroll = () => {
-    setScrollPosition(window.scrollY);
-  };
+  const handleScroll = () => setScrollPosition(window.scrollY);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleSection = (section) => {
+    setActiveSection((prev) => (prev === section ? null : section));
+  };
+
+  const toggleExpandMobile = (name) => {
+    setExpandedMenu((prev) => (prev === name ? null : name));
+    setActiveSection(null);
+  };
+
   const items = [
-    {
-      name: "BOOK SHOP",
-      link: "/bookshop",
-      color: "text-[#e1ff00]",
-    },
-    {
-      name: "ABOUT US",
-      link: "/about",
-      color: "text-blue-400",
-    },
+    { name: "BOOK SHOP", link: "/bookshop", color: "text-[#e1ff00]" },
+    { name: "ABOUT US", link: "/about", color: "text-blue-400" },
     {
       name: "BY AGE",
       link: "/age",
@@ -47,7 +44,7 @@ const TopNav = () => {
     },
     {
       name: "BY TYPE",
-      link: "/type",
+      link: "#",
       color: "text-orange-500",
       subItems: [
         {
@@ -100,33 +97,15 @@ const TopNav = () => {
         },
       ],
     },
-    {
-      name: "FREEBIES",
-      link: "/freebies",
-      color: "text-yellow-400",
-    },
-    {
-      name: "CONTACT US",
-      link: "/contact",
-      color: "text-purple-400",
-    },
+    { name: "FREEBIES", link: "/freebies", color: "text-yellow-400" },
+    { name: "CONTACT US", link: "/contact", color: "text-purple-400" },
   ];
 
-  const navTextColor =
-    scrollPosition > 550 && scrollPosition <= 1300
-      ? "text-[#1D3B46]"
-      : "text-white";
-
-  const borderColor =
-    scrollPosition > 550 && scrollPosition <= 1300
-      ? "border-[#1D3B46]"
-      : "border-white";
-
+  const navTextColor = scrollPosition > 550 && scrollPosition <= 1300 ? "text-[#1D3B46]" : "text-white";
+  const borderColor = scrollPosition > 550 && scrollPosition <= 1300 ? "border-[#1D3B46]" : "border-white";
   const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
 
-  const toggleExpand = (name) => {
-    setExpandedMenu((prev) => (prev === name ? null : name));
-  };
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 640;
 
   return (
     <div className={`${blurEffect} fixed top-0 left-0 w-full z-20`}>
@@ -140,40 +119,73 @@ const TopNav = () => {
           <nav className={`hidden sm:flex justify-center space-x-8 py-1 font-light p-4 ${navTextColor} ${borderColor}`}>
             <ul className="flex items-center space-x-4">
               {items.map((item) => (
-                <li key={item.name} className="relative group py-2 px-4 text-lg">
-                  <Link href={item.link} className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}>
-                    {item.name}
-                    {item.subItems && <span className="text-xs">▼</span>}
-                  </Link>
-
-                  {Array.isArray(item.subItems) && item.subItems[0]?.section ? (
-                    <ul className="absolute left-0 mt-2 w-60 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                      {item.subItems.map((group) => (
-                        <li key={group.section}>
-                          <p className="font-bold text-sm px-4 py-1">{group.section}</p>
-                          <ul>
-                            {group.items.map((subItem) => (
-                              <li key={subItem.name}>
-                                <Link href={subItem.link} className={`block px-4 py-1 hover:bg-gray-100 ${item.color}`}>
-                                  {subItem.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : item.subItems ? (
-                    <ul className="absolute left-0 mt-2 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      {item.subItems.map((subItem) => (
-                        <li key={subItem.name}>
-                          <Link href={subItem.link} className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}>
-                            {subItem.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
+                <li key={item.name} className="relative py-2 px-4 text-lg">
+                  {item.name === "BY TYPE" ? (
+                    <div
+                      className="relative group"
+                      onMouseEnter={() => !mobileMenuOpen && setExpandedMenu(item.name)}
+                      onMouseLeave={() => !mobileMenuOpen && setExpandedMenu(null)}
+                    >
+                      <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
+                        {item.name}
+                        <span className="text-xs">▼</span>
+                      </div>
+                      {expandedMenu === item.name && (
+                        <div className="absolute left-0 mt-2 w-64 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2">
+                          {item.subItems.map((group) => (
+                            <div key={group.section}>
+                              <p
+                                onClick={() => toggleSection(group.section)}
+                                className="font-bold text-sm px-4 py-1 cursor-pointer hover:underline"
+                              >
+                                {group.section}
+                              </p>
+                              {activeSection === group.section && (
+                                <ul className="pl-4">
+                                  {group.items.map((subItem) => (
+                                    <li key={subItem.name}>
+                                      <Link href={subItem.link} className={`block px-2 py-1 hover:bg-gray-100 ${item.color}`}>
+                                        {subItem.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : item.name === "BY AGE" ? (
+                    <div
+                      className="relative group"
+                      onMouseEnter={() => !mobileMenuOpen && setExpandedMenu(item.name)}
+                      onMouseLeave={() => !mobileMenuOpen && setExpandedMenu(null)}
+                    >
+                      <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
+                        {item.name}
+                        <span className="text-xs">▼</span>
+                      </div>
+                      {expandedMenu === item.name && (
+                        <ul className="absolute left-0 mt-2 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
+                          {item.subItems.map((subItem) => (
+                            <li key={subItem.name}>
+                              <Link href={subItem.link} className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}>
+                                {subItem.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.link}
+                      className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -201,21 +213,23 @@ const TopNav = () => {
         {mobileMenuOpen && (
           <>
             <div className="fixed inset-0 z-40" onClick={() => setMobileMenuOpen(false)}></div>
-
             <motion.div
               initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute top-16 right-0 w-[220px] z-50 bg-[#cdf1f3]/70 backdrop-blur-md rounded-l-xl shadow-lg p-4 sm:hidden"
+              className="absolute top-16 right-0 w-[250px] z-50 bg-[#cdf1f3]/70 backdrop-blur-md rounded-l-xl shadow-lg p-4 sm:hidden"
             >
               <ul className="space-y-4 text-white text-base font-semibold">
                 {items.map((item) => (
                   <li key={item.name} className="space-y-1">
-                    <div className="flex justify-between items-center cursor-pointer" onClick={() => item.subItems ? toggleExpand(item.name) : setMobileMenuOpen(false)}>
-                      <Link href={item.link} className={`hover:text-yellow-400 transition duration-300 ${item.color}`}>
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() => toggleExpandMobile(item.name)}
+                    >
+                      <div className={`hover:text-yellow-400 transition duration-300 ${item.color}`}>
                         {item.name}
-                      </Link>
+                      </div>
                       {item.subItems && (expandedMenu === item.name ? <IoIosArrowUp /> : <IoIosArrowDown />)}
                     </div>
 
@@ -224,14 +238,16 @@ const TopNav = () => {
                         {Array.isArray(item.subItems[0]?.items)
                           ? item.subItems.map((group) => (
                               <React.Fragment key={group.section}>
-                                <p className="text-xs font-bold text-gray-700">{group.section}</p>
-                                {group.items.map((subItem) => (
-                                  <li key={subItem.name}>
-                                    <Link href={subItem.link} className={`block hover:text-yellow-300 transition duration-300 ${item.color}`} onClick={() => setMobileMenuOpen(false)}>
-                                      {subItem.name}
-                                    </Link>
-                                  </li>
-                                ))}
+                                <p className="text-xs font-bold text-gray-700" onClick={() => toggleSection(group.section)}>{group.section}</p>
+                                {activeSection === group.section &&
+                                  group.items.map((subItem) => (
+                                    <li key={subItem.name}>
+                                      <Link href={subItem.link} className={`block hover:text-yellow-300 transition duration-300 ${item.color}`} onClick={() => setMobileMenuOpen(false)}>
+                                        {subItem.name}
+                                      </Link>
+                                    </li>
+                                  ))
+                                }
                               </React.Fragment>
                             ))
                           : item.subItems.map((subItem) => (
