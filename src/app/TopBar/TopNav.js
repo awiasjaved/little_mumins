@@ -28,7 +28,7 @@ const TopNav = () => {
     {
       name: "BOOK SHOP",
       link: "/bookshop",
-      color: "text-pink-500",
+      color: "text-[#e1ff00]",
     },
     {
       name: "ABOUT US",
@@ -63,7 +63,7 @@ const TopNav = () => {
     {
       name: "CONTACT US",
       link: "/contact",
-      color: "text-purple-500",
+      color: "text-purple-400",
     },
   ];
 
@@ -114,14 +114,16 @@ const TopNav = () => {
 
                     {/* Dropdown */}
                     {item.subItems && (
-                      <ul className="absolute left-0 mt-2 w-44 bg-white text-black shadow-lg rounded-md 
+                      <ul
+                        className="absolute left-0 mt-2 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md 
                         opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                        group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50">
+                        group-hover:translate-y-0 translate-y-2 transition-all duration-300 z-50"
+                      >
                         {item.subItems.map((subItem) => (
                           <li key={subItem.name}>
                             <Link
                               href={subItem.link}
-                              className="block px-4 py-2 hover:bg-gray-100"
+                              className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}
                             >
                               {subItem.name}
                             </Link>
@@ -158,19 +160,17 @@ const TopNav = () => {
         <AnimatePresence>
           {mobileMenuOpen && (
             <>
-              {/* Background overlay */}
               <div
                 className="fixed inset-0 z-40"
                 onClick={() => setMobileMenuOpen(false)}
               ></div>
 
-              {/* Actual menu */}
               <motion.div
                 initial={{ opacity: 0, x: "100%" }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: "100%" }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute top-16 right-0 w-[220px] z-50 bg-[#5C4033]/70 backdrop-blur-md rounded-l-xl shadow-lg p-4 sm:hidden"
+                className="absolute top-16 right-0 w-[220px] z-50 bg-[#cdf1f3]/70 backdrop-blur-md rounded-l-xl shadow-lg p-4 sm:hidden"
               >
                 <ul className="space-y-4 text-white text-base font-semibold">
                   {items.map((item) => (
@@ -183,7 +183,7 @@ const TopNav = () => {
                       >
                         <Link
                           href={item.link}
-                          className="hover:text-yellow-400 transition duration-300"
+                          className={`hover:text-yellow-400 transition duration-300 ${item.color}`}
                         >
                           {item.name}
                         </Link>
@@ -200,12 +200,12 @@ const TopNav = () => {
 
                       {/* Sub Items */}
                       {item.subItems && expandedMenu === item.name && (
-                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-gray-200">
+                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal bg-[#cdf1f3] p-2 rounded-md">
                           {item.subItems.map((subItem) => (
                             <li key={subItem.name}>
                               <Link
                                 href={subItem.link}
-                                className="block hover:text-yellow-300 transition duration-300"
+                                className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
                                 onClick={() => setMobileMenuOpen(false)}
                               >
                                 {subItem.name}
@@ -227,3 +227,4 @@ const TopNav = () => {
 };
 
 export default dynamic(() => Promise.resolve(TopNav), { ssr: false });
+  ``

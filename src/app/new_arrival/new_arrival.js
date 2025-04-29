@@ -1,107 +1,59 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import Muslim from "../assets/images/DayMuslim.jpg";
-import Day from "../assets/images/MuslimLife.jpg"
-import Jannah from "../assets/images/joy.jpg"
-import Annah from "../assets/images/Jannah.jpg"
-import Nabi from "../assets/images/Nabi.jpg"
-import Nabi1 from "../assets/images/Nabi1.jpg"
 import Container from "../Container";
+import Threepic from "../threeyears/threepic";
+import Fouryears from "../four/fouryears";
+import Sevenyears from "../seven/sevenyears";
+
 const NewArrival = () => {
-  const [hoveredIndex,  setHoveredIndex] = useState(null);
-  const products = [
-    {
-      title: "Janwaron ki Dunya - Urdu Flap Book",
-      price: 750,
-      image: Muslim,
-      hoverImage: Day,
-    },
-    {
-      title: "I Am Alone - Arabic Story Book",
-      price: 400,
-      oldPrice: 650,
-      image: Jannah,
-      hoverImage: Annah,
-    },
-    {
-      title: "I Am Alone - Arabic Story Book",
-      price: 400,
-      oldPrice: 650,
-      image: Nabi,
-      hoverImage: Nabi1,
-    },
-    {
-      title: "Janwaron ki Dunya - Urdu Flap Book",
-      price: 750,
-      image: Muslim,
-      hoverImage: Day,
-    },
-    {
-      title: "I Am Alone - Arabic Story Book",
-      price: 400,
-      oldPrice: 650,
-      image: Jannah,
-      hoverImage: Annah,
-    },
-    {
-      title: "I Am Alone - Arabic Story Book",
-      price: 400,
-      oldPrice: 650,
-      image: Nabi,
-      hoverImage: Nabi1,
-    },
-    // ... baaki products
+  const [pageIndex, setPageIndex] = useState(0);
+
+  const pages = [
+    <Threepic key="three" />,
+    <Fouryears key="four" />,
+    <Sevenyears key="seven" />,
   ];
 
+  const handleNext = () => {
+    setPageIndex((prev) => (prev + 1) % pages.length);
+  };
+
+  const handlePrev = () => {
+    setPageIndex((prev) => (prev - 1 + pages.length) % pages.length);
+  };
+
   return (
-
     <Container>
-    <section className="py-10 text-center">
-    <h2 className="text-sm text-gray-500 uppercase">New Arrivals</h2>
-    <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
+      <section className="py-10 text-center">
+        <h2 className="text-sm text-gray-500 uppercase">New Arrivals</h2>
+        <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          className="border rounded-lg p-4 shadow hover:shadow-lg transition"
-        >
-          <div
-            className="relative h-64 w-full mb-4"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
+        {/* Show only one component at a time */}
+        <div className="mb-6">{pages[pageIndex]}</div>
+
+        {/* Pagination Buttons */}
+        {/* <div className="flex justify-center gap-4 mt-4">
+          <button
+            onClick={handlePrev}
+            className="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-full transition"
           >
-            <Image
-              src={hoveredIndex === index ? product.hoverImage : product.image}
-              alt={product.title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="rounded-md transition-all duration-300"
-            />
-          </div>
-          <h4 className="text-lg font-medium">{product.title}</h4>
-          <div className="mt-2">
-            {product.oldPrice && (
-              <span className="text-gray-400 line-through text-sm mr-2">
-                Rs {product.oldPrice}
-              </span>
-            )}
-            <span className="text-[#a84618] font-bold">Rs {product.price}</span>
-          </div>
-          <button className="btn mt-4  text-white py-2 px-4 rounded-ful transition">
-            Add to Cart
+            ← Previous
           </button>
-        </div>
-      ))}
-    </div>
+          <button
+            onClick={handleNext}
+            className="bg-[#fb5858] hover:bg-[#852b02] text-white py-2 px-4 rounded-full transition"
+          >
+            Next →
+          </button>
+        </div> */}
 
-    <button className="mt-10 bg-[#a84618] text-white py-2 px-6 rounded-full hover:bg-[#852b02] transition">
-      View All Products →
-    </button>
-  </section>
-  </Container>
-  )
-}
+        {/* View All Button */}
+        <button className="mt-10 bg-black text-white py-2 px-6 rounded-full hover:opacity-80 transition">
+          View All Products →
+        </button>
+      </section>
+    </Container>
+  );
+};
 
-export default NewArrival
+export default NewArrival;

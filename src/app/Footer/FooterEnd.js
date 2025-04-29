@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Logo from "../assets/images/little_mumins_5.png"
 import FooterLogo from "../assets/images/Footer.png"
+import Container from '../Container';
 
 const FooterEnd  = () => {
   return (
@@ -15,6 +16,7 @@ const FooterEnd  = () => {
   >
     
       <div className="bg-[#cdf1f3]/80 py-12">
+      <Container>
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Column 1 - Logo and Social Icons */}
@@ -97,7 +99,9 @@ const FooterEnd  = () => {
             </div>
           </div>
         </div>
+        </Container>
       </div>
+   
     </footer>
   );
 };

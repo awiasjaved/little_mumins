@@ -1,42 +1,24 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { IoPause } from "react-icons/io5";
-import { FaVolumeDown, FaVolumeMute, FaPlay } from "react-icons/fa";
 import styles from "./BgVedio.module.css";
+import bgImage from '../assets/images/vedioBook.jpg';
 
 const BgVedio = () => {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
   const [isClient, setIsClient] = useState(false);
-  const [isMobile, setIsMobile] = useState(false); // << NEW STATE
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // << Mobile screen detect
+      setIsMobile(window.innerWidth <= 768);
     };
 
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      isPlaying ? videoRef.current.pause() : videoRef.current.play();
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
 
   const container = {
     hidden: { opacity: 0 },
@@ -72,13 +54,17 @@ const BgVedio = () => {
   if (!isClient) return null;
 
   return (
-    <div className="mb-5 relative w-full h-screen overflow-hidden">
-      <main className={styles.main}>
-        {/* Centered Content */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-10 w-[90%] max-w-[720px]">
-          {/* Title */}
+    <div
+      className={`w-full h-screen bg-cover bg-center`}
+      style={{ backgroundImage: `url(${bgImage.src})` }}
+    >
+      <div
+        className={`absolute inset-0 bg-black/50 top-0 left-0 w-full h-full flex items-center justify-center ${styles.overlay}`}
+      >
+        <div className="text-white text-center px-4">
+          {/* Animated Title */}
           <motion.div
-            className="flex flex-wrap justify-center text-4xl sm:text-6xl md:text-8xl font-bold"
+            className="flex flex-wrap justify-center text-5xl sm:text-6xl md:text-8xl font-bold"
             style={{ WebkitTextStroke: "0.5px #971a32" }}
             variants={container}
             initial="hidden"
@@ -97,9 +83,9 @@ const BgVedio = () => {
             ))}
           </motion.div>
 
-          {/* Sub text */}
+          {/* Animated Subtext */}
           <motion.div
-            className="flex flex-wrap justify-center text-[#F64F74] text-xl sm:text-2xl md:text-3xl font-semibold mb-9"
+            className="mt-4 flex flex-wrap justify-center text-[#F64F74] text-xl sm:text-2xl md:text-3xl font-semibold"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -118,47 +104,7 @@ const BgVedio = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Background */}
-        {isMobile ? (
-          <motion.img
-            src="/assets/islamic.png" // <-- Mobile Image
-            alt="Background"
-            className={styles.video} // Reuse same style for full-screen
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          />
-        ) : (
-          <motion.video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            className={styles.video}
-            key="/assets/Cartoon.mp4"
-            playsInline
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 1, scale: 1.05 }}
-            transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
-          >
-            <source src="/assets/Cartoon.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </motion.video>
-        )}
-
-        {/* Controls */}
-        {!isMobile && (
-          <div className={styles.controls}>
-            <div className={styles.iconWrapper} onClick={toggleVideo}>
-              {isPlaying ? <IoPause size={24} /> : <FaPlay size={24} />}
-            </div>
-            <div className={styles.iconWrapper} onClick={toggleMute}>
-              {isMuted ? <FaVolumeMute size={24} /> : <FaVolumeDown size={24} />}
-            </div>
-          </div>
-        )}
-      </main>
+      </div>
     </div>
   );
 };

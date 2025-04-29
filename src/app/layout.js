@@ -1,21 +1,22 @@
 import localFont from "next/font/local";
 import TopNav from "./TopBar/TopNav";
+import Loader2 from "./Loader2"; 
 import "./globals.css";
 
 const kepler = localFont({
- src :[
-  {
-    path:"../../public/Font/KeplerStd-BoldScnDisp.woff",
-    weight:"200"
-  },
-  
- ],
- variable:'--font-kepler-std'
+  src: [
+    {
+      path: "../../public/Font/KeplerStd-BoldScnDisp.woff",
+      weight: "200",
+    },
+  ],
+  variable: "--font-kepler-std",
 });
+
 const bubbleGum = localFont({
   src: [
     {
-      path: "../../public/Font/BubblegumSans-Regular.ttf",  // BubbleGum ka path
+      path: "../../public/Font/BubblegumSans-Regular.ttf",
       weight: "400",
     },
   ],
@@ -31,10 +32,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <link rel="shortcut icon" href="/little.svg" type="image/svg+xml" />
-      <link rel="icon" type="image/svg+xml" href="/HeyJini-icon.svg" sizes="any" />
+        <link rel="shortcut icon" href="/little.svg" type="image/svg+xml" />
+        <link rel="icon" type="image/svg+xml" href="/HeyJini-icon.svg" sizes="any" />
       </head>
       <body className={`${bubbleGum.className} antialiased`}>
+        <Loader2 /> 
         <TopNav />
         {children}
       </body>
