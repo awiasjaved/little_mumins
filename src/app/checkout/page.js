@@ -29,24 +29,24 @@ export default function CheckoutPage() {
 
   const handlePlaceOrder = async () => {
     const payload = {
-      billing: formData,
-      notes: orderNotes,
-      cart: cartItems,
+      formData,
+      shipToDifferent,
+      orderNotes,
+      cartItems,
       subtotal,
       shipping,
-      total,
-      shipToDifferent,
+      total
     };
-
+  
     try {
-      const res = await fetch('http://localhost:5000/api/send-order-email', {
+      const res = await fetch('http://localhost:5000/api/email/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-
+  
       if (res.ok) {
-        alert('Order placed and email sent!');
+        alert('Order placed successfully and email sent!');
       } else {
         alert('Failed to send order. Please try again.');
       }
@@ -55,7 +55,8 @@ export default function CheckoutPage() {
       alert('Server error while placing order.');
     }
   };
-
+  
+  
   return (
     <div className="mt-24 p-6 sm:p-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
       <div>
