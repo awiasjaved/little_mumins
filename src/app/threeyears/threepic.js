@@ -11,8 +11,9 @@ import Khood from "../assets/images/khood.jpg";
 import Hoob from "../assets/images/hoob.jpg";
 import Most from "../assets/images/most.jpg";
 import Blessed from "../assets/images/blessed.jpg";
-
+import { useCart } from '../context/CartContext'; 
 const Threepic = () => {
+    const { addToCart } = useCart(); 
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 3;
@@ -127,20 +128,33 @@ Ameen`
                                 <h4 className="text-sm text-[#a84618]">{product.cloth}</h4>
                                 <h4 className="text-sm text-[#a84618]">{product.size}</h4>
 
-                                <p className="text-sm text-gray-700 mt-2" dangerouslySetInnerHTML={{ __html: product.description }} />
-                            </div>
+                <p
+                  className="text-sm text-gray-700 mt-2"
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                />
+              </div>
 
-                            <div className="mt-4">
-                                {product.oldPrice && (
-                                    <span className="text-gray-400 line-through text-sm mr-2">
-                                        Rs {product.oldPrice}
-                                    </span>
-                                )}
-                                <span className="text-[#a84618] font-bold">Rs {product.price}</span>
+              {/* ⭐ Add to Cart Button */}
+              <div className="mt-4">
+                {product.oldPrice && (
+                  <span className="text-gray-400 line-through text-sm mr-2">
+                    Rs {product.oldPrice}
+                  </span>
+                )}
+                <span className="text-[#a84618] font-bold">Rs {product.price}</span>
 
-                                <button className="block w-full mt-4 bg-[#a84618] text-white py-2 px-4 rounded-full hover:bg-[#852b02] transition">
-                                    Add to Cart
-                                </button>
+                <button
+                  onClick={() => {
+                    addToCart({
+                      id: `${index}-${product.title}`,
+                      title: product.title,
+                      price: product.price,
+                    });
+                  }}
+                  className="block w-full mt-4 bg-[#a84618] text-white py-2 px-4 rounded-full hover:bg-[#852b02] transition"
+                >
+                  Add to Cart
+                </button>
                             </div>
                         </div>
                     ))}

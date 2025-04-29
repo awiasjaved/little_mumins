@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import TopNav from "./TopBar/TopNav";
 import Loader2 from "./Loader2"; 
+import { CartProvider } from "./context/CartContext";
+import CartPopup from "./cartpopup";    
 import "./globals.css";
 
 const kepler = localFont({
@@ -37,8 +39,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${bubbleGum.className} antialiased`}>
         <Loader2 /> 
-        <TopNav />
-        {children}
+        <CartProvider> {/* ✅ Provider ke andar sab kuch */}
+          <TopNav />
+          <CartPopup />
+          {children}  {/* ✅ children bhi andar hona chahiye */}
+        </CartProvider>
       </body>
     </html>
   );
