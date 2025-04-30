@@ -39,7 +39,7 @@ export default function CheckoutPage() {
     };
   
     try {
-      const res = await fetch('http://localhost:5000/api/email/send', {
+      const res = await fetch('https://little-mumins-backend.vercel.app/api/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
