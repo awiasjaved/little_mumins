@@ -105,7 +105,7 @@ const TopNav = () => {
   const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
 
   return (
-    <div className={`${blurEffect} fixed top-0 left-0 w-full z-20`}>
+    <div className={`fixed top-0 left-0 w-full z-50 ${blurEffect} pl-4 pr-10 lg:pl-20 lg:pr-30`}>
       <div className="px-1 lg:px-16 flex justify-between items-center py-2">
         <Link href="/" className="cursor-pointer">
           <Image src={Logo} alt="Logo" width={100} height={50} />
@@ -127,7 +127,8 @@ const TopNav = () => {
                       <span className="text-xs">▼</span>
                     </div>
                     {expandedMenu === item.name && (
-                      <div className="absolute left-0 mt-2 w-64 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2">
+                      <div className="absolute left-0 top-full -mt-1 w-64 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2">
+
                         {item.subItems.map((group) => (
                           <div key={group.section}>
                             <p
@@ -163,7 +164,8 @@ const TopNav = () => {
                       <span className="text-xs">▼</span>
                     </div>
                     {expandedMenu === item.name && (
-                      <ul className="absolute left-0 mt-2 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
+                     <ul className="absolute left-0 top-full -mt-1 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
+
                         {item.subItems.map((subItem) => (
                           <li key={subItem.name}>
                             <Link href={subItem.link} className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}>
@@ -186,14 +188,6 @@ const TopNav = () => {
             ))}
           </ul>
         </nav>
-
-        {/* Basket */}
-        <div className="hidden sm:flex">
-          <button className="btn flex items-center space-x-2 cursor-pointer">
-            <span>Basket</span>
-            <GiShoppingBag />
-          </button>
-        </div>
 
         {/* Mobile Hamburger */}
         <div className="flex sm:hidden">
