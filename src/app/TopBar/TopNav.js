@@ -1,11 +1,11 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { GiHamburgerMenu, GiShoppingBag } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import Logo from "../assets/images/little_mumins_5.png";
 import Image from "next/image";
+import Logo from "../assets/images/little_mumins_5.png";
 
 const TopNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,9 +13,8 @@ const TopNav = () => {
   const [expandedMenu, setExpandedMenu] = useState(null);
   const [activeSection, setActiveSection] = useState(null);
 
-  const handleScroll = () => setScrollPosition(window.scrollY);
-
   useEffect(() => {
+    const handleScroll = () => setScrollPosition(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -105,106 +104,102 @@ const TopNav = () => {
   const borderColor = scrollPosition > 550 && scrollPosition <= 1300 ? "border-[#1D3B46]" : "border-white";
   const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 640;
-
   return (
     <div className={`${blurEffect} fixed top-0 left-0 w-full z-20`}>
-      <div className="relative z-10 items-center">
-        <div className="px-1 lg:px-16 flex justify-between items-center py-0">
-          <Link href="/" className="cursor-pointer">
-            <Image src={Logo} alt="Logo" width={100} height={50} />
-          </Link>
+      <div className="px-1 lg:px-16 flex justify-between items-center py-2">
+        <Link href="/" className="cursor-pointer">
+          <Image src={Logo} alt="Logo" width={100} height={50} />
+        </Link>
 
-          {/* Desktop Nav */}
-          <nav className={`hidden sm:flex justify-center space-x-8 py-1 font-light p-4 ${navTextColor} ${borderColor}`}>
-            <ul className="flex items-center space-x-4">
-              {items.map((item) => (
-                <li key={item.name} className="relative py-2 px-4 text-lg">
-                  {item.name === "BY TYPE" ? (
-                    <div
-                      className="relative group"
-                      onMouseEnter={() => !mobileMenuOpen && setExpandedMenu(item.name)}
-                      onMouseLeave={() => !mobileMenuOpen && setExpandedMenu(null)}
-                    >
-                      <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
-                        {item.name}
-                        <span className="text-xs">▼</span>
-                      </div>
-                      {expandedMenu === item.name && (
-                        <div className="absolute left-0 mt-2 w-64 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2">
-                          {item.subItems.map((group) => (
-                            <div key={group.section}>
-                              <p
-                                onClick={() => toggleSection(group.section)}
-                                className="font-bold text-sm px-4 py-1 cursor-pointer hover:underline"
-                              >
-                                {group.section}
-                              </p>
-                              {activeSection === group.section && (
-                                <ul className="pl-4">
-                                  {group.items.map((subItem) => (
-                                    <li key={subItem.name}>
-                                      <Link href={subItem.link} className={`block px-2 py-1 hover:bg-gray-100 ${item.color}`}>
-                                        {subItem.name}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : item.name === "BY AGE" ? (
-                    <div
-                      className="relative group"
-                      onMouseEnter={() => !mobileMenuOpen && setExpandedMenu(item.name)}
-                      onMouseLeave={() => !mobileMenuOpen && setExpandedMenu(null)}
-                    >
-                      <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
-                        {item.name}
-                        <span className="text-xs">▼</span>
-                      </div>
-                      {expandedMenu === item.name && (
-                        <ul className="absolute left-0 mt-2 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
-                          {item.subItems.map((subItem) => (
-                            <li key={subItem.name}>
-                              <Link href={subItem.link} className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}>
-                                {subItem.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.link}
-                      className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}
-                    >
+        {/* Desktop Nav */}
+        <nav className={`hidden sm:flex justify-center space-x-8 py-1 font-light ${navTextColor} ${borderColor}`}>
+          <ul className="flex items-center space-x-4">
+            {items.map((item) => (
+              <li key={item.name} className="relative py-2 px-4 text-lg">
+                {item.name === "BY TYPE" ? (
+                  <div
+                    className="relative group"
+                    onMouseEnter={() => setExpandedMenu(item.name)}
+                    onMouseLeave={() => setExpandedMenu(null)}
+                  >
+                    <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
                       {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
+                      <span className="text-xs">▼</span>
+                    </div>
+                    {expandedMenu === item.name && (
+                      <div className="absolute left-0 mt-2 w-64 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2">
+                        {item.subItems.map((group) => (
+                          <div key={group.section}>
+                            <p
+                              onClick={() => toggleSection(group.section)}
+                              className="font-bold text-sm px-4 py-1 cursor-pointer hover:underline"
+                            >
+                              {group.section}
+                            </p>
+                            {activeSection === group.section && (
+                              <ul className="pl-4">
+                                {group.items.map((subItem) => (
+                                  <li key={subItem.name}>
+                                    <Link href={subItem.link} className={`block px-2 py-1 hover:bg-gray-100 ${item.color}`}>
+                                      {subItem.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : item.name === "BY AGE" ? (
+                  <div
+                    className="relative group"
+                    onMouseEnter={() => setExpandedMenu(item.name)}
+                    onMouseLeave={() => setExpandedMenu(null)}
+                  >
+                    <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
+                      {item.name}
+                      <span className="text-xs">▼</span>
+                    </div>
+                    {expandedMenu === item.name && (
+                      <ul className="absolute left-0 mt-2 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
+                        {item.subItems.map((subItem) => (
+                          <li key={subItem.name}>
+                            <Link href={subItem.link} className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}>
+                              {subItem.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={item.link}
+                    className={`hover:underline transition-all duration-300 font-medium flex items-center gap-1 ${item.color}`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-          {/* Desktop Basket */}
-          <div className="hidden sm:flex">
-            <button className="btn flex items-center space-x-2 cursor-pointer">
-              <span>Basket</span>
-              <GiShoppingBag />
-            </button>
-          </div>
+        {/* Basket */}
+        <div className="hidden sm:flex">
+          <button className="btn flex items-center space-x-2 cursor-pointer">
+            <span>Basket</span>
+            <GiShoppingBag />
+          </button>
+        </div>
 
-          {/* Mobile Hamburger */}
-          <div className="flex sm:hidden">
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-3xl text-red-600">
-              <GiHamburgerMenu />
-            </button>
-          </div>
+        {/* Mobile Hamburger */}
+        <div className="flex sm:hidden">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-3xl text-red-600">
+            <GiHamburgerMenu />
+          </button>
         </div>
       </div>
 
@@ -223,36 +218,59 @@ const TopNav = () => {
               <ul className="space-y-4 text-white text-base font-semibold">
                 {items.map((item) => (
                   <li key={item.name} className="space-y-1">
-                    <div
-                      className="flex justify-between items-center cursor-pointer"
-                      onClick={() => toggleExpandMobile(item.name)}
-                    >
-                      <div className={`hover:text-yellow-400 transition duration-300 ${item.color}`}>
-                        {item.name}
+                    {item.subItems ? (
+                      <div
+                        className="flex justify-between items-center cursor-pointer"
+                        onClick={() => toggleExpandMobile(item.name)}
+                      >
+                        <div className={`hover:text-yellow-400 transition duration-300 ${item.color}`}>
+                          {item.name}
+                        </div>
+                        {expandedMenu === item.name ? <IoIosArrowUp /> : <IoIosArrowDown />}
                       </div>
-                      {item.subItems && (expandedMenu === item.name ? <IoIosArrowUp /> : <IoIosArrowDown />)}
-                    </div>
+                    ) : (
+                      <Link
+                        href={item.link}
+                        className={`block hover:text-yellow-400 transition duration-300 ${item.color}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
 
+                    {/* Submenu Rendering */}
                     {item.subItems && expandedMenu === item.name && (
                       <ul className="ml-4 mt-2 space-y-2 text-sm font-normal bg-[#cdf1f3] p-2 rounded-md">
                         {Array.isArray(item.subItems[0]?.items)
                           ? item.subItems.map((group) => (
                               <React.Fragment key={group.section}>
-                                <p className="text-xs font-bold text-gray-700" onClick={() => toggleSection(group.section)}>{group.section}</p>
+                                <p
+                                  className="text-xs font-bold text-gray-700"
+                                  onClick={() => toggleSection(group.section)}
+                                >
+                                  {group.section}
+                                </p>
                                 {activeSection === group.section &&
                                   group.items.map((subItem) => (
                                     <li key={subItem.name}>
-                                      <Link href={subItem.link} className={`block hover:text-yellow-300 transition duration-300 ${item.color}`} onClick={() => setMobileMenuOpen(false)}>
+                                      <Link
+                                        href={subItem.link}
+                                        className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                      >
                                         {subItem.name}
                                       </Link>
                                     </li>
-                                  ))
-                                }
+                                  ))}
                               </React.Fragment>
                             ))
                           : item.subItems.map((subItem) => (
                               <li key={subItem.name}>
-                                <Link href={subItem.link} className={`block hover:text-yellow-300 transition duration-300 ${item.color}`} onClick={() => setMobileMenuOpen(false)}>
+                                <Link
+                                  href={subItem.link}
+                                  className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
                                   {subItem.name}
                                 </Link>
                               </li>
