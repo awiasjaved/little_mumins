@@ -123,8 +123,9 @@ const NewArrival = () => {
         </div>
 
         <button className="mt-10 bg-[#ff081c] text-white py-2 px-6 hover:bg-[#e40909] rounded-full ">
-          <div className="flex items-center gap-2">
-          View All Products 
+          <div className="flex items-center gap-1">
+          View All Products
+
           <FaArrowRight />
           </div>
          
