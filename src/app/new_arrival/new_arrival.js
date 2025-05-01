@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
 import Container from "../Container";
 import DynamicCard from "../Dynamic/DynamicCard";
 import { FaArrowRight } from "react-icons/fa6";
+import { useCart } from "../context/CartContext";
 
 // Images
 import Jannah from "../assets/images/Jannah.jpg";
@@ -18,8 +18,10 @@ import Bismillah from "../assets/images/bismillah.jpg";
 import Safa from "../assets/images/safa.jpg";
 import Sfa from "../assets/images/sfa.jpg";
 
+// ✅ Each product now includes a unique id
 const products = [
   {
+    id: 1,
     title: "THE JOY OF JANNAH",
     cloth: "○ Hard cover",
     page: "○ 14 pages",
@@ -31,6 +33,7 @@ const products = [
     description: `This book aims to introduce the concept of Jannah to young minds in simple words with interesting details to open conversations to the endless possibilities of what the readers might feel...`,
   },
   {
+    id: 2,
     title: "Khoob Maza Aaya",
     cloth: "○ Board book",
     page: "○ Urdu",
@@ -54,6 +57,7 @@ const products = [
     `,
   },
   {
+    id: 3,
     title: "Raah-e-Jannat Ki Ginti",
     cloth: "○ Paper Book",
     page: "○ 16 pages",
@@ -73,6 +77,7 @@ const products = [
     `,
   },
   {
+    id: 4,
     title: "The Most Blessed",
     cloth: "○ Cloth book",
     page: "○ 12 pages",
@@ -83,6 +88,7 @@ const products = [
     description: `This Islamic cloth book will not only stimulate your babys sensory activity and boost their brain development, but also introduce them to many key Islamic concepts and serve as a great bonding opportunity for you and your baby!`,
   },
   {
+    id: 5,
     title: "A Day in the Life of a Muslim",
     cloth: "○ Colouring Book",
     size: "○ Comes with a sticker sheet",
@@ -93,6 +99,7 @@ const products = [
     description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`,
   },
   {
+    id: 6,
     title: "Safas Colourful Adventure",
     cloth: "○ Paper Book",
     page: "○ English",
@@ -110,6 +117,8 @@ const products = [
 ];
 
 const NewArrival = () => {
+  const { addToCart } = useCart();
+
   return (
     <Container>
       <section className="py-10 text-center">
@@ -118,10 +127,14 @@ const NewArrival = () => {
           <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
         </div>
 
-        {/* ✅ Responsive Grid */}
+        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {products.map((product, index) => (
-            <DynamicCard key={index} {...product} />
+          {products.map((product) => (
+            <DynamicCard
+              key={product.id}
+              {...product}
+              onAddToCart={addToCart}
+            />
           ))}
         </div>
 

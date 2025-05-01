@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const DynamicCard = ({
+  id,
   title,
   page,
   cloth,
@@ -19,16 +20,25 @@ const DynamicCard = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const handleAddToCart = () => {
-    if (onAddToCart) {
-      onAddToCart({ title, price });
-    }
+    onAddToCart?.({
+      id,
+      title,
+      page,
+      cloth,
+      size,
+      price,
+      oldPrice,
+      image,
+      hoverImage,
+      description,
+    });
   };
 
   return (
     <div
       className={`rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col justify-between bg-[#f1eaea] ${className}`}
     >
-      {/* Image Section with Responsive Height */}
+      {/* Image Section with Hover */}
       <div
         className="relative h-64 sm:h-72 md:h-80 w-full mb-3"
         onMouseEnter={() => setIsHovered(true)}
@@ -44,7 +54,7 @@ const DynamicCard = ({
         />
       </div>
 
-      {/* Product Details */}
+      {/* Product Info */}
       <h4 className="text-lg sm:text-2xl font-medium mb-2">{title}</h4>
 
       <div className="flex flex-wrap justify-around items-center gap-1 sm:gap-2 mb-2">
@@ -53,6 +63,7 @@ const DynamicCard = ({
         {size && <h4 className="text-sm sm:text-lg font-bold text-[#070991]">{size}</h4>}
       </div>
 
+      {/* Description */}
       {description && (
         <div
           className="text-sm sm:text-base text-gray-700 mb-4"
@@ -60,7 +71,7 @@ const DynamicCard = ({
         />
       )}
 
-      {/* Pricing and Button */}
+      {/* Price + Button */}
       <div className="mt-auto">
         <div className="flex items-center gap-2 mb-2">
           {oldPrice && (
