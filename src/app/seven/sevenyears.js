@@ -10,7 +10,7 @@ import { useCart } from '../context/CartContext';
 import Container from "../Container";
 import DynamicCard from "../Dynamic/DynamicCard";
 
-const sevenyears = () => {
+const SevenYears = () => {  // Changed to Uppercase
     const products = [
         {
             id: 1,
@@ -81,7 +81,6 @@ const sevenyears = () => {
                             onAddToCart={addToCart}
                         />
                     ))}
-
                 </div>
 
                 {/* Pagination Controls */}
@@ -104,4 +103,4 @@ const sevenyears = () => {
     );
 };
 
-export default sevenyears;
+export default SevenYears;  
