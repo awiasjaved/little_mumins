@@ -1,62 +1,88 @@
 'use client';
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useRef
+} from 'react';
+import { usePathname } from 'next/navigation';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const prevLength = useRef(0);
+  const pathname = usePathname();
 
+  // Load cart once on mount
   useEffect(() => {
-    const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
-    setCartItems(localCart);
+    const stored = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCartItems(stored);
+    prevLength.current = stored.length;
   }, []);
 
-  const addToCart = (item) => {
-    let cart = [...cartItems];
-    const existingIndex = cart.findIndex(i => i.id === item.id);
-
-    if (existingIndex !== -1) {
-      cart[existingIndex].quantity += 1;
-    } else {
-      cart.push({ ...item, quantity: 1 });
+  // Persist cart & reopen when emptied
+  useEffect(() => {
+    // If we went from >0 to 0, force-open
+    if (prevLength.current > 0 && cartItems.length === 0) {
+      setIsOpen(true);
     }
+    prevLength.current = cartItems.length;
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
-    setCartItems(cart);
-    localStorage.setItem('cart', JSON.stringify(cart));
+  // Close popup on navigation
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  const addToCart = (item) => {
+    setCartItems(prev => {
+      const idx = prev.findIndex(i => i.id === item.id);
+      if (idx > -1) {
+        const copy = [...prev];
+        copy[idx].quantity += 1;
+        return copy;
+      }
+      return [...prev, { ...item, quantity: 1 }];
+    });
     setIsOpen(true);
   };
 
   const removeFromCart = (id) => {
-    const updated = cartItems.filter(item => item.id !== id);
-    setCartItems(updated);
-    localStorage.setItem('cart', JSON.stringify(updated));
-  };
-
-  const toggleCart = () => {
-    setIsOpen(prev => !prev);
+    setCartItems(prev => prev.filter(i => i.id !== id));
   };
 
   const increaseQty = (id) => {
-    const updated = cartItems.map(item =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    setCartItems(prev =>
+      prev.map(i => i.id === id ? { ...i, quantity: i.quantity + 1 } : i)
     );
-    setCartItems(updated);
-    localStorage.setItem('cart', JSON.stringify(updated));
   };
 
   const decreaseQty = (id) => {
-    const updated = cartItems
-      .map(item =>
-        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-      )
-      .filter(item => item.quantity > 0);
-    setCartItems(updated);
-    localStorage.setItem('cart', JSON.stringify(updated));
+    setCartItems(prev =>
+      prev
+        .map(i => i.id === id ? { ...i, quantity: i.quantity - 1 } : i)
+        .filter(i => i.quantity > 0)
+    );
   };
 
+  const toggleCart = () => setIsOpen(o => !o);
+  const closeCart  = () => setIsOpen(false);
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, isOpen, toggleCart, increaseQty, decreaseQty }}>
+    <CartContext.Provider value={{
+      cartItems,
+      isOpen,
+      addToCart,
+      removeFromCart,
+      increaseQty,
+      decreaseQty,
+      toggleCart,
+      closeCart
+    }}>
       {children}
     </CartContext.Provider>
   );

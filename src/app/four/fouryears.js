@@ -11,6 +11,7 @@ import Container from "../Container";
 const Fouryears = () => {
     const products = [
         {
+            id: 1,
             title: "A Day in the  Life of a Muslim",
             cloth: "○ Colouring Book",
             size: "○ Comes with a sticker sheet",
@@ -21,6 +22,7 @@ const Fouryears = () => {
             description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`
         },
         {
+            id: 2,
             title: " Safas Colourful Adventure",
             cloth: "○ Paper Book",
             page: "○ English",

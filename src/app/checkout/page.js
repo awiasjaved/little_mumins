@@ -22,6 +22,8 @@ export default function CheckoutPage() {
 
   const [shipToDifferent, setShipToDifferent] = useState(false);
   const [orderNotes, setOrderNotes] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery');
+  const [bankNote, setBankNote] = useState('');
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = 250;
@@ -35,30 +37,33 @@ export default function CheckoutPage() {
       cartItems,
       subtotal,
       shipping,
-      total
+      total,
+      paymentMethod,
+      bankNote: paymentMethod === 'Bank Deposit' ? bankNote : null
     };
-  
+
     try {
       const res = await fetch('https://little-mumins-backend.vercel.app/api/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-  
+
       if (res.ok) {
-        alert('Order placed successfully and email sent!');
+        alert('✅ Order placed successfully and email sent!');
+        localStorage.removeItem('cart');
       } else {
-        alert('Failed to send order. Please try again.');
+        alert('❌ All required fields must be filled.');
       }
     } catch (err) {
       console.error(err);
-      alert('Server error while placing order.');
+      alert('🚨 Server error while placing order.');
     }
   };
-  
-  
+
   return (
     <div className="mt-24 p-6 sm:p-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      {/* Left side: Billing form */}
       <div>
         <h2 className="text-2xl font-bold mb-4">Billing details</h2>
         <form className="space-y-4">
@@ -73,7 +78,27 @@ export default function CheckoutPage() {
           <input required placeholder="City *" className="w-full border p-2 rounded" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
           <input required placeholder="State / County *" className="w-full border p-2 rounded" value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })} />
           <input required placeholder="Postcode / ZIP *" className="w-full border p-2 rounded" value={formData.zip} onChange={(e) => setFormData({ ...formData, zip: e.target.value })} />
-          <input required placeholder="Phone *" className="w-full border p-2 rounded" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+          <input
+  type="tel"
+  required
+  maxLength={11}
+  placeholder="Phone *"
+  className="w-full border p-2 rounded"
+  value={formData.phone}
+  onChange={(e) => {
+    const input = e.target.value;
+
+    // Allow only digits
+    if (/^\d{0,11}$/.test(input)) {
+      setFormData({ ...formData, phone: input });
+    }
+  }}
+  onBlur={() => {
+    if (formData.phone.length !== 11) {
+
+    }
+  }}
+/>
           <input required placeholder="Email address *" className="w-full border p-2 rounded" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
 
           <label className="flex items-center gap-2 mt-2 font-bold">
@@ -83,11 +108,12 @@ export default function CheckoutPage() {
 
           <div>
             <label className="block mb-1 font-semibold">Order notes (optional)</label>
-            <textarea className="w-full border rounded p-2" rows={3} placeholder="Notes about your order, e.g. special notes for delivery." value={orderNotes} onChange={(e) => setOrderNotes(e.target.value)} />
+            <textarea className="w-full border rounded p-2" rows={3} placeholder="Notes about your order" value={orderNotes} onChange={(e) => setOrderNotes(e.target.value)} />
           </div>
         </form>
       </div>
 
+      {/* Right side: Order summary */}
       <div className="border p-6 rounded-lg bg-gray-50 shadow-sm">
         <h2 className="text-2xl font-bold mb-4">Your order</h2>
         <div className="space-y-2 mb-4">
@@ -114,21 +140,42 @@ export default function CheckoutPage() {
           </div>
         </div>
 
+        {/* Payment method selection */}
         <div className="mt-6 space-y-2 text-sm">
           <label className="flex items-center">
-            <input type="radio" name="payment" className="mr-2" defaultChecked />
+            <input
+              type="radio"
+              name="payment"
+              value="Cash on Delivery"
+              className="mr-2"
+              checked={paymentMethod === 'Cash on Delivery'}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
             Cash on Delivery
           </label>
 
           <label className="flex items-start gap-2">
-            <input type="radio" name="payment" className="mt-1" />
+            <input
+              type="radio"
+              name="payment"
+              value="Bank Deposit"
+              className="mt-1"
+              checked={paymentMethod === 'Bank Deposit'}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
             <span>
               Bank Deposit
               <div className="bg-gray-100 p-2 text-xs mt-1 rounded">
-  Transfer your order&apos;s payment to our bank account and avoid the hassle of cash on delivery.
-  After checking out with &quot;bank transfer&quot;, message us on WhatsApp at <strong>+92335369377</strong> for details.
-  <textarea className="mt-2 w-full p-1 border text-xs rounded" rows="2" placeholder="Enter reference or bank note (optional)" />
-</div>
+                Transfer your order&apos;s payment to our bank account and avoid the hassle of cash on delivery.
+                After checking out with &quot;bank transfer&quot;, message us on WhatsApp at <strong>+92335369377</strong> for details.
+                <textarea
+                  className="mt-2 w-full p-1 border text-xs rounded"
+                  rows="2"
+                  placeholder="Enter reference or bank note (optional)"
+                  value={bankNote}
+                  onChange={(e) => setBankNote(e.target.value)}
+                />
+              </div>
             </span>
           </label>
         </div>

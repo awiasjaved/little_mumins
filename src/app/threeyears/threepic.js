@@ -15,6 +15,7 @@ import Container from "../Container";
 const ThreePic = () => {
     const products = [
         {
+            id: 1,
             title: "THE JOY OF JANNAH",
             cloth: "○ Hard cover",
             page: "○ 14 pages",
@@ -26,6 +27,7 @@ const ThreePic = () => {
             description: `This book aims to introduce the concept of Jannah to young minds...`
         },
         {
+            id: 2,
             title: "Khoob Maza Aaya",
             cloth: "○ Board book",
             page: "○ Urdu",
@@ -37,6 +39,7 @@ const ThreePic = () => {
             description: `“…اور سب سے بہترین دعا ‘اَلْـحَمْدُ لِلّٰہِ’ ہے۔”...`
         },
         {
+            id: 3,
             title: "Raah-e-Jannat Ki Ginti",
             cloth: "○ Paper Book",
             page: "○ 16 pages",
@@ -48,6 +51,7 @@ const ThreePic = () => {
             description: `“راہ جنت کی کہانی” ایک منفرد کہانی کی کتاب ہے...`
         },
         {
+            id: 4,
             title: "The Most Blessed",
             cloth: "○ Cloth book",
             page: "○ 12 pages",
