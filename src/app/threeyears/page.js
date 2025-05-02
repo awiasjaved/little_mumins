@@ -1,9 +1,22 @@
 "use client";
 import Footer from '../Footer/FooterEnd';
-import bgImageDesktop from '../assets/images/teensaal.jpg';
-import bgImageMobile from '../assets/images/mobileteen.jpg';
+import bgImageDesktop from '../assets/images/three.jpg';
+import bgImageMobile from '../assets/images/three.jpg';
 import Threepic from './threepic';
 import Flowers from '../ShopNow/Flowers';
+
+
+const ThreeYearsTitle = [
+  { char: "1", color: "text-green-500" },
+  { char: "-", color: "text-purple-500" },
+  { char: "3", color: "text-orange-500" },
+  { char: "", color: "" },
+  { char: "Y", color: "text-yellow-500" },
+  { char: "e", color: "text-pink-500" },
+  { char: "a", color: "text-red-500" },
+  { char: "r", color: "text-blue-500" },
+  { char: "s", color: "text-indigo-500" },
+];
 
 const Page = () => {
   return (
@@ -13,8 +26,18 @@ const Page = () => {
         className="hidden md:block h-[70vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
       >
-        <div className="absolute bottom-0 left-8 text-white pb-4">
-          <h1 className="text-7xl font-bold">0-3years</h1>
+        <div className="absolute bottom-0 text-white flex items-center justify-center inset-0 bg-black/50">
+        <h1 className="text-7xl font-bold flex">
+            {ThreeYearsTitle.map((item, index) => (
+              <span
+                key={index}
+                className={`${item.color} text-7xl`}
+                style={{ WebkitTextStroke: "0.2px #971a32" }}
+              >
+                {item.char}
+              </span>
+            ))}
+          </h1>
         </div>
       </div>
 
@@ -24,8 +47,18 @@ const Page = () => {
         className="block md:hidden h-[50vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImageMobile.src})` }}
       >
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center">
-          <h1 className="text-4xl font-bold">0-3years</h1>
+        <div className="absolute inset-0 bg-black/60 flex items-end justify-center p-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white text-center">
+            {ThreeYearsTitle.map((item, index) => (
+              <span
+                key={index}
+                className={`${item.color} text-4xl`}
+                style={{ WebkitTextStroke: "0.2px #971a32" }}
+              >
+                {item.char}
+              </span>
+            ))}
+          </h1>
         </div>
       </div>
 

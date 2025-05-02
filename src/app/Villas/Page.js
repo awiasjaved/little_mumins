@@ -1,28 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import Market from "../assets/images/plase.jpg";
+import Shop from "../assets/images/shop.jpg"
 import Container from "../Container";
 import { motion } from "framer-motion";
 
 const properties = [
   {
-    id: 2,
+    id: 1,
     title: `Become the light that nourishes and uplifts Iman!`,
     description:
       `Want to spread goodness and highlight your products? Apply now for in-depth details and join our network as a valued partner. Our team will get in touch with you shortly, ready to help you grow and succeed.`,
-    image: Market,
+    image: Shop,
   },
 ];
 
 const PropertyCard = () => {
   return (
-    <Container className="px-3">
-      <div className="flex flex-wrap justify-center items-center gap-6 w-full mx-auto h-auto">
+    <div className="">
+      <div className="flex flex-wrap justify-center items-center gap-6 ">
         {properties.map((property, index) => (
           <motion.div
             key={property.id}
-            className="w-full md:w-11/12 lg:w-4/5 xl:w-3/4 overflow-hidden flex flex-col"
+            className="w-full md:w-11/12 lg:w-4/5 xl:w-3/4 overflow-hidden flex flex-col "
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -48,9 +48,11 @@ const PropertyCard = () => {
                 alt={property.title}
                 layout="fill"
                 objectFit="cover"
-                className="transition-transform duration-500 rounded-xl"
+                className="transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-black/60 rounded-xl" />
             </motion.div>
+
 
             <div className="px-4 py-5">
               <h3 className="text-xl font-light text-stone-800 mb-3">
@@ -63,7 +65,7 @@ const PropertyCard = () => {
           </motion.div>
         ))}
       </div>
-    </Container>
+    </div>
   );
 };
 

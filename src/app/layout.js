@@ -35,14 +35,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="/little.svg" type="image/svg+xml" />
-        <link rel="icon" type="image/svg+xml" href="/HeyJini-icon.svg" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/little.svg" sizes="any" />
       </head>
       <body className={`${bubbleGum.className} antialiased`}>
         <Loader2 /> 
-        <CartProvider> {/* ✅ Provider ke andar sab kuch */}
+        <CartProvider>
           <TopNav />
           <CartPopup />
-          {children}  {/* ✅ children bhi andar hona chahiye */}
+          {children} 
         </CartProvider>
       </body>
     </html>

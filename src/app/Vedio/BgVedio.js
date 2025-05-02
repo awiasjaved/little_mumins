@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./BgVedio.module.css";
-import bgImage from '../assets/images/vedioBook.jpg';
+import bgImage from "../assets/images/vedioBook.jpg";
 
 const BgVedio = () => {
   const [isClient, setIsClient] = useState(false);
@@ -59,7 +59,7 @@ const BgVedio = () => {
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       <div
-        className={`absolute inset-0 bg-black/50 top-0 left-0 w-full h-full flex items-center justify-center ${styles.overlay}`}
+        className={`absolute inset-0 bg-black/50 flex items-center justify-center ${styles.overlay}`}
       >
         <div className="text-white text-center px-4">
           {/* Animated Title */}
@@ -85,23 +85,25 @@ const BgVedio = () => {
 
           {/* Animated Subtext */}
           <motion.div
-            className="mt-4 flex flex-wrap justify-center text-[#F64F74] text-xl sm:text-2xl md:text-3xl font-semibold"
+            className="mt-4 flex flex-wrap justify-center text-white text-xl sm:text-2xl md:text-3xl font-semibold"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            style={{ WebkitTextStroke: "0.5px #971a32" }}
+            style={{ WebkitTextStroke: "0.2px #971a32" }}
           >
-            {"Nurturing little hearts with stories of imaan".split("").map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: index * 0.03 }}
-                className="mx-[1px]"
-              >
-                {char}
-              </motion.span>
-            ))}
+            {"Nurturing little hearts with stories of imaan".split("").map(
+              (char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.03 }}
+                  className="mx-[1px]"
+                >
+                  {char}
+                </motion.span>
+              )
+            )}
           </motion.div>
         </div>
       </div>
