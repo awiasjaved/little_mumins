@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { GiHamburgerMenu, GiShoppingBag } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Image from "next/image";
@@ -11,7 +11,6 @@ const TopNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [expandedMenu, setExpandedMenu] = useState(null);
-  const [activeSection, setActiveSection] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
@@ -19,13 +18,8 @@ const TopNav = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleSection = (section) => {
-    setActiveSection((prev) => (prev === section ? null : section));
-  };
-
   const toggleExpandMobile = (name) => {
     setExpandedMenu((prev) => (prev === name ? null : name));
-    setActiveSection(null);
   };
 
   const items = [
@@ -46,55 +40,14 @@ const TopNav = () => {
       link: "#",
       color: "text-orange-500",
       subItems: [
-        {
-          section: "Board books",
-          items: [
-            { name: "Khoob maza aaya", link: "/board_books" },
-            { name: "Who created", link: "/created" },
-          ],
-        },
-        {
-          section: "Activity books",
-          items: [
-            { name: "Our Nabi Hadith book", link: "/books/activity/our-nabi-hadith" },
-            { name: "A day in the life of a muslim", link: "/books/activity/day-in-life" },
-          ],
-        },
-        {
-          section: "Cloth books and sensory books",
-          items: [
-            { name: "The most blessed", link: "/books/cloth/the-most-blessed" },
-          ],
-        },
-        {
-          section: "Hadith, Seerah and islamic history",
-          items: [
-            { name: "Our nabi hadith book", link: "/books/history/our-nabi-hadith" },
-            { name: "Our stars (set of 2)", link: "/books/history/our-stars" },
-            { name: "Sahaba stories (Set of 4)", link: "/books/history/sahaba-stories" },
-          ],
-        },
-        {
-          section: "Hajj, Umrah and Eid",
-          items: [
-            { name: "Mikael goes to Madinah", link: "/books/hajj/mikael-madinah" },
-          ],
-        },
-        {
-          section: "Urdu books",
-          items: [
-            { name: "Raah e jannat ki ginti", link: "/books/urdu/raah-e-jannat" },
-            { name: "Khoob maza aaya", link: "/books/urdu/khoob-maza-aaya" },
-          ],
-        },
-        {
-          section: "Hardcover",
-          items: [
-            { name: "Joys of jannah", link: "/books/hardcover/joys-of-jannah" },
-            { name: "Count your way to jannah", link: "/books/hardcover/count-your-way" },
-          ],
-        },
-      ],
+        { name: "Board books", link: "/board_books" },
+        { name: "Activity books", link: "/activity_books" },
+        { name: "Cloth & Sensory books", link: "/coth_books_and_sensory_books" },
+        { name: "Islamic history", link: "/hadith_Seerah_and_islamic_history" },
+        { name: "Hajj, Umrah & Eid", link: "/hajj_umrah_and_Eid" },
+        { name: "Urdu books", link: "/urdu_books" },
+        { name: "Hardcover", link: "/hardcover" }
+      ]
     },
     { name: "FREEBIES", link: "/freebies", color: "text-yellow-400" },
     { name: "CONTACT US", link: "/contact", color: "text-purple-400" },
@@ -116,7 +69,7 @@ const TopNav = () => {
           <ul className="flex items-center space-x-4">
             {items.map((item) => (
               <li key={item.name} className="relative py-2 px-4 text-lg">
-                {item.name === "BY TYPE" ? (
+                {item.subItems ? (
                   <div
                     className="relative group"
                     onMouseEnter={() => setExpandedMenu(item.name)}
@@ -127,45 +80,7 @@ const TopNav = () => {
                       <span className="text-xs">▼</span>
                     </div>
                     {expandedMenu === item.name && (
-                      <div className="absolute left-0 top-full -mt-1 w-64 bg-[#62c7ca] text-black shadow-lg rounded-md z-50 p-2 space-y-2">
-
-                        {item.subItems.map((group) => (
-                          <div key={group.section}>
-                            <p
-                              onClick={() => toggleSection(group.section)}
-                              className="font-bold text-sm px-4 py-1 cursor-pointer hover:underline"
-                            >
-                              {group.section}
-                            </p>
-                            {activeSection === group.section && (
-                              <ul className="pl-4">
-                                {group.items.map((subItem) => (
-                                  <li key={subItem.name}>
-                                    <Link href={subItem.link} className={`block px-2 py-1 hover:bg-gray-100 ${item.color}`}>
-                                      {subItem.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : item.name === "BY AGE" ? (
-                  <div
-                    className="relative group"
-                    onMouseEnter={() => setExpandedMenu(item.name)}
-                    onMouseLeave={() => setExpandedMenu(null)}
-                  >
-                    <div className={`hover:underline cursor-pointer flex items-center gap-1 ${item.color}`}>
-                      {item.name}
-                      <span className="text-xs">▼</span>
-                    </div>
-                    {expandedMenu === item.name && (
-                     <ul className="absolute left-0 top-full -mt-1 w-44 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
-
+                      <ul className="absolute left-0 top-full -mt-1 w-48 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
                         {item.subItems.map((subItem) => (
                           <li key={subItem.name}>
                             <Link href={subItem.link} className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}>
@@ -235,40 +150,17 @@ const TopNav = () => {
                     {/* Submenu Rendering */}
                     {item.subItems && expandedMenu === item.name && (
                       <ul className="ml-4 mt-2 space-y-2 text-sm font-normal bg-[#cdf1f3] p-2 rounded-md">
-                        {Array.isArray(item.subItems[0]?.items)
-                          ? item.subItems.map((group) => (
-                              <React.Fragment key={group.section}>
-                                <p
-                                  className="text-xs font-bold text-gray-700"
-                                  onClick={() => toggleSection(group.section)}
-                                >
-                                  {group.section}
-                                </p>
-                                {activeSection === group.section &&
-                                  group.items.map((subItem) => (
-                                    <li key={subItem.name}>
-                                      <Link
-                                        href={subItem.link}
-                                        className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                      >
-                                        {subItem.name}
-                                      </Link>
-                                    </li>
-                                  ))}
-                              </React.Fragment>
-                            ))
-                          : item.subItems.map((subItem) => (
-                              <li key={subItem.name}>
-                                <Link
-                                  href={subItem.link}
-                                  className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                >
-                                  {subItem.name}
-                                </Link>
-                              </li>
-                            ))}
+                        {item.subItems.map((subItem) => (
+                          <li key={subItem.name}>
+                            <Link
+                              href={subItem.link}
+                              className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     )}
                   </li>
