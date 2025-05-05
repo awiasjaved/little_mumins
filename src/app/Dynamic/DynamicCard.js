@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 
+// Animation Variants for bounce effect
 const bounceInVariant = {
   hidden: { opacity: 0, scale: 0.3 },
   visible: {
@@ -56,7 +57,7 @@ const DynamicCard = ({
   return (
     <>
       <motion.div
-        className={`rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col justify-between bg-[#c8eeb7] ${className}`}
+        className={`rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col justify-between bg-[#d7f4f5] ${className}`} // Corrected className string
         variants={bounceInVariant}
         initial="hidden"
         animate={controls}
@@ -69,25 +70,26 @@ const DynamicCard = ({
         >
           <Image
             src={isHovered && hoverImage ? hoverImage : image}
-            alt={title}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            style={{ objectFit: "cover" }}
+            alt={title || "Product Image"}
+            layout="fill"
+            objectFit="cover"
             className="rounded-md transition-all duration-300"
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
 
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
-            <button
-              onClick={() => setShowModal(true)}
-              className="bg-black text-white text-xs sm:text-sm px-3 py-1 rounded-md shadow"
-            >
-              View Description
-            </button>
-          </div>
+<div className="absolute w-full bottom-0 z-10">
+  <button
+    onClick={() => setShowModal(true)}
+    className="w-full  bg-black text-white text-2xs sm:text-sm px-5 py-3 rounded-md shadow"
+  >
+    View Description
+  </button>
+</div>
+
         </div>
 
         {/* Product Title */}
-        <h4 className="text-lg sm:text-2xl font-medium mb-6">{title}</h4>
+        <h4 className="text-lg sm:text-2xl font-medium mb-6">{title || "Product Title"}</h4>
 
         {/* Price and Cart */}
         <div className="mt-auto">
@@ -98,7 +100,7 @@ const DynamicCard = ({
               </span>
             )}
             <span className="text-[#18a3a8] text-xl sm:text-2xl font-bold">
-              Rs {price}
+              Rs {price || "0"}
             </span>
           </div>
 
@@ -126,12 +128,12 @@ const DynamicCard = ({
 
             <div className="relative w-full md:w-1/2 h-64 sm:h-72 rounded-md overflow-hidden">
               <Image
-                src={image}
-                alt={title}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                style={{ objectFit: "cover" }}
+                src={image || "/default-image.jpg"}
+                alt={title || "Product Image"}
+                layout="fill"
+                objectFit="cover"
                 className="rounded-md"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
 
@@ -139,7 +141,7 @@ const DynamicCard = ({
               className="w-full md:w-1/2 text-black text-sm sm:text-base"
               style={{ fontFamily: "'Open Sans', sans-serif" }}
             >
-              <h4 className="font-bold text-lg sm:text-xl mb-2">{title}</h4>
+              <h4 className="font-bold text-lg sm:text-xl mb-2">{title || "Product Title"}</h4>
 
               <div className="flex flex-wrap justify-start items-center gap-2 mb-3">
                 {page && (
@@ -161,7 +163,7 @@ const DynamicCard = ({
 
               <div
                 className="text-gray-700 text-sm sm:text-base"
-                dangerouslySetInnerHTML={{ __html: description }}
+                dangerouslySetInnerHTML={{ __html: description || "No description available." }}
               />
             </div>
           </div>

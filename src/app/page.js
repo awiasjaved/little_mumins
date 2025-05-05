@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <>
     <BgVedio /> 
+    <Circle/>
     <NewArrivals/>
      <VillasRoom />
-      <Circle/>
       <Flowers/>
       <FooterEnd />
  

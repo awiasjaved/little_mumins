@@ -20,6 +20,7 @@ import Bismillah from "../assets/images/bismillah.jpg";
 import Safa from "../assets/images/safa.jpg";
 import Sfa from "../assets/images/sfa.jpg";
 
+// Product Data
 const products = [
   {
     id: 1,
@@ -43,19 +44,7 @@ const products = [
     oldPrice: 380,
     image: Khood,
     hoverImage: Hoob,
-    description: `
-      "…اور سب سے بہترین دعا 'اَلْـحَمْدُ لِلّٰہِ' ہے۔"
-      <br />
-      (سنن ابن ماجہ: 3805)
-      <br />
-      پیارے نبی صلی اللہ علیہ وسلم نے فرمایا:
-      <br />
-      "تم میں سے جس نے اس حال میں صبح کی کہ اس کا جسم صحیح سلامت ہو، اس کی جان بے خوف ہو اور اس کے پاس دن کا کھانا بھی میسر ہو، تو ایسا ہے جیسے اس کے لیے دنیا اکٹھی ہوگئی۔"
-      <br />
-      (سنن ابن ماجہ: 4141)
-      <br />
-      آئیے! دل کے ہر حال میں 'اَلْـحَمْدُ لِلّٰہِ' کہنا اور کرنا سیکھیں۔
-    `,
+    description: `“…اور سب سے بہترین دعا 'اَلْـحَمْدُ لِلّٰہِ' ہے۔” (سنن ابن ماجہ: 3805) پیارے نبی صلی اللہ علیہ وسلم نے فرمایا: "تم میں سے جس نے اس حال میں صبح کی کہ اس کا جسم صحیح سلامت ہو، اس کی جان بے خوف ہو اور اس کے پاس دن کا کھانا بھی میسر ہو، تو ایسا ہے جیسے اس کے لیے دنیا اکٹھی ہوگئی۔” (سنن ابن ماجہ: 4141) آئیے! دل کے ہر حال میں 'اَلْـحَمْدُ لِلّٰہِ' کہنا اور کرنا سیکھیں۔`,
   },
   {
     id: 3,
@@ -67,15 +56,7 @@ const products = [
     oldPrice: 380,
     image: Jannat,
     hoverImage: Annat,
-    description: `
-      "راہ جنت کی کہانی" ایک منفرد کہانی کی کتاب ہے جس کا مقصد بچوں کو دینی تصورات کے ذریعے تعلیم دینا ہے
-      <br/>
-      اس کتاب کو پڑھ کر بچے یہ سمجھیں گے کہ ایک نیکی اسلام کے مختلف پہلوؤں سے ایک پیکج بن کر، خوشنودیِ اللہ اور جنت کے انعامات کا باعث بن سکتی ہے۔
-      <br/>
-      اس کتاب کی دلکش تصاویر بچوں کو اپنی طرف متوجہ رکھیں گی اِن شاء اللہ۔
-      <br/>
-      دُعا ہے اللہ تعالیٰ ہمارے لیے اور ہمارے بچوں کے لیے علم کے دروازے کھول دے۔ آمین
-    `,
+    description: `"راہ جنت کی کہانی" ایک منفرد کہانی کی کتاب ہے جس کا مقصد بچوں کو دینی تصورات کے ذریعے تعلیم دینا ہے ... دُعا ہے اللہ تعالیٰ ہمارے لیے اور ہمارے بچوں کے لیے علم کے دروازے کھول دے۔ آمین`,
   },
   {
     id: 4,
@@ -109,11 +90,7 @@ const products = [
     oldPrice: 660,
     image: Safa,
     hoverImage: Sfa,
-    description: `
-      As she soars through the skies, Safa discovers the breathtaking beauty of Allahs colourful world, where every colour tells a story. From gardens filled with flowers to cool rivers with pink fish, each moment is filled with fascinating facts from the Quran.
-      <br/>
-      And when the journey ends, the fun continues with exciting activities that will make you see the vibrant world around you in a whole new light of Quran and Hadith. This unforgettable adventure will leave little readers exploring colours and nature with gratitude and wonder long after the adventure ends.
-    `,
+    description: `As she soars through the skies, Safa discovers the breathtaking beauty of Allahs colourful world... this unforgettable adventure will leave little readers exploring colours and nature with gratitude and wonder long after the adventure ends.`,
   },
 ];
 
@@ -123,12 +100,24 @@ const NewArrival = () => {
   return (
     <Container>
       <section className="py-10 text-center">
-        <div className="pb-20">
+        {/* Motion Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="pb-20"
+        >
           <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
           <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
-        </div>
+        </motion.div>
 
         {/* Product Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="pb-20"
+        >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {products.map((product) => (
             <DynamicCard
@@ -138,6 +127,7 @@ const NewArrival = () => {
             />
           ))}
         </div>
+        </motion.div>
 
         {/* Motion Button for View All Products */}
         <Link href="/bookshop">
