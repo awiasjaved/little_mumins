@@ -49,7 +49,7 @@ const TopNav = () => {
         {
           section: "Board books",
           items: [
-            { name: "Khoob maza aaya", link: "/khoob" },
+            { name: "Khoob maza aaya", link: "/board_books" },
             { name: "Who created", link: "/created" },
           ],
         },
