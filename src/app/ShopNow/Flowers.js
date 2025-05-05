@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import bgImage from '../assets/images/flowersbook.jpg'
 import { FaArrowRight } from "react-icons/fa6";
-
+import { motion } from "framer-motion";
 const Flowers = () => {
   const title = [
     { char: "L", color: "text-green-500" },
@@ -21,9 +21,12 @@ const Flowers = () => {
   ];
 
   return (
+   
     <div className="relative h-[70vh] w-full">
       {/* Background Image */}
+    
       <div className="absolute inset-0">
+
         <div
           className="w-full h-[70vh] bg-cover bg-center relative"
           style={{ backgroundImage: `url(${bgImage.src})` }}
@@ -33,6 +36,12 @@ const Flowers = () => {
       </div>
 
       {/* Content */}
+      <motion.div
+    initial={{ opacity: 0, y: 200 }}
+    whileInView={{ opacity: 1, y: 20 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+    className="pb-20"
+>
       <div className="relative w-full h-[70vh] flex flex-col items-center justify-center text-center px-4">
         {/* Title */}
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
@@ -61,7 +70,9 @@ const Flowers = () => {
           </button>
         </Link>
       </div>
+      </motion.div>
     </div>
+    
   );
 };
 
