@@ -1,6 +1,5 @@
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
-
 import Flowers from '../ShopNow/Flowers';
 const type = () => {
   return (

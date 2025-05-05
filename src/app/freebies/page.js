@@ -1,6 +1,6 @@
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/gifts.png'; // apni image ka path adjust karein
-import Story from '../OurStory/Story';
+// import Story from '../OurStory/Story';
 import Flowers from '../ShopNow/Flowers';
 import FreeBies from './freebies';
 const freebies = () => {

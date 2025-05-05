@@ -1,8 +1,7 @@
 import Footer from '../Footer/FooterEnd';
-import bgImage from '../assets/images/baali.jpg'; // apni image ka path adjust karein
-
+import bgImage from '../assets/images/baali.jpg';
 import Flowers from '../ShopNow/Flowers';
-const age = () => {
+const Age = () => {
   return (
     <>
     <div
@@ -23,4 +22,4 @@ const age = () => {
   );
 }
 
-export default age;
+export default Age;

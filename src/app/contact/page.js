@@ -1,6 +1,6 @@
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/contact.png'; // apni image ka path adjust karein
-import Story from '../OurStory/Story';
+// import Story from '../OurStory/Story';
 import Flowers from '../ShopNow/Flowers';
 import ContactUs from './contactus';
 const contact = () => {

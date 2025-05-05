@@ -33,7 +33,7 @@ const ContactUs = () => {
           <ul className="space-y-6 text-gray-700">
             <li className="flex items-center">
               <FaWhatsapp className="mr-3 text-pink-500 text-xl" />
-              +92-335-3569367 (+92-335-LITTLE)
+              +92-328-5990718 (+92-328-LITTLE)
             </li>
             <li className="flex items-center">
               <FaEnvelope className="mr-3 text-pink-500 text-xl" />
