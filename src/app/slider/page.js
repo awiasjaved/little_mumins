@@ -16,15 +16,15 @@ import Adventure from "../assets/images/adventure.png";
 const Page = () => {
   // ✅ Move it inside here
   const collections = [
-    { age: "0-2", image: Once, alt: "Once " },
-    { age: "3-5", image: Mekael, alt: "Mekael" },
-    { age: "6-8", image: Your, alt: "Your " },
-    { age: "9-12", image: Jannah, alt: "Jannah" },
-    { age: "13-16", image: Maza, alt: "Maza " },
-    { age: "16+", image: ADAY, alt: "ADAY" },
-    { age: "16+", image: OUR, alt: "OUR" },
-    { age: "16+", image: OURNabi, alt: "OURNabi" },
-    { age: "16+", image: Adventure, alt: "Adventure" },
+    { age: "Once Upon a Revelation", image: Once, alt: "Once " },
+    { age: "Mekael goes to Madinah", image: Mekael, alt: "Mekael" },
+    { age: "Count your way to Jannah", image: Your, alt: "Your " },
+    { age: "The joys of Jannah", image: Jannah, alt: "Jannah" },
+    { age: "Khoob Maza Aya", image: Maza, alt: "Maza " },
+    { age: "A Day in the Life of Muslim", image: ADAY, alt: "ADAY" },
+    { age: "Our Stars", image: OUR, alt: "OUR" },
+    { age: "Our Nabi ", image: OURNabi, alt: "OURNabi" },
+    { age: "Safas Colorful Adventures", image: Adventure, alt: "Adventure" },
   ];
 
   const repeatedCollections = [...collections, ...collections];
@@ -42,7 +42,7 @@ const Page = () => {
     controls.start({
       x: [0, -scrollWidth / 2],
       transition: {
-        duration: 10,
+        duration: 40,
         ease: "linear",
         repeat: Infinity,
       },
@@ -50,7 +50,7 @@ const Page = () => {
   }, [controls]);
 
   return (
-    <div className="h-[60vh]  px-4 py-8 ">
+    <div className="h-[60vh] bg-[#d7f4f5] px-4 py-8 ">
       <h1 className="text-3xl font-bold text-center pt-20 pb-20">Little Mumins Collection</h1>
       <div className="relative overflow-hidden " ref={scrollRef}>
         <motion.div animate={controls} className="flex gap-6 px-10 py-4">

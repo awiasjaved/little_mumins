@@ -1,7 +1,6 @@
 "use client";
-
 import Footer from '../Footer/FooterEnd';
-import Four from './board_books';
+import Four from './boardbooks';
 import Flowers from '../ShopNow/Flowers';
 
 const Page = () => {

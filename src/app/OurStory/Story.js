@@ -4,6 +4,7 @@ import Image from "next/image";
 import Remove from "../assets/images/remove-removebg-preview.png"
 import cap from "../assets/images/cap.jpg"
 import Container from '../Container';
+import { motion } from "framer-motion";
 const Story = () => {
     return (
         <>
@@ -54,6 +55,12 @@ const Story = () => {
 
                 <div className='min-h-screen w-full inset-0 bg-[#cdf1f3]/90 flex items-center justify-center'>
                     <Container>
+                    <motion.div
+          initial={{ opacity: 0, y: 200 }}
+          whileInView={{ opacity: 1, y:20 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="pb-20"
+        >
                         <blockquote className="text-sm md:text-xl lg:text-2xl text-gray-700 font-medium mb-8 px-4 text-center">
                             <p className="mb-6 font-semibold">About Little Mumins</p>
                             <p>
@@ -67,9 +74,9 @@ const Story = () => {
                                 We pray this small effort helps raise a generation rooted in deen — InshaAllah.
                             </p>
                         </blockquote>
-
+                        </motion.div>
                         <div className="text-center">
-                            <p className="text-lg font-medium text-gray-800">Hafiz Anas Gufran</p>
+                            <p className="text-lg font-medium text-gray-800">Umm-e-Rumaisa</p>
                             <p className="text-sm text-gray-600">Little Mumins</p>
                         </div>
                     </Container>

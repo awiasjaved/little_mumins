@@ -4,7 +4,7 @@ import DynamicCard from "../Dynamic/DynamicCard";
 import { FaArrowRight } from "react-icons/fa6";
 import { useCart } from "../context/CartContext";
 import Link from "next/link";
-import { motion } from "framer-motion"; // ✅ Imported motion
+import { motion } from "framer-motion"; 
 
 // Images
 import Jannah from "../assets/images/Jannah.jpg";
@@ -19,6 +19,7 @@ import Day from "../assets/images/DayMuslim.jpg";
 import Bismillah from "../assets/images/bismillah.jpg";
 import Safa from "../assets/images/safa.jpg";
 import Sfa from "../assets/images/sfa.jpg";
+import Joy from "../assets/images/joy.jpg"
 
 // Product Data
 const products = [
@@ -30,8 +31,8 @@ const products = [
     size: "○ Size 8*8 inches",
     price: 500,
     oldPrice: 600,
-    image: Jannah,
-    hoverImage: Annah,
+    image: Joy,
+    hoverImage: Jannah,
     description: `This book aims to introduce the concept of Jannah to young minds in simple words with interesting details to open conversations to the endless possibilities of what the readers might feel...`,
   },
   {
@@ -107,7 +108,7 @@ const NewArrival = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="pb-20"
         >
-          <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
+          <h2 className="text-lg text-gray-900 uppercase pt-20">New Arrivals</h2>
           <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
         </motion.div>
 

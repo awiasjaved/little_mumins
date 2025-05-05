@@ -80,7 +80,7 @@ const DynamicCard = ({
 <div className="absolute w-full bottom-0 z-10">
   <button
     onClick={() => setShowModal(true)}
-    className="w-full  bg-black text-white text-2xs sm:text-sm px-5 py-3 rounded-md shadow"
+    className="w-full  bg-black text-white sm:text-sm px-5 py-3 rounded-md shadow"
   >
     View Description
   </button>
