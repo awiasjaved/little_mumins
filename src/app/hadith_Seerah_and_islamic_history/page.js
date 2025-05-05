@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from '../Footer/FooterEnd';
-import Four from './board_books';
+import Four from './hadith_Seerah_and_islamic_history';
 import Flowers from '../ShopNow/Flowers';
 
 const Page = () => {
