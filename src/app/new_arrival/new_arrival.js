@@ -4,6 +4,8 @@ import DynamicCard from "../Dynamic/DynamicCard";
 import { FaArrowRight } from "react-icons/fa6";
 import { useCart } from "../context/CartContext";
 import Link from "next/link";
+import { motion } from "framer-motion"; // ✅ Imported motion
+
 // Images
 import Jannah from "../assets/images/Jannah.jpg";
 import Annah from "../assets/images/Jannah.jpg";
@@ -17,7 +19,6 @@ import Day from "../assets/images/DayMuslim.jpg";
 import Bismillah from "../assets/images/bismillah.jpg";
 import Safa from "../assets/images/safa.jpg";
 import Sfa from "../assets/images/sfa.jpg";
-
 
 const products = [
   {
@@ -138,14 +139,19 @@ const NewArrival = () => {
           ))}
         </div>
 
+        {/* Motion Button for View All Products */}
         <Link href="/bookshop">
-  <button className="mt-10 bg-[#f6339a] text-white py-2 px-6 hover:bg-[	#d12c89] rounded-full cursor-pointer">
-    <div className="flex items-center gap-1">
-      View All Products
-      <FaArrowRight />
-    </div>
-  </button>
-</Link>
+          <motion.button
+            whileHover={{ x: [0, -5, 5, -5, 5, 0] }}
+            transition={{ duration: 0.6 }}
+            className="mt-10 bg-[#f6339a] text-white py-2 px-6 rounded-full cursor-pointer hover:bg-[#d12c89]"
+          >
+            <div className="flex items-center gap-1">
+              View All Products
+              <FaArrowRight />
+            </div>
+          </motion.button>
+        </Link>
       </section>
     </Container>
   );

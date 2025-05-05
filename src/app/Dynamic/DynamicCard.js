@@ -3,6 +3,18 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 
+const bounceInVariant = {
+  hidden: { opacity: 0, scale: 0.3 },
+  visible: {
+    opacity: 1,
+    scale: [0.3, 1.05, 0.9, 1.03, 0.97, 1],
+    transition: {
+      duration: 0.9,
+      ease: "easeOut",
+    },
+  },
+};
+
 const DynamicCard = ({
   id,
   title,
@@ -37,20 +49,19 @@ const DynamicCard = ({
     });
   };
 
-  // Safe use of controls.start inside useEffect
   useEffect(() => {
-    controls.start({ opacity: 1, y: 0 });
+    controls.start("visible");
   }, [controls]);
 
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        className={`rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col justify-between bg-[#c8eeb7] ${className}`}
+        variants={bounceInVariant}
+        initial="hidden"
         animate={controls}
-        transition={{ duration: 0.4 }}
-        className={`rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col justify-between bg-[#f1eaea] ${className}`}
       >
-        {/* Image Section with Hover and View Description Button */}
+        {/* Image Section */}
         <div
           className="relative h-64 sm:h-72 md:h-80 w-full mb-3"
           onMouseEnter={() => setIsHovered(true)}
@@ -65,7 +76,6 @@ const DynamicCard = ({
             className="rounded-md transition-all duration-300"
           />
 
-          {/* View Description Button */}
           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
             <button
               onClick={() => setShowModal(true)}
@@ -77,8 +87,7 @@ const DynamicCard = ({
         </div>
 
         {/* Product Title */}
-        <h4 className="text-lg sm:text-2xl font-medium mb-6"
-          >{title}</h4>
+        <h4 className="text-lg sm:text-2xl font-medium mb-6">{title}</h4>
 
         {/* Price and Cart */}
         <div className="mt-auto">
@@ -93,12 +102,14 @@ const DynamicCard = ({
             </span>
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
             onClick={handleAddToCart}
-            className="btn text-white  rounded-full text-lg sm:text-base transition"
+            className="btn text-white rounded-full text-lg sm:text-base transition"
           >
             {buttonText}
-          </button>
+          </motion.button>
         </div>
       </motion.div>
 
@@ -113,7 +124,6 @@ const DynamicCard = ({
               &times;
             </button>
 
-            {/* Modal Image */}
             <div className="relative w-full md:w-1/2 h-64 sm:h-72 rounded-md overflow-hidden">
               <Image
                 src={image}
@@ -125,10 +135,9 @@ const DynamicCard = ({
               />
             </div>
 
-            {/* Modal Text Info */}
             <div
               className="w-full md:w-1/2 text-black text-sm sm:text-base"
-              style={{ fontFamily: "'Open Sans', sans-serif"}}
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
             >
               <h4 className="font-bold text-lg sm:text-xl mb-2">{title}</h4>
 
