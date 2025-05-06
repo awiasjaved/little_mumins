@@ -40,6 +40,7 @@ const TopNav = () => {
       link: "#",
       color: "text-orange-500",
       subItems: [
+        { name: "Story books", link: "/story_books" },
         { name: "Board books", link: "/board_books" },
         { name: "Activity books", link: "/activity_books" },
         { name: "Cloth & Sensory books", link: "/coth_books_and_sensory_books" },
