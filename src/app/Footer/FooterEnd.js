@@ -54,20 +54,13 @@ const FooterEnd  = () => {
             <div>
               <h3 className="text-xl font-script mb-4 text-[#FF7600]">Categories</h3>
               <ul className="space-y-2 text-gray-700 max-h-64 overflow-y-auto pr-2">
-                <li><Link href="/categories/arabic-products" className="hover:text-gray-900">Arabic Products</Link></li>
-                <li><Link href="/categories/activity-books" className="hover:text-gray-900">Activity Books</Link></li>
-                <li><Link href="/categories/board-books" className="hover:text-gray-900">Board Books</Link></li>
-                <li><Link href="/categories/cloth-and-sensory-books" className="hover:text-gray-900">Cloth Books and Sensory Books</Link></li>
-                <li><Link href="/categories/dua-books" className="hover:text-gray-900">Dua Books</Link></li>
-                <li><Link href="/categories/urdu-books" className="hover:text-gray-900">Urdu Books</Link></li>
-                <li><Link href="/categories/story-books" className="hover:text-gray-900">Story Books</Link></li>
-                <li><Link href="/categories/ramadan-and-eid" className="hover:text-gray-900">Ramadan and Eid</Link></li>
-                <li><Link href="/categories/hajj-umrah-and-eid" className="hover:text-gray-900">Hajj, Umrah and Eid</Link></li>
-                <li><Link href="/categories/hadith-seerah-islamic-history" className="hover:text-gray-900">Hadith, Seerah and Islamic History</Link></li>
-                <li><Link href="/categories/posters" className="hover:text-gray-900">Posters</Link></li>
-                <li><Link href="/categories/stickers-and-cards" className="hover:text-gray-900">Stickers and Cards</Link></li>
-                <li><Link href="/categories/games-and-puzzles" className="hover:text-gray-900">Games and Puzzles</Link></li>
-                <li><Link href="/categories/binders" className="hover:text-gray-900">Binders</Link></li>
+                <li><Link href="../board_books" className="hover:text-gray-900">Board Books</Link></li>
+                <li><Link href="../activity_books" className="hover:text-gray-900">Activity Books</Link></li>
+                <li><Link href="../coth_books_and_sensory_books" className="hover:text-gray-900">Cloth Books And Sensory Books</Link></li>
+                <li><Link href="../hadith_Seerah_and_islamic_history" className="hover:text-gray-900">Hadith, Seerah and Islamic History</Link></li>
+                <li><Link href="../hajj_umrah_and_Eid" className="hover:text-gray-900">Hajj, Umrah and Eid</Link></li>
+                <li><Link href="../urdu_books" className="hover:text-gray-900">Urdu Books</Link></li>
+                <li><Link href="../hardcover" className="hover:text-gray-900">Hard cover</Link></li>
               </ul>
             </div>
 
@@ -75,12 +68,12 @@ const FooterEnd  = () => {
             <div>
               <h3 className="text-xl font-script mb-4 text-[#FF7600]">Information</h3>
               <ul className="space-y-2 text-gray-700">
-                <li><Link href="/faqs" className="hover:text-gray-900">FAQs</Link></li>
-                <li><Link href="/refund-policy" className="hover:text-gray-900">Refund Policy</Link></li>
-                <li><Link href="/terms-and-conditions" className="hover:text-gray-900">Terms & Conditions</Link></li>
+                <li><Link href="" className="hover:text-gray-900">FAQs</Link></li>
+                <li><Link href="" className="hover:text-gray-900">Refund Policy</Link></li>
+                <li><Link href="" className="hover:text-gray-900">Terms & Conditions</Link></li>
               </ul>
 
-              {/* Search Box */}
+              {/* Search Box
               <div className="mt-8">
                 <p className="text-gray-700 mb-2">Looking for a specific product?</p>
                 <div className="flex">
@@ -95,7 +88,7 @@ const FooterEnd  = () => {
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

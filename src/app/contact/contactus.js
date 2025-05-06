@@ -34,7 +34,7 @@ const ContactUs = () => {
       const result = await res.json();
 
       if (res.ok) {
-        setFeedback({ type: 'success', message: 'Message sent successfully!' });
+        setFeedback({ type: 'success', message: 'Thank You For Contact US' });
         setFormData({ name: '', email: '', message: '' });
       } else {
         setFeedback({ type: 'error', message: result?.error || 'Something went wrong.' });
