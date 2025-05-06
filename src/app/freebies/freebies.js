@@ -13,6 +13,9 @@ import Zamzam1 from "../assets/images/zamzam1.jpg"
 import Zamzam2 from "../assets/images/zamzam2.jpg"
 import Candy1 from "../assets/images/8.jpg"
 import Candy2 from "../assets/images/candy.jpg"
+import { useCart } from '../context/CartContext'; 
+import DynamicCard from "../Dynamic/DynamicCard";
+import Container from "../Container";
 const FreeBies = () => {
   const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
@@ -54,47 +57,59 @@ const FreeBies = () => {
     },
  
   ];
+     const { addToCart } = useCart();
+      
+      // Pagination states
+      const [currentPage, setCurrentPage] = useState(1);
+      const productsPerPage = 3;
+  
+      // Pagination logic
+      const indexOfLastProduct = currentPage * productsPerPage;
+      const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+      const paginatedProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+      const totalPages = Math.ceil(products.length / productsPerPage);
+  
+      const handlePageChange = (pageNumber) => {
+          setCurrentPage(pageNumber);
+      };
 
   return (
+    <Container>
     <section className="py-10 text-center">
-    
-    <h3 className="text-6xl font-semibold mb-8">FreeBies</h3>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          className="border rounded-lg p-4 shadow hover:shadow-lg transition"
-        >
-          <div
-            className="relative h-64 w-full mb-4"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <Image
-              src={hoveredIndex === index ? product.hoverImage : product.image}
-              alt={product.title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="rounded-md transition-all duration-300"
-            />
-          </div>
-          <h4 className="text-lg font-medium">{product.title}</h4>
-          <div className="mt-2">
-            
-            <span className="text-[#a84618] font-bold">Rs {product.price}</span>
-          </div>
-          <button className="btn mt-4  text-white py-2 px-4 rounded-ful transition">
-            Add to Cart
-          </button>
+        <div className="pb-20">
+            <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
+            <h3 className="text-2xl font-semibold mb-8">1-3 Years Products Little Mumins</h3>
         </div>
-      ))}
-    </div>
 
-    <button className="mt-10 bg-[#a84618] text-white py-2 px-6 rounded-full hover:bg-[#852b02] transition">
-      View All Products →
-    </button>
-  </section>
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {paginatedProducts.map((product) => (
+                <DynamicCard
+                    key={product.title}  // key added here using unique title
+                    {...product}
+                    onAddToCart={addToCart}
+                />
+            ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <div className="mt-10 flex justify-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                    key={i}
+                    onClick={() => handlePageChange(i + 1)}
+                    className={`px-4 py-2 border rounded-md cursor-pointer ${
+                        currentPage === i + 1
+                            ? "bg-[#f6339a] text-white"
+                            : "bg-white text-black"
+                    }`}
+                >
+                    {i + 1}
+                </button>
+            ))}
+        </div>
+    </section>
+</Container>
   )
 }
 
