@@ -1,52 +1,58 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Muslim from "../assets/images/DayMuslim.jpg";
-import Day from "../assets/images/MuslimLife.jpg"
-import Jannah from "../assets/images/joy.jpg"
-import Annah from "../assets/images/Jannah.jpg"
-import Nabi from "../assets/images/Nabi.jpg"
-import Nabi1 from "../assets/images/Nabi1.jpg"
+import IslamicCap from "../assets/images/images (1).jpeg";
+import DIslamicCap from "../assets/images/images.jpeg"
+import IslamicPencil from "../assets/images/PENCIL.jpg"
+import Islamic2 from "../assets/images/islamicpencil.jpg"
+import Maswak from "../assets/images/maswak.jpg"
+import Maswak1 from "../assets/images/ismaswak.jpg"
+import Tasbih from "../assets/images/tasbih_.jpg"
+import Tasbih1 from "../assets/images/rtasbih.jpeg"
+import Zamzam1 from "../assets/images/zamzam1.jpg"
+import Zamzam2 from "../assets/images/zamzam2.jpg"
+import Candy1 from "../assets/images/8.jpg"
+import Candy2 from "../assets/images/candy.jpg"
 const FreeBies = () => {
   const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
     {
-      title: "Janwaron ki Dunya - Urdu Flap Book",
+      title: "ISLAMIC CAP",
       price: 0,
-      image: Muslim,
-      hoverImage: Day,
+      image: IslamicCap,
+      hoverImage: DIslamicCap,
     },
     {
-      title: "I Am Alone - Arabic Story Book",
+      title: "ISLAMIC PENCIL",
       price: 0,
-      image: Jannah,
-      hoverImage: Annah,
+      image: IslamicPencil,
+      hoverImage: Islamic2,
     },
     {
-      title: "I Am Alone - Arabic Story Book",
+      title: "MASWAAK",
       price: 0,
-      image: Nabi,
-      hoverImage: Nabi1,
+      image: Maswak,
+      hoverImage:  Maswak1 ,
     },
     {
-      title: "Janwaron ki Dunya - Urdu Flap Book",
+      title: "Sandal Wood Tasbih",
       price: 0,
-      image: Muslim,
-      hoverImage: Day,
+      image:Tasbih ,
+      hoverImage: Tasbih1 ,
     },
     {
-      title: "I Am Alone - Arabic Story Book",
+      title: "ZamZam",
       price: 0,
-      image: Jannah,
-      hoverImage: Annah,
+      image: Zamzam1,
+      hoverImage: Zamzam2,
     },
     {
-      title: "I Am Alone - Arabic Story Book",
+      title: "Little Mumins Candy",
       price: 0,
-      image: Nabi,
-      hoverImage: Nabi1,
+      image: Candy1,
+      hoverImage: Candy2,
     },
-    // ... baaki products
+ 
   ];
 
   return (
