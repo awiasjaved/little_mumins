@@ -20,7 +20,7 @@ export default function CheckoutPage() {
     email: '',
   });
 
-  const [shipToDifferent, setShipToDifferent] = useState(false);
+  const  [shipToDifferent, setShipToDifferent] = useState(false);
   const [orderNotes, setOrderNotes] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery');
   const [bankNote, setBankNote] = useState('');
