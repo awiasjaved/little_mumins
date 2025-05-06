@@ -20,38 +20,38 @@ const FreeBies = () => {
   const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
     {
+      id:1,
       title: "ISLAMIC CAP",
-      price: 0,
       image: IslamicCap,
       hoverImage: DIslamicCap,
     },
     {
+      id:2,
       title: "ISLAMIC PENCIL",
-      price: 0,
       image: IslamicPencil,
       hoverImage: Islamic2,
     },
     {
+      id:3,
       title: "MASWAAK",
-      price: 0,
       image: Maswak,
       hoverImage:  Maswak1 ,
     },
     {
+      id:4,
       title: "Sandal Wood Tasbih",
-      price: 0,
       image:Tasbih ,
       hoverImage: Tasbih1 ,
     },
     {
+      id:5,
       title: "ZamZam",
-      price: 0,
       image: Zamzam1,
       hoverImage: Zamzam2,
     },
     {
+      id:6,
       title: "Little Mumins Candy",
-      price: 0,
       image: Candy1,
       hoverImage: Candy2,
     },
@@ -61,7 +61,7 @@ const FreeBies = () => {
       
       // Pagination states
       const [currentPage, setCurrentPage] = useState(1);
-      const productsPerPage = 3;
+      const productsPerPage = 6;
   
       // Pagination logic
       const indexOfLastProduct = currentPage * productsPerPage;
@@ -77,8 +77,7 @@ const FreeBies = () => {
     <Container>
     <section className="py-10 text-center">
         <div className="pb-20">
-            <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
-            <h3 className="text-2xl font-semibold mb-8">1-3 Years Products Little Mumins</h3>
+            <h3 className="text-2xl font-semibold mb-8">Freebies Little Mumins</h3>
         </div>
 
         {/* Product Grid */}
