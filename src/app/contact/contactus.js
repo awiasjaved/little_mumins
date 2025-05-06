@@ -1,4 +1,4 @@
-'use client'; 
+'use client';
 
 import { useState } from 'react';
 import { FaWhatsapp, FaEnvelope, FaInstagram, FaFacebookF } from 'react-icons/fa';
@@ -10,21 +10,48 @@ const ContactUs = () => {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); 
-    // yahan apna form submit logic lagana
+    setIsSubmitting(true);
+    setFeedback(null);
+
+    try {
+      const res = await fetch('https://little-mumins-backend.vercel.app/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        setFeedback({ type: 'success', message: 'Message sent successfully!' });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setFeedback({ type: 'error', message: result?.error || 'Something went wrong.' });
+      }
+    } catch (error) {
+      setFeedback({ type: 'error', message: 'Network error. Please try again.' });
+      console.error('Error:', error);
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
     <div className="py-12 px-4 md:px-16 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         
-        {/* Left Side - Contact Information */}
+        {/* Left Side - Contact Info */}
         <div>
           <h2 className="text-3xl font-bold mb-4">Get in touch</h2>
           <h4 className="text-xl font-semibold mb-2">Customer Service</h4>
@@ -106,11 +133,18 @@ const ContactUs = () => {
               />
             </div>
 
+            {feedback && (
+              <div className={`text-sm font-medium ${feedback.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                {feedback.message}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="bg-pink-400 text-white font-bold py-2 px-6 rounded hover:bg-pink-500 transition-all"
+              disabled={isSubmitting}
+              className="bg-pink-400 text-white font-bold py-2 px-6 rounded hover:bg-pink-500 transition-all disabled:opacity-50"
             >
-              SUBMIT
+              {isSubmitting ? 'Submitting...' : 'SUBMIT'}
             </button>
           </form>
         </div>
