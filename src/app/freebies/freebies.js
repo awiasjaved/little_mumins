@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import IslamicCap from "../assets/images/images (1).jpeg";
 import DIslamicCap from "../assets/images/images.jpeg"
 import IslamicPencil from "../assets/images/PENCIL.jpg"
@@ -20,37 +19,32 @@ const FreeBies = () => {
   const [hoveredIndex,  setHoveredIndex] = useState(null);
   const products = [
     {
-      id:1,
       title: "ISLAMIC CAP",
+
       image: IslamicCap,
       hoverImage: DIslamicCap,
     },
     {
-      id:2,
       title: "ISLAMIC PENCIL",
       image: IslamicPencil,
       hoverImage: Islamic2,
     },
     {
-      id:3,
       title: "MASWAAK",
       image: Maswak,
       hoverImage:  Maswak1 ,
     },
     {
-      id:4,
       title: "Sandal Wood Tasbih",
       image:Tasbih ,
       hoverImage: Tasbih1 ,
     },
     {
-      id:5,
       title: "ZamZam",
       image: Zamzam1,
       hoverImage: Zamzam2,
     },
     {
-      id:6,
       title: "Little Mumins Candy",
       image: Candy1,
       hoverImage: Candy2,

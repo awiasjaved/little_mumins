@@ -1,3 +1,4 @@
+"use client";
 import Footer from '../Footer/FooterEnd';
 import bgImage from '../assets/images/little-mumins-islamic-gift-name-little-mumins.jpg'
 // import bgImage from '../assets/images/gifts.png'; // apni image ka path adjust karein

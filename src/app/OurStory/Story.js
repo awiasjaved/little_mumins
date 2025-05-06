@@ -1,5 +1,4 @@
 import React from 'react'
-import TopNav from '../TopBar/TopNav'
 import Image from "next/image";
 import Remove from "../assets/images/remove-removebg-preview.png"
 import cap from "../assets/images/cap.jpg"
