@@ -20,7 +20,7 @@ const FooterEnd  = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Column 1 - Logo and Social Icons */}
-            <div className="flex flex-col items-start md:items-start">
+            <div className="flex flex-col items-start md:items-start ">
               <Image 
                 src={Logo} 
                 alt="Flowers of Jannat Logo" 

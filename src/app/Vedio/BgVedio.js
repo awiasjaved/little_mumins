@@ -37,18 +37,18 @@ const BgVedio = () => {
 
   const title = [
     { char: "L", color: "text-green-500" },
-    { char: "I", color: "text-purple-500" },
-    { char: "T", color: "text-orange-500" },
-    { char: "T", color: "text-yellow-500" },
+    { char: "I", color: "text-yellow-500" },
+    { char: "T", color: "text-pink-500" },
+    { char: "T", color: "text-green-500" },
     { char: "L", color: "text-pink-500" },
-    { char: "E", color: "text-red-500" },
+    { char: "E", color: "text-blue-500" },
     { char: " ", color: "" },
+    { char: "M", color: "text-yellow-500" },
+    { char: "U", color: "text-pink-500" },
     { char: "M", color: "text-blue-500" },
-    { char: "U", color: "text-blue-500" },
-    { char: "M", color: "text-blue-500" },
-    { char: "I", color: "text-blue-500" },
-    { char: "N", color: "text-blue-500" },
-    { char: "S", color: "text-blue-500" },
+    { char: "I", color: "text-yellow-500" },
+    { char: "N", color: "text-yellow-500" },
+    { char: "S", color: "text-pink-500" },
   ];
 
   if (!isClient) return null;
