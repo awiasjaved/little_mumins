@@ -64,12 +64,12 @@ const ContactUs = () => {
             </li>
             <li className="flex items-center">
               <FaEnvelope className="mr-3 text-pink-500 text-xl" />
-              info@littlemumins.com
+              littlemuminsreads@gmail.com
             </li>
             <li className="flex items-center">
               <FaInstagram className="mr-3 text-pink-500 text-xl" />
               <a
-                href=""
+                href="https://www.instagram.com/thelittle_mumins/?igsh=Z2dhcWM2Nm9uanRs"
                 className="text-pink-600 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
