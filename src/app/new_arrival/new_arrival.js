@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 
 // Images
 import Jannah from "../assets/images/Jannah.jpg";
-import Annah from "../assets/images/Jannah.jpg";
 import Khood from "../assets/images/khood.jpg";
 import Hoob from "../assets/images/hoob.jpg";
 import Jannat from "../assets/images/jannat.jpg";
