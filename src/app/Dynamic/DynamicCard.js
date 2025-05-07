@@ -77,15 +77,14 @@ const DynamicCard = ({
             sizes="(max-width: 768px) 100vw, 33vw"
           />
 
-<div className="absolute w-full bottom-0 z-10">
-  <button
-    onClick={() => setShowModal(true)}
-    className="w-full  bg-black text-white sm:text-sm px-5 py-3 rounded-md shadow"
-  >
-    View Description
-  </button>
-</div>
-
+          <div className="absolute w-full bottom-0 z-10">
+            <button
+              onClick={() => setShowModal(true)}
+              className="w-full bg-black text-white sm:text-sm px-5 py-3 rounded-md shadow"
+            >
+              View Description
+            </button>
+          </div>
         </div>
 
         {/* Product Title */}
@@ -121,12 +120,12 @@ const DynamicCard = ({
           <div className="bg-[#f9fcfc] w-full max-w-4xl p-6 rounded-lg shadow-lg relative flex flex-col md:flex-row gap-4">
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl"
+              className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl text-center"
             >
               &times;
             </button>
 
-            <div className="relative w-full md:w-1/2 h-64 sm:h-72 rounded-md overflow-hidden">
+            <div className="relative w-full h-64 sm:h-72 rounded-md overflow-hidden">
               <Image
                 src={image || "/default-image.jpg"}
                 alt={title || "Product Image"}
@@ -138,12 +137,12 @@ const DynamicCard = ({
             </div>
 
             <div
-              className="w-full md:w-1/2 text-black text-sm sm:text-base"
+              className="w-full text-black text-sm sm:text-base"
               style={{ fontFamily: "'Open Sans', sans-serif" }}
             >
               <h4 className="font-bold text-lg sm:text-xl mb-2">{title || "Product Title"}</h4>
 
-              <div className="flex flex-wrap justify-start items-center gap-2 mb-3">
+              <div className="flex flex-wrap justify-center items-center gap-2 mb-3">
                 {page && (
                   <h4 className="text-sm sm:text-base font-bold text-[#d162d1]">
                     {page}

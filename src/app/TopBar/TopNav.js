@@ -58,17 +58,17 @@ const TopNav = () => {
   const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 ${blurEffect} `}>
-      <div className="px-1 lg:px-16 flex justify-between items-center ">
+    <div className={`fixed top-0 left-0 w-full z-50 ${blurEffect}`}>
+      <div className="px-1 lg:px-16 flex justify-between items-center">
         <Link href="/" className="cursor-pointer">
           <Image src={Logo} alt="Logo" width={100} height={50} />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className={`hidden md:flex items-center  font-light ${navTextColor} ${borderColor}`}>
+        <nav className={`hidden md:flex items-center font-light ${navTextColor} `}>
           <ul className="flex items-center space-x-4">
             {items.map((item) => (
-              <li key={item.name} className="relative  px-2 text-lg">
+              <li key={item.name} className="relative px-2 text-lg">
                 {item.subItems ? (
                   <div
                     className="relative group"
@@ -112,56 +112,57 @@ const TopNav = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Absolute Right-Side Panel) */}
+      <div className="relative">
         {mobileMenuOpen && (
-          <>
-            <div className="fixed inset-0 z-40" onClick={() => setMobileMenuOpen(false)}></div>
-          
-              <ul className="space-y-2 text-white text-base font-semibold">
-                {items.map((item) => (
-                  <li key={item.name} className="space-y-1">
-                    {item.subItems ? (
-                      <div
-                        className="flex justify-between items-center cursor-pointer"
-                        onClick={() => toggleExpandMobile(item.name)}
-                      >
-                        <div className={`hover:text-yellow-400 transition duration-300 ${item.color}`}>
-                          {item.name}
-                        </div>
-                        {expandedMenu === item.name ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.link}
-                        className={`block hover:text-yellow-400 transition duration-300 ${item.color}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
+          <div className="absolute right-2   w-40 bg-white z-50 shadow-lg p-4 md:hidden">
+            <div className="flex justify-between items-center mb-4">
+              <Image src={Logo} alt="Logo" width={80} height={40} />
+              <button onClick={() => setMobileMenuOpen(false)} className="text-2xl text-gray-800">✕</button>
+            </div>
 
-                    {/* Submenu Rendering */}
-                    {item.subItems && expandedMenu === item.name && (
-                      <ul className="ml-4 mt-2 space-y-2 text-sm font-normal bg-[#cdf1f3] p-2 rounded-md">
-                        {item.subItems.map((subItem) => (
-                          <li key={subItem.name}>
-                            <Link
-                              href={subItem.link}
-                              className={`block hover:text-yellow-300 transition duration-300 ${item.color}`}
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-          </>
+            <ul className="space-y-4 text-gray-800 font-medium">
+              {items.map((item) => (
+                <li key={item.name}>
+                  {item.subItems ? (
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() => toggleExpandMobile(item.name)}
+                    >
+                      <span className={`hover:text-yellow-400 ${item.color}`}>{item.name}</span>
+                      {expandedMenu === item.name ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.link}
+                      className={`block hover:text-yellow-400 transition duration-300 ${item.color}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+
+                  {item.subItems && expandedMenu === item.name && (
+                    <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-gray-600">
+                      {item.subItems.map((subItem) => (
+                        <li key={subItem.name}>
+                          <Link
+                            href={subItem.link}
+                            className="block hover:text-yellow-300"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
-     
+      </div>
     </div>
   );
 };

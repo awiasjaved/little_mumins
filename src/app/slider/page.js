@@ -14,7 +14,6 @@ import OURNabi from "../assets/images/ournabi.png";
 import Adventure from "../assets/images/adventure.png";
 
 const Page = () => {
-  //  Move it inside here
   const collections = [
     { age: "Once Upon a Revelation", image: Once, alt: "Once " },
     { age: "Mekael goes to Madinah", image: Mekael, alt: "Mekael" },
@@ -50,13 +49,13 @@ const Page = () => {
   }, [controls]);
 
   return (
-    <div className="h-[60vh] bg-[#d7f4f5] px-4 py-8 ">
+    <div className="h-[60vh]  ">
       <h1 className="text-3xl font-bold text-center pt-20 pb-20">Little Mumins Collection</h1>
       <div className="relative overflow-hidden " ref={scrollRef}>
         <motion.div animate={controls} className="flex gap-6 px-10 py-4">
           {repeatedCollections.map((collection, index) => (
-            <div key={index} className="flex-shrink-0 w-64">
-              <div className="flex flex-col  ">
+            <div key={index} className="flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[400px]">
+              <div className="flex flex-col">
                 <div className="rounded-full p-1 mb-3 overflow-hidden w-48 h-48 mx-auto relative flex items-center justify-center">
                   <Image
                     src={collection.image}

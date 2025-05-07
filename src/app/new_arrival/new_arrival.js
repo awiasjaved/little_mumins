@@ -99,51 +99,55 @@ const NewArrival = () => {
 
   return (
     <Container>
-      <section className="py-10 text-center">
-        {/* Motion Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="pb-20"
-        >
-          <h2 className="text-lg text-gray-900 uppercase pt-20">New Arrivals</h2>
-          <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
-        </motion.div>
+    <section className="py-10 text-center">
+      {/* Motion Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="pb-20"
+      >
+        <h2 className="text-lg text-gray-900 uppercase pt-20">New Arrivals</h2>
+        <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
+      </motion.div>
+  
+      {/* Product Grid */}
+      <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  className="pb-20"
+>
+  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+    {products.map((product) => (
+      <DynamicCard
+        key={product.id}
+        {...product}
+        onAddToCart={addToCart}
+      />
+    ))}
+  </div>
+</motion.div>
 
-        {/* Product Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="pb-20"
-        >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <DynamicCard
-              key={product.id}
-              {...product}
-              onAddToCart={addToCart}
-            />
-          ))}
-        </div>
-        </motion.div>
 
-        {/* Motion Button for View All Products */}
-        <Link href="/bookshop">
-          <motion.button
-            whileHover={{ x: [0, -5, 5, -5, 5, 0] }}
-            transition={{ duration: 0.6 }}
-            className="mt-10 bg-[#f6339a] text-white py-2 px-6 rounded-full cursor-pointer hover:bg-[#d12c89]"
-          >
-            <div className="flex items-center gap-1">
-              View All Products
-              <FaArrowRight />
-            </div>
-          </motion.button>
-        </Link>
-      </section>
-    </Container>
+  
+      {/* Motion Button for View All Products */}
+      <Link href="/bookshop">
+        <motion.button
+          whileHover={{ x: [0, -5, 5, -5, 5, 0] }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 bg-[#f6339a] text-white py-2 px-6 rounded-full cursor-pointer hover:bg-[#d12c89]"
+        >
+          <div className="flex items-center gap-1">
+            View All Products
+            <FaArrowRight />
+          </div>
+        </motion.button>
+      </Link>
+    </section>
+  </Container>
+  
+  
   );
 };
 

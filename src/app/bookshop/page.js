@@ -6,6 +6,7 @@ import bgImageMobile from '../assets/images/-the-upper-books-of-the-table-are-na
 import AllProduct from './AllProduct';
 import Flowers from '../ShopNow/Flowers';
 import FooterEnd from '../Footer/FooterEnd';
+import Circle from "../slider/page"
 const bookshopTitle = [
   { char: "B", color: "text-green-500" },
   { char: "O", color: "text-purple-500" },
@@ -60,6 +61,7 @@ export const page = () => {
           </h1>
         </div>
       </div>
+      <Circle/>
       <AllProduct/>
       <Flowers/>
       <FooterEnd/>

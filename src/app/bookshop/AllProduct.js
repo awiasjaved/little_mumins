@@ -3,6 +3,7 @@ import Container from "../Container";
 import DynamicCard from "../Dynamic/DynamicCard";
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import { motion } from "framer-motion";
 // Images
 import Jannah from "../assets/images/Jannah.jpg";
 import Annah from "../assets/images/Jannah.jpg";
@@ -181,13 +182,25 @@ const AllProduct = () => {
   return (
     <Container>
     <section className="py-10 text-center">
-      <div className="pb-20">
+    <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="pb-20"
+      >
+        
         <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
         <h3 className="text-2xl font-semibold mb-8">All Products Little Mumins</h3>
-      </div>
+        </motion.div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  className="pb-20"
+>
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
         {paginatedProducts.map((product) => (
           <DynamicCard
             key={product.id}
@@ -196,7 +209,7 @@ const AllProduct = () => {
           />
         ))}
       </div>
-
+      </motion.div>
       {/* Pagination Controls */}
       <div className="mt-10 flex justify-center gap-2">
         {Array.from({ length: totalPages }, (_, i) => (

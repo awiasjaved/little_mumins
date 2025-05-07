@@ -10,11 +10,7 @@ const BgVedio = () => {
 
   useEffect(() => {
     setIsClient(true);
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -24,9 +20,7 @@ const BgVedio = () => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
@@ -55,16 +49,16 @@ const BgVedio = () => {
 
   return (
     <div
-      className={`w-full h-screen bg-cover bg-center`}
+      className="w-full h-screen bg-cover bg-center relative"
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       <div
         className={`absolute inset-0 bg-black/50 flex items-center justify-center ${styles.overlay}`}
       >
-        <div className="text-white text-center px-4">
+        <div className="text-white text-center px-2 sm:px-4 w-full max-w-6xl">
           {/* Animated Title */}
           <motion.div
-            className="flex flex-wrap justify-center text-5xl sm:text-6xl md:text-8xl font-bold"
+            className="flex flex-wrap justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold"
             style={{ WebkitTextStroke: "0.5px #971a32" }}
             variants={container}
             initial="hidden"
@@ -85,7 +79,7 @@ const BgVedio = () => {
 
           {/* Animated Subtext */}
           <motion.div
-            className="mt-4 flex flex-wrap justify-center text-white text-xl sm:text-2xl md:text-3xl font-semibold"
+            className="mt-4 flex flex-wrap justify-center text-base sm:text-xl md:text-2xl lg:text-3xl font-semibold"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
