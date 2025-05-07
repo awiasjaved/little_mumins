@@ -6,7 +6,7 @@ import Khood from "../assets/images/khood.jpg";
 import Hoob from "../assets/images/hoob.jpg";
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
-import Creat from "../assets/images/who_created.jpg";
+import Creat from "../assets/images/photo-output.jpg";
 import Created from "../assets/images/who_created_1.jpeg";
 import Container from "../Container";
 const Board_books = () => {

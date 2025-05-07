@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
 
-import bgImageDesktop from '../assets/images/-the-upper-books-of-the-table-are-named-little-mum.png';
-import bgImageMobile from '../assets/images/-the-upper-books-of-the-table-are-named-little-mum.png';
+import bgImageDesktop from "@/app/assets/images/the-upper-books-of-the-table-are-named-little-mum.png";
+import bgImageMobile from "@/app/assets/images/the-upper-books-of-the-table-are-named-little-mum.png";
+
 import AllProduct from './AllProduct';
 import Flowers from '../ShopNow/Flowers';
 import FooterEnd from '../Footer/FooterEnd';

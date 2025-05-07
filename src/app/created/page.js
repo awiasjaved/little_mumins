@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import BookCard from "../Dynamic/BookCard";
-import bookImage from "../assets/images/photo-output_0.jpg";
+import bookImage from "../assets/images/photo-output.jpg";
 import bookCreateImage from "../assets/images/photo-output_2.jpg";
 import { useCart } from "../context/CartContext";
 
