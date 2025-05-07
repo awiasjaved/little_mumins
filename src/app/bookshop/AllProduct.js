@@ -166,7 +166,7 @@ const AllProduct = () => {
   const { addToCart } = useCart();
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 6;
+  const productsPerPage = 3;
   // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
