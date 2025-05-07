@@ -6,6 +6,8 @@ import Khood from "../assets/images/khood.jpg";
 import Hoob from "../assets/images/hoob.jpg";
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
+import Creat from "../assets/images/who_created.jpg";
+import Created from "../assets/images/who_created_1.jpeg";
 import Container from "../Container";
 const Board_books = () => {
     const products = [
@@ -35,17 +37,16 @@ const Board_books = () => {
         },
         {
             id: 2,
-            title: " Safas Colourful Adventure",
+            title: " Who created",
             cloth: "○ Paper Book",
             page: "○ English",
             size: "○ Size 8*8 inches",
-            price: 600,
+            price: 550,
             oldPrice: 660,
-            image: Khood,
-            hoverImage: Hoob,
+            image: Creat,
+            hoverImage: Created,
             description: `
-         As she soars through the skies, Safa discovers the breathtaking beauty of Allah’s colourful world, where every colour tells a story. From gardens filled with flowers to cool rivers with pink fish, each moment is filled with fascinating facts from the Quran.
-And when the journey ends, the fun continues with exciting activities that will make you see the vibrant world around you in a whole new light of Quran and Hadith. This unforgettable adventure will leave little readers exploring colours and nature with gratitude and wonder long after the adventure ends. `,
+         The book in your hands is a unique bilingual book which along with introducing colours to toddlers, also instills in them the concept that the Creator of everything around us is our Lord, Allah SWT. `,
 
         },
     ];

@@ -6,30 +6,33 @@ import Bismillah from "../assets/images/bismillah.jpg"
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
+import Nabi from "../assets/images/Nabi.jpg";
+import Nabi1 from "../assets/images/Nabi1.jpg";
 const Activity_books = () => {
     const products = [
         {
             id: 1,
-            title: "A Day in the  Life of a Muslim",
-            cloth: "○ Colouring Book",
+            title: "Our Nabi Hadith book",
+            cloth: "○ Activity Book",
             size: "○ Comes with a sticker sheet",
-            price: 500,
-            oldPrice: 600,
-            image: Day,
-            hoverImage: Bismillah,
-            description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`
+            price: 550,
+            oldPrice: 650,
+            image: Nabi,
+            hoverImage: Nabi1,
+            description: `None of you will have faith, till he loves me more than his father, his children, and all mankind.”
+            (Sahih Bukhari)`
         },
-        {
-            id: 2,
-            title: "A Day in the Life of a Muslim",
-            cloth: "○ Colouring Book",
-            size: "○ Comes with a sticker sheet",
-            price: 500,
-            oldPrice: 600,
-            image: Day,
-            hoverImage: Bismillah,
-            description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`,
-          },
+       {
+           id: 2,
+           title: "A Day in the Life of a Muslim",
+           cloth: "○ Colouring Book",
+           size: "○ Comes with a sticker sheet",
+           price: 500,
+           oldPrice: 600,
+           image: Day,
+           hoverImage: Bismillah,
+           description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`,
+         },
     ];
     const { addToCart } = useCart();
     // Pagination states

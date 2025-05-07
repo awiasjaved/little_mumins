@@ -1,8 +1,9 @@
 "use client";  // This should be the first line of the file
 import React, { useState } from "react";
 
-import Day from "../assets/images/DayMuslim.jpg"
-import Bismillah from "../assets/images/bismillah.jpg"
+import sahaba from "../assets/images/sahaba_stories.jpeg"
+import Nabi from "../assets/images/Nabi.jpg";
+import Nabi1 from "../assets/images/Nabi1.jpg";
 import Our from "../assets/images/our.jpg";
 import Star from "../assets/images/Star.jpg";
 import { useCart } from '../context/CartContext';
@@ -10,17 +11,18 @@ import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
 const Hadith_Seerah_and_islamic_history = () => {
     const products = [
-        {
-            id: 1,
-            title: "A Day in the  Life of a Muslim",
-            cloth: "○ Colouring Book",
-            size: "○ Comes with a sticker sheet",
-            price: 500,
-            oldPrice: 600,
-            image: Day,
-            hoverImage: Bismillah,
-            description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`
-        },
+       {
+                   id: 1,
+                   title: "Our Nabi Hadith book",
+                   cloth: "○ Activity Book",
+                   size: "○ Comes with a sticker sheet",
+                   price: 550,
+                   oldPrice: 650,
+                   image: Nabi,
+                   hoverImage: Nabi1,
+                   description: `None of you will have faith, till he loves me more than his father, his children, and all mankind.”
+                   (Sahih Bukhari)`
+               },
         {
            id: 2,
            title: "Our Stars",
@@ -35,20 +37,21 @@ const Hadith_Seerah_and_islamic_history = () => {
            As an activity, at the end of the book, parents can ask their children to pick their favorite Sahabiyah and discuss the lessons they learned from the character and life of that Sahabiyah.
            May Allah help us and our children to follow the footsteps of Rasul Allah ﷺ and his noble Companions (Ameen)`,
          },
-         {
-            id: 3,
-            title: "Our Stars",
-            cloth: "○ Set of 2 Books",
-            size: "○ Get to know 15 Sahaba and 15 Sahabiyat",
-            price: 500,
-            oldPrice: 600,
-            image: Our,
-            hoverImage: Star,
-            description: `The Sahabiyat were the best of people. They were As-Sabiqun, the forerunners. Hence, we should make them our role models.
-            This book aims to introduce the female companions of Rasul Allah ﷺ to our children from a young age so that they know whom to seek inspiration from. This book will help our children recognize the Sahabiyat as “Our Stars” and help them learn from each Sahabiyah’s exemplary character and life.
-            As an activity, at the end of the book, parents can ask their children to pick their favorite Sahabiyah and discuss the lessons they learned from the character and life of that Sahabiyah.
-            May Allah help us and our children to follow the footsteps of Rasul Allah ﷺ and his noble Companions (Ameen)`,
-          },
+          {
+                        id: 3,
+                        title: "⁠Sahaba Stories",
+                        cloth: "○ Set of 2 Books",
+                        page: "○ English",
+                        size: "○ Size 8*8 inches",
+                        price: 1280,
+                        oldPrice: 1500,
+                        image: sahaba,
+                        description: `
+                         Sahaba Stories are powerful tales of the noble companions of Prophet Muhammad (PBUH), who stood by him through every trial. They sacrificed their wealth, time, and even lives for the sake of Islam. Each story carries a deep lesson in faith, patience, and truthfulness. From Abu Bakr’s loyalty to Umar’s justice,
+                          <br/>
+                         Uthman’s generosity to Ali’s wisdom—each companion offers a unique example to follow. These stories are spiritually uplifting for both children and adults. They teach us to love Islam, prepare for the Hereafter, and develop strong moral character.
+                        `,
+                      },
     ];
     const { addToCart } = useCart();
     // Pagination states

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 import Jannah from "../assets/images/Jannah.jpg";
 import Annah from "../assets/images/Jannah.jpg";
-import Safa from "../assets/images/safa.jpg"
-import Sfa from "../assets/images/sfa.jpg"
+import count from "../assets/images/count.jpg"
+import count1 from "../assets/images/count1.jpg"
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
@@ -30,8 +30,8 @@ const Hardcover = () => {
             size: "○ Size 8*8 inches",
             price: 600,
             oldPrice: 660,
-            image: Safa,
-            hoverImage: Sfa,
+            image: count,
+            hoverImage: count1,
             description: `
          Count Your Way to Jannah” is a unique counting book which aims to teach toddlers counting from 1 to 10 through Islamic concepts. Through this book, toddlers will not only learn numbers but will also learn ten different Islamic facts and concepts in a fun and exciting way along with captivating illustrations. `,
 
