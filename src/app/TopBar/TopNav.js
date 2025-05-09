@@ -43,12 +43,12 @@ const TopNav = () => {
   };
 
   const items = [
-    { name: "BOOK SHOP", link: "/bookshop", color: "text-[#d1e83c]" },
-    { name: "ABOUT US", link: "/about", color: "text-[#4ec2e8]" },
+    { name: "BOOK SHOP", link: "/bookshop", color: "text-white" },
+    { name: "ABOUT US", link: "/about", color: "text-white" },
     {
       name: "BY AGE",
       link: "/age",
-      color: "text-[#bf4ee8]",
+      color: "text-white",
       subItems: [
         { name: "0-3 Years", link: "/threeyears" },
         { name: "4-6 Years", link: "/four" },
@@ -58,7 +58,7 @@ const TopNav = () => {
     {
       name: "BY TYPE",
       link: "#",
-      color: "text-[#e84e68]",
+      color: "text-white",
       subItems: [
         { name: "Story books", link: "/story_books" },
         { name: "Board books", link: "/board_books" },
@@ -70,8 +70,8 @@ const TopNav = () => {
         { name: "Hardcover", link: "/hardcover" },
       ],
     },
-    { name: "FREEBIES", link: "/freebies", color: "text-yellow-400" },
-    { name: "CONTACT US", link: "/contact", color: "text-purple-400" },
+    { name: "FREEBIES", link: "/freebies", color: "text-white" },
+    { name: "CONTACT US", link: "/contact", color: "text-white" },
   ];
 
   const navTextColor =
@@ -81,7 +81,7 @@ const TopNav = () => {
   const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 ${blurEffect}`}>
+    <div className={`fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-lg`}>
       <div className="px-1 lg:px-16 flex justify-between items-center">
         <Link href="/" className="cursor-pointer">
           <Image src={Logo} alt="Logo" width={100} height={50} />
