@@ -52,7 +52,7 @@ const Page = () => {
     <div className="h-[60vh]  ">
       <h1 className="text-3xl font-bold text-center pt-20 pb-20">Little Mumins Collection</h1>
       <div className="relative overflow-hidden " ref={scrollRef}>
-        <motion.div animate={controls} className="flex gap-6 px-10 py-4">
+        <motion.div animate={controls} className="flex gap-1 px-10 py-4">
           {repeatedCollections.map((collection, index) => (
             <div key={index} className="flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[400px]">
               <div className="flex flex-col">

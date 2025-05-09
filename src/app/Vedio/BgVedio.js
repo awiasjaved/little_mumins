@@ -30,19 +30,19 @@ const BgVedio = () => {
   };
 
   const title = [
-    { char: "L", color: "text-green-500" },
-    { char: "I", color: "text-yellow-500" },
-    { char: "T", color: "text-pink-500" },
-    { char: "T", color: "text-green-500" },
-    { char: "L", color: "text-pink-500" },
-    { char: "E", color: "text-blue-500" },
+    { char: "L", color: "text-[#5eb192]" },
+    { char: "I", color: "text-[#e8c74e]" },
+    { char: "T", color: "text-[#dd7984]" },
+    { char: "T", color: "text-[#5eb192]" },
+    { char: "L", color: "text-[#dd7984]" },
+    { char: "E", color: "text-[#589cb2]" },
     { char: " ", color: "" },
-    { char: "M", color: "text-yellow-500" },
-    { char: "U", color: "text-pink-500" },
-    { char: "M", color: "text-blue-500" },
-    { char: "I", color: "text-yellow-500" },
-    { char: "N", color: "text-yellow-500" },
-    { char: "S", color: "text-pink-500" },
+    { char: "M", color: "text-[#e8c74e]" },
+    { char: "U", color: "text-[#dd7984]" },
+    { char: "M", color: "text-[#589cb2]" },
+    { char: "I", color: "text-[#a6bf5c]" },
+    { char: "N", color: "text-[#e8c74e]" },
+    { char: "S", color: "text-[#dd7984]" },
   ];
 
   if (!isClient) return null;

@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 
-// Animation Variants for bounce effect
+// Bounce effect for card entry
 const bounceInVariant = {
   hidden: { opacity: 0, scale: 0.3 },
   visible: {
@@ -13,6 +13,21 @@ const bounceInVariant = {
       duration: 0.9,
       ease: "easeOut",
     },
+  },
+};
+
+// Scale-fade animation for modal
+const modalAnimation = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    transition: { duration: 0.3, ease: "easeIn" },
   },
 };
 
@@ -57,7 +72,7 @@ const DynamicCard = ({
   return (
     <>
       <motion.div
-        className={`rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col justify-between bg-[#d7f4f5] ${className}`} // Corrected className string
+        className={`rounded-lg p-4 drop-shadow-xl hover:drop-shadow-2xl transition flex flex-col justify-between bg-[#cdf1f3]/40 backdrop-blur-md ${className}`}
         variants={bounceInVariant}
         initial="hidden"
         animate={controls}
@@ -91,8 +106,8 @@ const DynamicCard = ({
         <h4 className="text-lg sm:text-2xl font-medium mb-6">{title || "Product Title"}</h4>
 
         {/* Price and Cart */}
-        <div className="mt-auto">
-          <div className="flex items-center gap-2 mb-6">
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center gap-2">
             {oldPrice && (
               <span className="text-red-600 line-through text-base sm:text-lg">
                 Rs {oldPrice}
@@ -114,60 +129,65 @@ const DynamicCard = ({
         </div>
       </motion.div>
 
-      {/* Modal Popup */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-30 backdrop-blur-sm p-4">
-          <div className="bg-[#f9fcfc] w-full max-w-4xl p-6 rounded-lg shadow-lg relative flex flex-col md:flex-row gap-4">
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl text-center"
-            >
-              &times;
-            </button>
+      {/* Animated Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            key="modal"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={modalAnimation}
+            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm "
+          >
+            <div className="bg-[#f9fcfc] w-full max-w-4xl p-6 rounded-lg shadow-lg relative flex flex-col md:flex-row gap-4">
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl"
+              >
+                &times;
+              </button>
 
-            <div className="relative w-full h-64 sm:h-72 rounded-md overflow-hidden">
-              <Image
-                src={image || "/default-image.jpg"}
-                alt={title || "Product Image"}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-md"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-
-            <div
-              className="w-full text-black text-sm sm:text-base"
-              style={{ fontFamily: "'Open Sans', sans-serif" }}
-            >
-              <h4 className="font-bold text-lg sm:text-xl mb-2">{title || "Product Title"}</h4>
-
-              <div className="flex flex-wrap justify-center items-center gap-2 mb-3">
-                {page && (
-                  <h4 className="text-sm sm:text-base font-bold text-[#d162d1]">
-                    {page}
-                  </h4>
-                )}
-                {cloth && (
-                  <h4 className="text-sm sm:text-base font-bold text-[#ee6509]">
-                    {cloth}
-                  </h4>
-                )}
-                {size && (
-                  <h4 className="text-sm sm:text-base font-bold text-[#070991]">
-                    {size}
-                  </h4>
-                )}
+              <div className="relative w-full h-64 sm:h-72 rounded-md overflow-hidden">
+                <Image
+                  src={image || "/default-image.jpg"}
+                  alt={title || "Product Image"}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-md"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
 
               <div
-                className="text-gray-700 text-sm sm:text-base"
-                dangerouslySetInnerHTML={{ __html: description || "No description available." }}
-              />
+                className="w-full text-black text-sm sm:text-base"
+                style={{ fontFamily: "'Open Sans', sans-serif" }}
+              >
+                <h4 className="font-bold text-lg sm:text-xl mb-2">{title || "Product Title"}</h4>
+
+                <div className="flex flex-wrap justify-center items-center gap-2 mb-3">
+                  {page && (
+                    <h4 className="text-sm sm:text-base font-bold text-[#d162d1]">{page}</h4>
+                  )}
+                  {cloth && (
+                    <h4 className="text-sm sm:text-base font-bold text-[#ee6509]">{cloth}</h4>
+                  )}
+                  {size && (
+                    <h4 className="text-sm sm:text-base font-bold text-[#070991]">{size}</h4>
+                  )}
+                </div>
+
+                <div
+                  className="text-gray-700 text-sm sm:text-base"
+                  dangerouslySetInnerHTML={{
+                    __html: description || "No description available.",
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

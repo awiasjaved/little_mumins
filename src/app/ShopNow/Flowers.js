@@ -6,19 +6,19 @@ import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 const Flowers = () => {
   const title = [
-    { char: "L", color: "text-green-500" },
-    { char: "I", color: "text-purple-500" },
-    { char: "T", color: "text-orange-500" },
-    { char: "T", color: "text-yellow-500" },
-    { char: "L", color: "text-pink-500" },
-    { char: "E", color: "text-red-500" },
+    { char: "L", color: "text-[#5eb192]" },
+    { char: "I", color: "text-[#e8c74e]" },
+    { char: "T", color: "text-[#dd7984]" },
+    { char: "T", color: "text-[#5eb192]" },
+    { char: "L", color: "text-[#dd7984]" },
+    { char: "E", color: "text-[#589cb2]" },
     { char: " ", color: "" },
-    { char: "M", color: "text-blue-500" },
-    { char: "U", color: "text-blue-500" },
-    { char: "M", color: "text-blue-500" },
-    { char: "I", color: "text-blue-500" },
-    { char: "N", color: "text-blue-500" },
-    { char: "S", color: "text-blue-500" },
+    { char: "M", color: "text-[#e8c74e]" },
+    { char: "U", color: "text-[#dd7984]" },
+    { char: "M", color: "text-[#589cb2]" },
+    { char: "I", color: "text-[#a6bf5c]" },
+    { char: "N", color: "text-[#e8c74e]" },
+    { char: "S", color: "text-[#dd7984]" },
   ];
 
   return (
@@ -41,6 +41,7 @@ const Flowers = () => {
         whileInView={{ opacity: 1, y: 20 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="pb-10 sm:pb-16 md:pb-20"
+        style={{ WebkitTextStroke: "0.2px #971a32" }}
       >
         {/* Title */}
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight sm:leading-snug">
@@ -53,7 +54,7 @@ const Flowers = () => {
   
         {/* Tagline */}
         <p
-          className="text-lg sm:text-xl md:text-2xl italic text-[#7bf04d] mb-6 sm:mb-8"
+          className="text-lg sm:text-xl md:text-2xl italic text-[#ffff] mb-6 sm:mb-8"
           style={{ WebkitTextStroke: "0.1px #FFFDD0" }}
         >
           &quot;Nurturing the seed of Iman in young hearts&quot;

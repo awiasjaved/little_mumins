@@ -6,7 +6,7 @@
 }
 @layer components{
   .btn{
-    @apply flex items-center space-x-2 bg-[#f6339a] text-white px-6 py-3 rounded-full hover:bg-[#d12c89] cursor-pointer
+    @apply flex items-center space-x-2 bg-[#fd6ebb] text-white px-6 py-3 rounded-full hover:bg-[#f6339a] cursor-pointer
   }
 }
 @theme inline {
@@ -23,7 +23,7 @@
 
 body {
   /* font-family: 'Kepler Std'; */
-  background-color: #d8d8d8;
+  background-color: #f9fcfc;
 }
 /* /* .swiper-slide-custom {
   width: 80% !important;

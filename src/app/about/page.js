@@ -1,19 +1,49 @@
 "use client";
-import FooterEnd from '../Footer/FooterEnd';
-import Flowers from '../ShopNow/Flowers';
-import Story from '../OurStory/Story';
-import bgImageDesktop from '../assets/images/stab.jpg';
-import bgImageMobile from '../assets/images/stab.jpg';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import FooterEnd from "../Footer/FooterEnd";
+import Flowers from "../ShopNow/Flowers";
+import Story from "../OurStory/Story";
+import bgImageDesktop from "../assets/images/stab.jpg";
+import bgImageMobile from "../assets/images/stab.jpg";
+
+// Animation config
+const textAnimation = {
+  initial: {
+    opacity: 0,
+    letterSpacing: "-0.5em",
+    y: -100,
+  },
+  animate: {
+    opacity: 1,
+    letterSpacing: "0em",
+    y: 0,
+  },
+  transition: {
+    duration: 0.7,
+    ease: [0.215, 0.61, 0.355, 1.0],
+  },
+};
+
 const bookshopTitle = [
   { char: "A", color: "text-green-500" },
   { char: "B", color: "text-purple-500" },
   { char: "O", color: "text-orange-500" },
   { char: "U", color: "text-yellow-500" },
   { char: "T", color: "text-pink-500" },
-  
 ];
 
-const page = () => {
+const Page = () => {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldAnimate(true);
+    }, 1500); // delay in ms before animation starts
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       {/* Desktop Background */}
@@ -22,7 +52,13 @@ const page = () => {
         style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
       >
         <div className="absolute bottom-0 text-white flex items-center justify-center inset-0 bg-black/50">
-          <h1 className="text-7xl font-bold flex">
+          <motion.h1
+            className="text-7xl font-bold flex"
+            initial="initial"
+            animate={shouldAnimate ? "animate" : "initial"}
+            variants={textAnimation}
+            transition={textAnimation.transition}
+          >
             {bookshopTitle.map((item, index) => (
               <span
                 key={index}
@@ -32,7 +68,7 @@ const page = () => {
                 {item.char}
               </span>
             ))}
-          </h1>
+          </motion.h1>
         </div>
       </div>
 
@@ -42,7 +78,13 @@ const page = () => {
         style={{ backgroundImage: `url(${bgImageMobile.src})` }}
       >
         <div className="absolute inset-0 bg-black/60 flex items-end justify-center p-4">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white text-center">
+          <motion.h1
+            className="text-3xl sm:text-4xl font-bold text-white text-center"
+            initial="initial"
+            animate={shouldAnimate ? "animate" : "initial"}
+            variants={textAnimation}
+            transition={textAnimation.transition}
+          >
             {bookshopTitle.map((item, index) => (
               <span
                 key={index}
@@ -52,15 +94,15 @@ const page = () => {
                 {item.char}
               </span>
             ))}
-          </h1>
+          </motion.h1>
         </div>
       </div>
+
       <Story />
       <Flowers />
       <FooterEnd />
-
     </>
   );
-}
+};
 
-export default page;
+export default Page;
