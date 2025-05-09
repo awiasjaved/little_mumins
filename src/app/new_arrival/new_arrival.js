@@ -98,6 +98,10 @@ const NewArrival = () => {
   const { addToCart } = useCart();
 
   return (
+    <div
+    className="min-h-screen bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/back.png')" }}
+  >
     <Container>
     <section className="py-10 text-center">
       {/* Motion Section */}
@@ -146,7 +150,7 @@ const NewArrival = () => {
       </Link>
     </section>
   </Container>
-  
+  </div>
   
   );
 };

@@ -3,6 +3,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+
+// Images
 import Once from "../assets/images/oneupontime.png";
 import Mekael from "../assets/images/circleMikaelgoes.png";
 import Your from "../assets/images/CourtYour.png";
@@ -49,28 +51,40 @@ const Page = () => {
   }, [controls]);
 
   return (
-    <div className="h-[60vh]  ">
-      <h1 className="text-3xl font-bold text-center pt-20 pb-20">Little Mumins Collection</h1>
-      <div className="relative overflow-hidden " ref={scrollRef}>
-        <motion.div animate={controls} className="flex gap-1 px-10 py-4">
-          {repeatedCollections.map((collection, index) => (
-            <div key={index} className="flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[400px]">
-              <div className="flex flex-col">
-                <div className="rounded-full p-1 mb-3 overflow-hidden w-48 h-48 mx-auto relative flex items-center justify-center">
-                  <Image
-                    src={collection.image}
-                    alt={collection.alt}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="rounded-full"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/desktop_background.png')" }}
+    >
+      <div className="h-[60vh]">
+        <h1 className="text-3xl font-bold text-center pt-20 pb-20 text-white drop-shadow-md">
+          Little Mumins Collection
+        </h1>
+        <div className="relative overflow-hidden" ref={scrollRef}>
+          <motion.div animate={controls} className="flex gap-1 px-10 py-4">
+            {repeatedCollections.map((collection, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[400px]"
+              >
+                <div className="flex flex-col">
+                  <div className="rounded-full p-1 mb-3 overflow-hidden w-48 h-48 mx-auto relative flex items-center justify-center bg-white shadow-md">
+                    <Image
+                      src={collection.image}
+                      alt={collection.alt}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className="rounded-full"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <p className="text-xl font-medium text-center ">
+                    {collection.age}
+                  </p>
                 </div>
-                <p className="text-xl font-medium text-center">{collection.age}</p>
               </div>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
