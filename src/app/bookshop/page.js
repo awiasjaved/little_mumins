@@ -29,15 +29,15 @@ const textAnimation = {
 };
 
 const bookshopTitle = [
-  { char: "B", color: "text-green-500" },
-  { char: "O", color: "text-purple-500" },
-  { char: "O", color: "text-orange-500" },
-  { char: "K", color: "text-yellow-500" },
+  { char: "B", color: "text-white-300" },
+  { char: "O", color: "text-white-300" },
+  { char: "O", color: "text-white-300" },
+  { char: "K", color: "text-white-300" },
   { char: " ", color: "" },
-  { char: "S", color: "text-pink-500" },
-  { char: "H", color: "text-red-500" },
-  { char: "O", color: "text-blue-500" },
-  { char: "P", color: "text-indigo-500" },
+  { char: "S", color: "text-white-300" },
+  { char: "H", color: "text-white-300" },
+  { char: "O", color: "text-white-300" },
+  { char: "P", color: "text-white-300" },
 ];
 
 export default function Page() {
@@ -46,7 +46,7 @@ export default function Page() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldAnimate(true);
-    }, 1500);
+    }, 1300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -58,7 +58,7 @@ export default function Page() {
         className="hidden md:block h-[80vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
       >
-        <div className="absolute bottom-0 text-white flex items-center justify-center inset-0 bg-black/50">
+        <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center inset-0 bg-black/50">
           <motion.h1
             className="text-7xl font-bold flex"
             initial="initial"
@@ -70,7 +70,7 @@ export default function Page() {
               <span
                 key={index}
                 className={`${item.color} text-7xl`}
-                style={{ WebkitTextStroke: "0.2px #971a32" }}
+                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
               >
                 {item.char}
               </span>
@@ -86,7 +86,7 @@ export default function Page() {
       >
         <div className="absolute inset-0 bg-black/60 flex items-end justify-center p-4">
           <motion.h1
-            className="text-3xl sm:text-4xl font-bold text-white text-center"
+            className="text-3xl sm:text-4xl font-bold text-[#97401a] text-center"
             initial="initial"
             animate={shouldAnimate ? "animate" : "initial"}
             variants={textAnimation}
@@ -96,7 +96,7 @@ export default function Page() {
               <span
                 key={index}
                 className={`${item.color} text-4xl`}
-                style={{ WebkitTextStroke: "0.2px #971a32" }}
+                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
               >
                 {item.char}
               </span>

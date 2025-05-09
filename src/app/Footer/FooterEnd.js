@@ -15,7 +15,7 @@ const FooterEnd = () => {
       }}
     >
 
-      <div className="bg-[#cdf1f3]/80 py-6">
+      <div className="bg-[#FBDFB0]/80 py-6">
         <Container>
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
