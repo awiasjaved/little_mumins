@@ -13,7 +13,8 @@ import Blessed from "../assets/images/blessed.jpg";
 import { useCart } from "../context/CartContext";
 import DynamicCard from "../Dynamic/DynamicCard";
 import Container from "../Container";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+
 const ThreePic = () => {
   const products = [
     {
@@ -67,7 +68,6 @@ const ThreePic = () => {
 
   const { addToCart } = useCart();
 
-  // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 3;
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -75,63 +75,77 @@ const ThreePic = () => {
   const paginatedProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(products.length / productsPerPage);
 
-  // Ref for scrolling the grid into view
   const gridRef = useRef(null);
 
+  // Function to handle page change and prevent scrolling to footer
+  const handlePaginationClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(30, 1500); // Scroll to 30px from left, 1800px from top
+  };
+
+  // useEffect without scroll
   useEffect(() => {
-    if (gridRef.current) {
-      gridRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      // Mobile view adjustments can be handled here if needed
+      // Grid logic or animation related to mobile view could be added here
     }
   }, [currentPage]);
 
   return (
     <div
-    className="min-h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/back.png')" }}
-  >
-    <Container>
-      <section className="py-10 text-center">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="pb-20"
-      >
-        <div className="pb-20">
-          <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
-          <h3 className="text-2xl font-semibold mb-8">1-3 Years Products Little Mumins</h3>
-        </div>
-        </motion.div>
-       
-        {/* Product Grid */}
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {paginatedProducts.map((product) => (
-            <DynamicCard
-              key={product.id}
-              {...product}
-              onAddToCart={addToCart}
-            />
-          ))}
-        </div>
+      id="three-pic" 
+      className="min-h-screen bg-cover bg-center bg-no-repeat scroll-smooth"
+      style={{ backgroundImage: "url('/back.png')" }}
+    >
+      <Container>
+        <section className="py-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="pb-20"
+          >
+            <div className="pb-20">
+              <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
+              <h3 className="text-2xl font-semibold mb-8">
+                0-3 Years Products Little Mumins
+              </h3>
+            </div>
+          </motion.div>
 
-        {/* Pagination Controls */}
-        <div className="mt-10 flex justify-center gap-2">
-          {Array.from({ length: totalPages }, (_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentPage(i + 1)}
-              className={`px-4 py-2 border rounded-md cursor-pointer ${
-                currentPage === i + 1 ? "bg-[#f6339a] text-white" : "bg-white text-black"
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
-        </div>
-      </section>
-    </Container>
+          {/* Product Grid */}
+          <div
+            ref={gridRef}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          >
+            {paginatedProducts.map((product) => (
+              <DynamicCard
+                key={product.id}
+                {...product}
+                onAddToCart={addToCart}
+              />
+            ))}
+          </div>
+
+          {/* Pagination Controls */}
+          <div className="mt-10 flex justify-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => handlePaginationClick(i + 1)} // Changed to custom handler
+                className={`px-4 py-2 border rounded-md cursor-pointer ${
+                  currentPage === i + 1
+                    ? "bg-[#f6339a] text-white"
+                    : "bg-white text-black"
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        </section>
+      </Container>
     </div>
   );
 };
