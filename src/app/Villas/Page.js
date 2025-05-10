@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Shop from "../assets/images/shop.jpg"
+import Shop from "../assets/images/shop.png"
 import Container from "../Container";
 import { motion } from "framer-motion";
 
