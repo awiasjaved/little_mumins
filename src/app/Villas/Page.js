@@ -8,9 +8,6 @@ import { motion } from "framer-motion";
 const properties = [
   {
     id: 1,
-    title: `Become the light that nourishes and uplifts Iman!`,
-    description:
-      `Want to spread goodness and highlight your products? Apply now for in-depth details and join our network as a valued partner. Our team will get in touch with you shortly, ready to help you grow and succeed.`,
     image: Shop,
   },
 ];
