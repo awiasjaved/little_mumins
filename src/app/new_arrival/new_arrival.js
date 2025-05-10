@@ -140,7 +140,7 @@ const NewArrival = () => {
         <motion.button
           whileHover={{ x: [0, -5, 5, -5, 5, 0] }}
           transition={{ duration: 0.6 }}
-          className="mt-10 bg-[#f6339a] text-white py-2 px-6 rounded-full cursor-pointer hover:bg-[#d12c89]"
+          className="mt-10 bg-[#a84618] text-white py-2 px-6 rounded-full cursor-pointer hover:bg-[#852b02]"
         >
           <div className="flex items-center gap-1">
             View All Products
