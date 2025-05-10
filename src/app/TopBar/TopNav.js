@@ -50,7 +50,7 @@ const TopNav = () => {
       link: "/age",
       color: "text-white",
       subItems: [
-        { name: "0-3 Years", link: "/threeyears" },
+        { name: "0-3 Years", link: "/threeyears", color: "text-white" },
         { name: "4-6 Years", link: "/four" },
         { name: "7-12 Years", link: "/seven" },
       ],
@@ -76,12 +76,12 @@ const TopNav = () => {
 
   const navTextColor =
     scrollPosition > 550 && scrollPosition <= 1300
-      ? "text-[#1D3B46]"
+      ? "text-white"
       : "text-white";
-  const blurEffect = scrollPosition > 50 ? "backdrop-blur-lg" : "";
+  const blurEffect = scrollPosition > 50? "backdrop-blur-lg bg-black/40" : "";
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-lg`}>
+    <div className={`fixed top-0 left-0 w-full z-50 ${blurEffect}`}>
       <div className="px-1 lg:px-16 flex justify-between items-center">
         <Link href="/" className="cursor-pointer">
           <Image src={Logo} alt="Logo" width={100} height={50} />
@@ -148,7 +148,7 @@ const TopNav = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className=" absolute top-7 right-0  w-64 bg-white z-50 shadow-lg p-4"
+                className=" absolute top-17 right-0  w-64 bg-[rgba(165,42,42,0.6)] z-50 shadow-lg p-4"
               >
                 <div className="flex justify-between items-center mb-4">
                   <Image src={Logo} alt="Logo" width={80} height={40} />
@@ -160,7 +160,7 @@ const TopNav = () => {
                   </button>
                 </div>
 
-                <ul className="space-y-4 text-gray-800 font-medium">
+                <ul className="space-y-4 text-white font-medium">
                   {items.map((item) => (
                     <li key={item.name}>
                       {item.subItems ? (
@@ -188,7 +188,7 @@ const TopNav = () => {
                       )}
 
                       {item.subItems && expandedMenu === item.name && (
-                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-gray-600">
+                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-white">
                           {item.subItems.map((subItem) => (
                             <li key={subItem.name}>
                               <Link
