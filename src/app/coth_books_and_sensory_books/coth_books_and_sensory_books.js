@@ -62,7 +62,7 @@ return (
                         key={i}
                         onClick={() => handlePageChange(i + 1)}
                         className={`px-4 py-2 border rounded-md cursor-pointer ${currentPage === i + 1
-                                ? "bg-[#f6339a] text-white"
+                                ? "bg-[#852b02] text-white"
                                 : "bg-white text-black"
                             }`}
                     >
