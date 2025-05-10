@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
@@ -48,7 +49,15 @@ const DynamicCard = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isModalLoading, setIsModalLoading] = useState(false);
   const controls = useAnimation();
+
+  // Open modal with a brief loading state
+  const openModal = () => {
+    setShowModal(true);
+    setIsModalLoading(true);
+    setTimeout(() => setIsModalLoading(false), 300);
+  };
 
   const handleAddToCart = () => {
     onAddToCart?.({
@@ -71,13 +80,14 @@ const DynamicCard = ({
 
   return (
     <>
+      {/* Product Card */}
       <motion.div
         className={`rounded-lg p-4 drop-shadow-xl hover:drop-shadow-2xl transition flex flex-col justify-between bg-[#cdf1f3]/40 backdrop-blur-md ${className}`}
         variants={bounceInVariant}
         initial="hidden"
         animate={controls}
       >
-        {/* Image Section */}
+        {/* Image */}
         <div
           className="relative h-64 sm:h-72 md:h-80 w-full mb-3"
           onMouseEnter={() => setIsHovered(true)}
@@ -94,7 +104,7 @@ const DynamicCard = ({
 
           <div className="absolute w-full bottom-0 z-10">
             <button
-              onClick={() => setShowModal(true)}
+              onClick={openModal}
               className="w-full bg-black text-white sm:text-sm px-5 py-3 rounded-md shadow"
             >
               View Description
@@ -102,10 +112,12 @@ const DynamicCard = ({
           </div>
         </div>
 
-        {/* Product Title */}
-        <h4 className="text-lg sm:text-2xl font-medium mb-6">{title || "Product Title"}</h4>
+        {/* Title */}
+        <h4 className="text-lg sm:text-2xl font-medium mb-6">
+          {title || "Product Title"}
+        </h4>
 
-        {/* Price and Cart */}
+        {/* Price & Add to Cart */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
             {oldPrice && (
@@ -129,7 +141,7 @@ const DynamicCard = ({
         </div>
       </motion.div>
 
-      {/* Animated Modal */}
+      {/* Full-Screen Modal */}
       <AnimatePresence>
         {showModal && (
           <motion.div
@@ -138,53 +150,99 @@ const DynamicCard = ({
             animate="visible"
             exit="exit"
             variants={modalAnimation}
-            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm "
+            className="fixed inset-0 z-50 flex items-center justify-center "
           >
-            <div className="bg-[#f9fcfc] w-full max-w-4xl p-6 rounded-lg shadow-lg relative flex flex-col md:flex-row gap-4">
-              <button
-                onClick={() => setShowModal(false)}
-                className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl"
+            {isModalLoading ? (
+              <div className="text-white text-lg">Loading…</div>
+            ) : (
+              <motion.div
+                className="bg-[#FBDFB0] w-full h-full p-6 relative overflow-auto"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
               >
-                &times;
-              </button>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="absolute top-4 right-4 text-gray-600 hover:text-red-600 text-2xl"
+                >
+                  &times;
+                </button>
 
-              <div className="relative w-full h-64 sm:h-72 rounded-md overflow-hidden">
-                <Image
-                  src={image || "/default-image.jpg"}
-                  alt={title || "Product Image"}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-md"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
+                <div className="flex flex-col md:flex-row h-full gap-4">
+                  {/* Image */}
+                  <div className="relative md:w-1/2 h-64 md:h-auto rounded-md overflow-hidden">
+                    <Image
+                      src={image || "/default-image.jpg"}
+                      alt={title || "Product Image"}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-md"
+                    />
+                  </div>
 
-              <div
-                className="w-full text-black text-sm sm:text-base"
-                style={{ fontFamily: "'Open Sans', sans-serif" }}
-              >
-                <h4 className="font-bold text-lg sm:text-xl mb-2">{title || "Product Title"}</h4>
+                  {/* Details */}
+                  <div className="md:w-1/2 flex flex-col justify-between">
+                    <div>
+                      {/* Title & Tags */}
+                      <h4 className="font-bold text-2xl mb-2">
+                        {title || "Product Title"}
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {page && (
+                          <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded">
+                            {page}
+                          </span>
+                        )}
+                        {cloth && (
+                          <span className="px-2 py-1 bg-orange-100 text-orange-800 rounded">
+                            {cloth}
+                          </span>
+                        )}
+                        {size && (
+                          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded">
+                            {size}
+                          </span>
+                        )}
+                      </div>
 
-                <div className="flex flex-wrap justify-center items-center gap-2 mb-3">
-                  {page && (
-                    <h4 className="text-sm sm:text-base font-bold text-[#d162d1]">{page}</h4>
-                  )}
-                  {cloth && (
-                    <h4 className="text-sm sm:text-base font-bold text-[#ee6509]">{cloth}</h4>
-                  )}
-                  {size && (
-                    <h4 className="text-sm sm:text-base font-bold text-[#070991]">{size}</h4>
-                  )}
+                      {/* Description */}
+                      <div
+                        className="text-gray-700 mb-6"
+                        style={{ fontFamily: "'Open Sans', sans-serif" }}
+                        dangerouslySetInnerHTML={{
+                          __html: description || "No description available.",
+                        }}
+                      />
+                    </div>
+
+                    {/* Price & Add to Cart in Modal */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-baseline gap-2">
+                        {oldPrice && (
+                          <span className="line-through text-red-600">
+                            Rs {oldPrice}
+                          </span>
+                        )}
+                        <span className="text-3xl font-bold text-green-600">
+                          Rs {price}
+                        </span>
+                      </div>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => {
+                          handleAddToCart();
+                          setShowModal(false);
+                        }}
+                        className="bg-[#18a3a8] text-white px-6 py-2 rounded-full text-lg"
+                      >
+                        {buttonText}
+                      </motion.button>
+                    </div>
+                  </div>
                 </div>
-
-                <div
-                  className="text-gray-700 text-sm sm:text-base"
-                  dangerouslySetInnerHTML={{
-                    __html: description || "No description available.",
-                  }}
-                />
-              </div>
-            </div>
+              </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
