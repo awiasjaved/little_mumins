@@ -111,8 +111,8 @@ const NewArrival = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="pb-20"
       >
-        <h2 className="text-lg text-gray-900 uppercase pt-20">New Arrivals</h2>
-        <h3 className="text-2xl font-semibold mb-8">Our Newest Iman Bloomers</h3>
+
+        <h3 className="text-2xl font-semibold mb-8">New Arrivals</h3>
       </motion.div>
   
       {/* Product Grid */}

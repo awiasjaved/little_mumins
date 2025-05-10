@@ -6,7 +6,7 @@ import bgImageDesktop from '../assets/images/three.jpg';
 import bgImageMobile from '../assets/images/three.jpg';
 import Threepic from './threepic';
 import Flowers from '../ShopNow/Flowers';
-
+import Circle from "../slider/page";
 const textAnimation = {
   initial: {
     opacity: 0,
@@ -24,15 +24,15 @@ const textAnimation = {
   },
 };
 const ThreeYearsTitle = [
-  { char: "1", color: "text-green-500" },
-  { char: "-", color: "text-purple-500" },
-  { char: "3", color: "text-orange-500" },
+  { char: "1", color: "text-white-300"},
+  { char: "-", color: "text-white-300" },
+  { char: "3", color:"text-white-300" },
   { char: "", color: "" },
-  { char: "Y", color: "text-yellow-500" },
-  { char: "e", color: "text-pink-500" },
-  { char: "a", color: "text-red-500" },
-  { char: "r", color: "text-blue-500" },
-  { char: "s", color: "text-indigo-500" },
+  { char: "Y", color: "text-white-300"},
+  { char: "e", color:"text-white-300" },
+  { char: "a", color: "text-white-300"},
+  { char: "r", color:"text-white-300" },
+  { char: "s", color: "text-white-300"},
 ];
 
 const Page = () => {
@@ -53,7 +53,7 @@ const Page = () => {
          className="hidden md:block h-[80vh] bg-cover bg-center relative"
          style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
        >
-         <div className="absolute bottom-0 text-white flex items-center justify-center inset-0 bg-black/50">
+         <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center inset-0 bg-black/50">
            <motion.h1
              className="text-7xl font-bold flex"
              initial="initial"
@@ -65,7 +65,7 @@ const Page = () => {
                <span
                  key={index}
                  className={`${item.color} text-7xl`}
-                 style={{ WebkitTextStroke: "0.2px #971a32" }}
+                 style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
                >
                  {item.char}
                </span>
@@ -81,7 +81,7 @@ const Page = () => {
        >
          <div className="absolute inset-0 bg-black/60 flex items-end justify-center p-4">
            <motion.h1
-             className="text-3xl sm:text-4xl font-bold text-white text-center"
+             className="text-3xl sm:text-4xl font-bold text-[#97401a] text-center"
              initial="initial"
              animate={shouldAnimate ? "animate" : "initial"}
              variants={textAnimation}
@@ -91,7 +91,7 @@ const Page = () => {
                <span
                  key={index}
                  className={`${item.color} text-4xl`}
-                 style={{ WebkitTextStroke: "0.2px #971a32" }}
+                 style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
                >
                  {item.char}
                </span>
@@ -99,6 +99,7 @@ const Page = () => {
            </motion.h1>
          </div>
        </div>
+       <Circle />
       <Threepic />
       <Flowers />
       <Footer />

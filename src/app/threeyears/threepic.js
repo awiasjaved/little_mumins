@@ -13,7 +13,7 @@ import Blessed from "../assets/images/blessed.jpg";
 import { useCart } from "../context/CartContext";
 import DynamicCard from "../Dynamic/DynamicCard";
 import Container from "../Container";
-
+import { motion } from "framer-motion"; 
 const ThreePic = () => {
   const products = [
     {
@@ -87,13 +87,24 @@ const ThreePic = () => {
   }, [currentPage]);
 
   return (
+    <div
+    className="min-h-screen bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/back.png')" }}
+  >
     <Container>
       <section className="py-10 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="pb-20"
+      >
         <div className="pb-20">
           <h2 className="text-lg text-gray-900 uppercase">New Arrivals</h2>
           <h3 className="text-2xl font-semibold mb-8">1-3 Years Products Little Mumins</h3>
         </div>
-
+        </motion.div>
+       
         {/* Product Grid */}
         <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {paginatedProducts.map((product) => (
@@ -121,6 +132,7 @@ const ThreePic = () => {
         </div>
       </section>
     </Container>
+    </div>
   );
 };
 
