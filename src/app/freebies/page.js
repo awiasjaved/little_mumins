@@ -1,11 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Footer from '../Footer/FooterEnd';
+import Footer from "../Footer/FooterEnd";
 import bgImageDesktop from "../assets/images/little-mumins-islamic-gift-name-little-mumins.jpg";
 import bgImageMobile from "../assets/images/little-mumins-islamic-gift-name-little-mumins.jpg";
-import Flowers from '../ShopNow/Flowers';
-import FreeBies from './freebies';
+import Flowers from "../ShopNow/Flowers";
+import Freebies from "./freebies";
 
 const textAnimation = {
   initial: {
@@ -25,60 +26,40 @@ const textAnimation = {
 };
 
 const bookshopTitle = [
-  { char: "L", color:"text-white-300" },
-  { char: "I", color: "text-white-300" },
-  { char: "T", color: "text-white-300" },
-  { char: "T", color:"text-white-300" },
-  { char: "L", color: "text-white-300" },
-  { char: "E", color: "text-white-300" },
-  { char: " ", color: "" },
-  { char: "M", color:"text-white-300" },
-  { char: "U", color: "text-white-300"},
-  { char: "M", color: "text-white-300" },
-  { char: "I", color: "text-white-300" },
-  { char: "N", color: "text-white-300" },
-  { char: "S", color:"text-white-300" },
-  { char: " ", color: "" },
-  { char: "G", color:"text-white-300"},
-  { char: "i", color: "text-white-300" },
-  { char: "f", color: "text-white-300" },
-  { char: "t", color: "text-white-300" },
+  { char: "L" }, { char: "I" }, { char: "T" }, { char: "T" },
+  { char: "L" }, { char: "E" }, { char: " " },
+  { char: "M" }, { char: "U" }, { char: "M" },
+  { char: "I" }, { char: "N" }, { char: "S" },
+  { char: " " }, { char: "G" }, { char: "i" },
+  { char: "f" }, { char: "t" }
 ];
 
-
-const freebies = () => {
- const [shouldAnimate, setShouldAnimate] = useState(false);
+export default function Page() {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldAnimate(true);
-    }, 1300); // delay in ms before animation starts
-
+    const timer = setTimeout(() => setShouldAnimate(true), 1300);
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <>
-     {/* Desktop Background */}
-     <div
+      {/* Desktop Background */}
+      <div
         className="hidden md:block h-[80vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
       >
-        <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center inset-0 bg-black/50">
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <motion.h1
-            className="text-7xl font-bold flex"
+            className="text-7xl font-bold flex text-[#97401a]"
             initial="initial"
             animate={shouldAnimate ? "animate" : "initial"}
             variants={textAnimation}
             transition={textAnimation.transition}
+            style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
           >
-            {bookshopTitle.map((item, index) => (
-              <span
-                key={index}
-                className={`${item.color} text-7xl`}
-                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
-              >
+            {bookshopTitle.map((item, idx) => (
+              <span key={idx}>
                 {item.char}
               </span>
             ))}
@@ -99,23 +80,18 @@ const freebies = () => {
             variants={textAnimation}
             transition={textAnimation.transition}
           >
-            {bookshopTitle.map((item, index) => (
-              <span
-                key={index}
-                className={`${item.color} text-4xl`}
-                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
-              >
+            {bookshopTitle.map((item, idx) => (
+              <span key={idx} style={{ WebkitTextStroke: "0.2px #FBDFB0" }}>
                 {item.char}
               </span>
             ))}
           </motion.h1>
         </div>
       </div>
-    <FreeBies/>
-    <Flowers/>
-    <Footer/>
+
+      <Freebies />
+      <Flowers />
+      <Footer />
     </>
   );
 }
-
-export default freebies;
