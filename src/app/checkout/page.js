@@ -114,7 +114,11 @@ export default function CheckoutPage() {
       </div>
 
       {/* Right side: Order summary */}
-      <div className="border p-6 rounded-lg bg-gray-50 shadow-sm">
+      <div
+      id="three-pic" 
+      className="min-h-screen bg-cover bg-center bg-no-repeat scroll-smooth border p-6 rounded-lg shadow-sm"
+      style={{ backgroundImage: "url('/back.png')" }}
+    >
         <h2 className="text-2xl font-bold mb-4">Your order</h2>
         <div className="space-y-2 mb-4">
           {cartItems.map((item) => (
@@ -165,7 +169,7 @@ export default function CheckoutPage() {
             />
             <span>
               Bank Deposit
-              <div className="bg-gray-100 p-2 text-xs mt-1 rounded">
+              <div className="bg-gray-100 p-2 text-xl mt-1 rounded">
                 Transfer your order&apos;s payment to our bank account and avoid the hassle of cash on delivery.
                 After checking out with &quot;bank transfer&quot;, message us on WhatsApp at <strong>+92285990718</strong> for details.
                 <textarea

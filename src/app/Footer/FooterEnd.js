@@ -32,21 +32,21 @@ const FooterEnd = () => {
                 <div className="flex space-x-4 mt-4">
                   <Link
                     href="https://facebook.com"
-                    className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#fd6ebb] text-white hover:bg-[#f6339a] transition"
+                    className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#852b02] text-white hover:bg-[#f6339a] transition"
                   >
                     <FaFacebookF size={20} />
                   </Link>
 
                   <Link
                     href="https://www.instagram.com/thelittle_mumins/?igsh=Z2dhcWM2Nm9uanRs"
-                    className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#fd6ebb] text-white hover:bg-[#f6339a] transition"
+                    className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#852b02] text-white hover:bg-[#f6339a] transition"
                   >
                     <FaInstagram size={20} />
                   </Link>
 
                   <Link
                     href="https://whatsapp.com"
-                    className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#fd6ebb] text-white hover:bg-[#f6339a] transition"
+                    className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#852b02] text-white hover:bg-[#f6339a] transition"
                   >
                     <FaWhatsapp size={20} />
                   </Link>

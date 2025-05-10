@@ -27,7 +27,7 @@ const ThreePic = () => {
       oldPrice: 600,
       image: Jannah,
       hoverImage: Annah,
-      description: `This book aims to introduce the concept of Jannah to young minds...`
+      description: `his book aims to introduce the concept of Jannah to young minds in simple words with interesting details to open conversations to the endless possibilities of what the readers might feel...`
     },
     {
       id: 2,
@@ -39,8 +39,8 @@ const ThreePic = () => {
       oldPrice: 380,
       image: Khood,
       hoverImage: Hoob,
-      description: `“…اور سب سے بہترین دعا ‘اَلْـحَمْدُ لِلّٰہِ’ ہے۔”...`
-    },
+      description: `“…اور سب سے بہترین دعا 'اَلْـحَمْدُ لِلّٰہِ' ہے۔” (سنن ابن ماجہ: 3805) پیارے نبی صلی اللہ علیہ وسلم نے فرمایا: "تم میں سے جس نے اس حال میں صبح کی کہ اس کا جسم صحیح سلامت ہو، اس کی جان بے خوف ہو اور اس کے پاس دن کا کھانا بھی میسر ہو، تو ایسا ہے جیسے اس کے لیے دنیا اکٹھی ہوگئی۔” (سنن ابن ماجہ: 4141) آئیے! دل کے ہر حال میں 'اَلْـحَمْدُ لِلّٰہِ' کہنا اور کرنا سیکھیں۔`,
+  },
     {
       id: 3,
       title: "Raah-e-Jannat Ki Ginti",
@@ -51,7 +51,7 @@ const ThreePic = () => {
       oldPrice: 380,
       image: Jannat,
       hoverImage: Annat,
-      description: `“راہِ جنت کی کہانی” ایک منفرد کہانی کی کتاب ہے...`
+      description: `"راہ جنت کی کہانی" ایک منفرد کہانی کی کتاب ہے جس کا مقصد بچوں کو دینی تصورات کے ذریعے تعلیم دینا ہے ... دُعا ہے اللہ تعالیٰ ہمارے لیے اور ہمارے بچوں کے لیے علم کے دروازے کھول دے۔ آمین`,
     },
     {
       id: 4,
@@ -62,8 +62,8 @@ const ThreePic = () => {
       price: 600,
       image: Most,
       hoverImage: Blessed,
-      description: `This Islamic cloth book will not only stimulate your baby's sensory activity...`
-    },
+      description: `This Islamic cloth book will not only stimulate your babys sensory activity and boost their brain development, but also introduce them to many key Islamic concepts and serve as a great bonding opportunity for you and your baby!`,
+  },
   ];
 
   const { addToCart } = useCart();

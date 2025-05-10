@@ -129,6 +129,12 @@ const Story_books = () => {
     };
 
 return (
+  <div
+  id="three-pic" 
+  className="min-h-screen bg-cover bg-center bg-no-repeat scroll-smooth"
+  style={{ backgroundImage: "url('/back.png')" }}
+>
+
     <Container>
         <section className="pt-30 py-10 text-left">
         <div className="pb-20">
@@ -164,6 +170,7 @@ return (
         </section>
     
     </Container>
+    </div>
 )
 };
 

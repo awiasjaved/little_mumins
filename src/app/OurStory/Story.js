@@ -86,7 +86,7 @@ const Story = () => {
               </blockquote>
             </motion.div>
             <div className="text-center">
-              <p className="text-lg font-medium text-gray-800">Umm-e-Rumaisa</p>
+              <p className="text-lg font-medium text-">Umm-e-Rumaisa</p>
               <p className="text-sm text-gray-600">Little Mumins</p>
             </div>
           </Container>

@@ -73,6 +73,11 @@ export const CartProvider = ({ children }) => {
   const closeCart  = () => setIsOpen(false);
 
   return (
+    <div
+  id="three-pic" 
+  className="min-h-screen bg-cover bg-center bg-no-repeat scroll-smooth"
+  style={{ backgroundImage: "url('/back.png')" }}
+>
     <CartContext.Provider value={{
       cartItems,
       isOpen,
@@ -85,6 +90,7 @@ export const CartProvider = ({ children }) => {
     }}>
       {children}
     </CartContext.Provider>
+    </div>
   );
 };
 

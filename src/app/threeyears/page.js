@@ -24,7 +24,7 @@ const textAnimation = {
   },
 };
 const ThreeYearsTitle = [
-  { char: "1", color: "text-white-300"},
+  { char: "0", color: "text-white-300"},
   { char: "-", color: "text-white-300" },
   { char: "3", color:"text-white-300" },
   { char: "", color: "" },

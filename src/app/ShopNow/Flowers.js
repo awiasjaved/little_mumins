@@ -63,7 +63,7 @@ const Flowers = () => {
   
       {/* Button */}
       <Link href="/bookshop">
-        <button className="bg-[#f6339a] text-white text-sm sm:text-base py-2 px-5 sm:px-6 hover:bg-[#d12c89] rounded-full cursor-pointer transition duration-300 hover:animate-shakeX">
+        <button className="bg-[#a84618] text-white text-sm sm:text-base py-2 px-5 sm:px-6 hover:bg-[#852b02] rounded-full cursor-pointer transition duration-300 hover:animate-shakeX">
           <div className="flex items-center gap-2">
             Shop Now
             <FaArrowRight />

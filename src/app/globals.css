@@ -9,9 +9,6 @@
     @apply flex items-center space-x-2 bg-[#a84618] text-white px-6 py-3 rounded-full hover:bg-[#852b02] cursor-pointer
   }
 }
-
-
-
 @theme inline {
   /* --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -26,7 +23,10 @@
 
 body {
   /* font-family: 'Kepler Std'; */
-  background-color: #FBDFB0;
+  background-image: url('/back.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
 }
 /* /* .swiper-slide-custom {
   width: 80% !important;

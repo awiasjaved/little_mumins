@@ -51,6 +51,11 @@ And when the journey ends, the fun continues with exciting activities that will 
     };
 
 return (
+    <div
+    id="three-pic" 
+    className="min-h-screen bg-cover bg-center bg-no-repeat scroll-smooth"
+    style={{ backgroundImage: "url('/back.png')" }}
+  >
     <Container>
         <section className="py-10 text-center">
         <div className="pb-20">
@@ -87,6 +92,7 @@ return (
         </section>
     
     </Container>
+    </div>
 )
 };
 

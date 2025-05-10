@@ -66,6 +66,11 @@ const SevenYears = () => {  // Changed to Uppercase
     };
 
     return (
+        <div
+        id="three-pic" 
+        className="min-h-screen bg-cover bg-center bg-no-repeat scroll-smooth"
+        style={{ backgroundImage: "url('/back.png')" }}
+      >
         <Container>
             <section className="py-10 text-center">
                 <div className="pb-20">
@@ -100,6 +105,7 @@ const SevenYears = () => {  // Changed to Uppercase
                 </div>
             </section>
         </Container>
+        </div>
     );
 };
 
