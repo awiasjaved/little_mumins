@@ -56,7 +56,7 @@ const Page = () => {
       style={{ backgroundImage: "url('/desktop_background.png')" }}
     >
       <div className="h-[60vh]">
-        <h1 className="text-3xl font-bold text-center pt-20 pb-20 text-white drop-shadow-md">
+        <h1 className="text-3xl font-bold text-center pt-20 pb-20 text-black drop-shadow-md">
           Little Mumins Collection
         </h1>
         <div className="relative overflow-hidden" ref={scrollRef}>

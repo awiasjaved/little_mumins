@@ -163,7 +163,7 @@ const DynamicCard = ({
               >
                 <button
                   onClick={() => setShowModal(false)}
-                  className="absolute top-4 right-4 z-20 text-gray-600 hover:text-red-600 text-2xl"
+                  className="absolute top-4 right-4 z-20  hover:bg-red-600 text-2xl w-10 h-10  rounded-full border bg-[#852b02] text-white  transition"
                 >
                   &times;
                 </button>
@@ -187,19 +187,19 @@ const DynamicCard = ({
                       <h4 className="font-bold text-2xl mb-2">
                         {title || "Product Title"}
                       </h4>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <div className="flex flex-wrap justify-around items-center  mb-4">
                         {page && (
-                          <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded">
+                          <span className="px-2 py-1 bg-purple-100 text-purple-900 rounded">
                             {page}
                           </span>
                         )}
                         {cloth && (
-                          <span className="px-2 py-1 bg-orange-100 text-orange-800 rounded">
+                          <span className="px-2 py-1 bg-orange-100 text-orange-900 rounded">
                             {cloth}
                           </span>
                         )}
                         {size && (
-                          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded">
+                          <span className="px-2 py-1 bg-green-100 text-green-900 rounded">
                             {size}
                           </span>
                         )}
@@ -207,7 +207,7 @@ const DynamicCard = ({
 
                       {/* Description */}
                       <div
-                        className="text-gray-700 mb-6"
+                        className="text-black mb-6"
                         style={{ fontFamily: "'Open Sans', sans-serif" }}
                         dangerouslySetInnerHTML={{
                           __html: description || "No description available.",
@@ -234,7 +234,7 @@ const DynamicCard = ({
                           handleAddToCart();
                           setShowModal(false);
                         }}
-                        className="bg-[#18a3a8] text-white px-6 py-2 rounded-full text-lg"
+                        className="bg-[#852b02] text-white px-6 py-2 rounded-full text-lg"
                       >
                         {buttonText}
                       </motion.button>
