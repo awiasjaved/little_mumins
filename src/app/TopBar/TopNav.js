@@ -76,8 +76,8 @@ const TopNav = () => {
 
   const navTextColor =
     scrollPosition > 550 && scrollPosition <= 1300
-      ? "text-white"
-      : "text-white";
+      ? "text-black"
+      : "text-black";
   const blurEffect = scrollPosition > 50? "backdrop-blur-lg bg-black/40" : "";
 
   return (
@@ -105,12 +105,12 @@ const TopNav = () => {
                       <span className="text-xs">▼</span>
                     </div>
                     {expandedMenu === item.name && (
-                      <ul className="absolute left-0 top-full -mt-1 w-48 bg-[#62c7ca] text-black shadow-lg rounded-md z-50">
+                      <ul className="absolute left-0 top-full -mt-1 w-48 bg-[#a84618] text-black shadow-lg rounded-md z-50">
                         {item.subItems.map((subItem) => (
                           <li key={subItem.name}>
                             <Link
                               href={subItem.link}
-                              className={`block px-4 py-2 hover:bg-gray-100 ${item.color}`}
+                              className={`block px-4 py-2 hover:bg-[#852b02] ${item.color}`}
                             >
                               {subItem.name}
                             </Link>
@@ -148,19 +148,20 @@ const TopNav = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className=" absolute top-17 right-0  w-64 bg-[rgba(165,42,42,0.6)] z-50 shadow-lg p-4"
+                className=" absolute top-7 right-0  w-64 bg-[rgba(179,118,84,0.6)] z-50 shadow-lg p-4"
               >
                 <div className="flex justify-between items-center mb-4">
                   <Image src={Logo} alt="Logo" width={80} height={40} />
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl text-gray-800"
+                    className="text-2xl text-black
+                    "
                   >
                     ✕
                   </button>
                 </div>
 
-                <ul className="space-y-4 text-white font-medium">
+                <ul className="space-y-4 text-black font-medium">
                   {items.map((item) => (
                     <li key={item.name}>
                       {item.subItems ? (
@@ -188,7 +189,7 @@ const TopNav = () => {
                       )}
 
                       {item.subItems && expandedMenu === item.name && (
-                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-white">
+                        <ul className="ml-4 mt-2 space-y-2 text-sm font-normal text-black">
                           {item.subItems.map((subItem) => (
                             <li key={subItem.name}>
                               <Link
