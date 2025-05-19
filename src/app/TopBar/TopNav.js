@@ -148,7 +148,7 @@ const TopNav = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className=" absolute top-7 right-0  w-64 bg-[rgba(179,118,84,0.6)] z-50 shadow-lg p-4"
+                className=" absolute top-7 right-0  w-64 bg-[#b8d680] z-50 shadow-lg p-4"
               >
                 <div className="flex justify-between items-center mb-4">
                   <Image src={Logo} alt="Logo" width={80} height={40} />

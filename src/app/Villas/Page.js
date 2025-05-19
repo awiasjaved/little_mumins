@@ -50,14 +50,14 @@ const PropertyCard = () => {
                 objectFit="cover"
                 className="transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-[#FBDFB0]/30 rounded-xl" />
+              <div className="absolute inset-0 bg-[#fcfffc]/10 rounded-xl" />
             </motion.div>
 
             <div className="px-4 py-5">
-              <h3 className="text-3xl font-light text-stone-800 mb-3">
+              <h3 className="text-3xl font-light text-black mb-3">
                 {property.title}
               </h3>
-              <p className="text-lg text-stone-600 leading-relaxed">
+              <p className="text-lg text-black leading-relaxed">
                 {property.description}
               </p>
             </div>

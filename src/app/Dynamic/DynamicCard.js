@@ -82,7 +82,7 @@ const DynamicCard = ({
     <>
       {/* Product Card */}
       <motion.div
-        className={`rounded-lg p-4 drop-shadow-xl hover:drop-shadow-2xl transition flex flex-col justify-between bg-white/60 backdrop-blur-md ${className}`}
+        className={`rounded-lg p-4 drop-shadow-xl hover:drop-shadow-2xl transition flex flex-col justify-between bg-[#f0f0f0] backdrop-white-md ${className}`}
         variants={bounceInVariant}
         initial="hidden"
         animate={controls}

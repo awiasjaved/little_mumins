@@ -52,7 +52,7 @@ const Page = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      className="h-[60vh] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/desktop_background.png')" }}
     >
       <div className="h-[60vh]">
