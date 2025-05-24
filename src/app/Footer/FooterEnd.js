@@ -45,7 +45,7 @@ const FooterEnd = () => {
                   </Link>
 
                   <Link
-                    href="https://whatsapp.com"
+                    href="https://wa.me/923285990718"
                     className="w-10 h-10 flex items-center justify-center rounded-full border bg-[#852b02] text-white hover:bg-[#f6339a] transition"
                   >
                     <FaWhatsapp size={20} />
