@@ -17,8 +17,8 @@ const SevenYears = () => {  // Changed to Uppercase
             title: "Our Stars",
             cloth: "○ Set of 2 Books",
             size: "○ Get to know 15 Sahaba and 15 Sahabiyat",
-            price: 500,
-            oldPrice: 600,
+            price: 810,
+            oldPrice: 900,
             image: Our,
             hoverImage: Star,
             description: `The Sahabiyat were the best of people. They were As-Sabiqun, the forerunners...`
@@ -29,8 +29,8 @@ const SevenYears = () => {  // Changed to Uppercase
             cloth: "○ Paper Book",
             page: "○ 16 pages",
             size: "○ Size 8*8 inches",
-            price: 550,
-            oldPrice: 600,
+            price: 610,
+            oldPrice: 680,
             image: Mekail,
             hoverImage: Bismillah,
             description: `Mikael Goes to Madinah is a fun way to introduce your children to the many charms...`
@@ -41,8 +41,9 @@ const SevenYears = () => {  // Changed to Uppercase
             cloth: "○ Paper Book",
             page: "○ 170 page",
             size: "○ Size 8*8 inches",
-            price: 2800,
-            oldPrice: 2900,
+            badgeText: "20% Discount",
+            price: 2500,
+            oldPrice: 3125,
             image: Revolution,
             hoverImage: Once,
             description: `The book in your hands narrates to you the detailed stories of the Prophets...`

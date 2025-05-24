@@ -15,8 +15,8 @@ const Fouryears = () => {
             title: "A Day in the  Life of a Muslim",
             cloth: "○ Colouring Book",
             size: "○ Comes with a sticker sheet",
-            price: 500,
-            oldPrice: 600,
+            price: 250,
+            oldPrice: 280,
             image: Day,
             hoverImage: Bismillah,
             description: `This engaging colouring book introduces kids to basic Islamic values and daily Sunnahs in a fun and creative way. From morning duas to bedtime habits, children will learn, colour and decorate their way through simple sunnah practices that bring them closer to Allah. Perfect for nurturing love for Islam while sparking imagination!`
@@ -27,8 +27,8 @@ const Fouryears = () => {
             cloth: "○ Paper Book",
             page: "○ English",
             size: "○ Size 8*8 inches",
-            price: 600,
-            oldPrice: 660,
+            price: 610,
+            oldPrice: 680,
             image: Safa,
             hoverImage: Sfa,
             description: `

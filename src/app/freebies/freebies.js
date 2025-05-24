@@ -21,32 +21,37 @@ const FreeBies = () => {
   const products = [
     {
       title: "ISLAMIC CAP",
-
+      badgeText: null, 
       image: IslamicCap,
       hoverImage: DIslamicCap,
     },
     {
       title: "ISLAMIC PENCIL",
+      badgeText: null,
       image: IslamicPencil,
       hoverImage: Islamic2,
     },
     {
       title: "MASWAAK",
+      badgeText: null,
       image: Maswak,
       hoverImage:  Maswak1 ,
     },
     {
       title: "Sandal Wood Tasbih",
+      badgeText: null,
       image:Tasbih ,
       hoverImage: Tasbih1 ,
     },
     {
       title: "ZamZam",
+      badgeText: null,
       image: Zamzam1,
       hoverImage: Zamzam2,
     },
     {
       title: "Little Mumins Candy",
+      badgeText: null,
       image: Candy1,
       hoverImage: Candy2,
     },

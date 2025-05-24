@@ -17,8 +17,8 @@ const Board_books = () => {
           cloth: "○ Board book",
           page: "○ Urdu",
           size: "○ Size 5*5 inches",
-          price: 340,
-          oldPrice: 380,
+          price: 380,
+          oldPrice: 420,
           image: Khood,
           hoverImage: Hoob,
           description: `
@@ -41,8 +41,8 @@ const Board_books = () => {
             cloth: "○ Paper Book",
             page: "○ English",
             size: "○ Size 8*8 inches",
-            price: 550,
-            oldPrice: 660,
+            price: 665,
+            oldPrice: 740,
             image: Creat,
             hoverImage: Created,
             description: `

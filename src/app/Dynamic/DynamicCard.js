@@ -44,6 +44,7 @@ const DynamicCard = ({
   hoverImage,
   description,
   onAddToCart,
+  badgeText = "10% Discount", 
   buttonText = "Add to Cart",
   className = "",
 }) => {
@@ -93,6 +94,14 @@ const DynamicCard = ({
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
+          {/* ← Badge overlay */}
+          {badgeText && (
+            <span
+             className="absolute top-3 right-3 bg-red-600 text-white text-xl uppercase font-semibold px-2 py-1 rounded-full z-20"
+            >
+              {badgeText}
+           </span>
+          )}
           <Image
             src={isHovered && hoverImage ? hoverImage : image}
             alt={title || "Product Image"}

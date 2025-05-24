@@ -16,8 +16,8 @@ const Hadith_Seerah_and_islamic_history = () => {
                    title: "Our Nabi Hadith book",
                    cloth: "○ Activity Book",
                    size: "○ Comes with a sticker sheet",
-                   price: 550,
-                   oldPrice: 650,
+                   price: 610,
+                   oldPrice: 680,
                    image: Nabi,
                    hoverImage: Nabi1,
                    description: `None of you will have faith, till he loves me more than his father, his children, and all mankind.”
@@ -28,8 +28,8 @@ const Hadith_Seerah_and_islamic_history = () => {
            title: "Our Stars",
            cloth: "○ Set of 2 Books",
            size: "○ Get to know 15 Sahaba and 15 Sahabiyat",
-           price: 500,
-           oldPrice: 600,
+           price: 810,
+           oldPrice: 900,
            image: Our,
            hoverImage: Star,
            description: `The Sahabiyat were the best of people. They were As-Sabiqun, the forerunners. Hence, we should make them our role models.
@@ -43,7 +43,7 @@ const Hadith_Seerah_and_islamic_history = () => {
                         cloth: "○ Set of 2 Books",
                         page: "○ English",
                         size: "○ Size 8*8 inches",
-                        price: 1280,
+                        price: 1350,
                         oldPrice: 1500,
                         image: sahaba,
                         description: `

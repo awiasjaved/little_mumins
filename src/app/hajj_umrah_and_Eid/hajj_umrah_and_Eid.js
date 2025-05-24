@@ -14,8 +14,8 @@ const Hajj_umrah_and_Eid = () => {
             cloth: "○ Paper Book",
             page: "○ 16 pages",
             size: "○ Size 8*8 inches",
-            price: 550,
-            oldPrice: 600,
+            price: 610,
+            oldPrice: 680,
             image: Mekail,
             hoverImage: Bismillah,
             description: `

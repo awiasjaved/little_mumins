@@ -16,8 +16,8 @@ const Urdu_books = () => {
             cloth: "○ Paper Book",
             page: "○ 16 pages",
             size: "○ Size 8*8 inches",
-            price: 340,
-            oldPrice: 380,
+            price: 380,
+            oldPrice: 420,
             image: Jannat,
             hoverImage: Annat,
             description: `
@@ -36,8 +36,8 @@ const Urdu_books = () => {
             cloth: "○ Board book",
             page: "○ Urdu",
             size: "○ Size 5*5 inches",
-            price: 340,
-            oldPrice: 380,
+            price: 380,
+            oldPrice: 420,
             image: Khood,
             hoverImage: Hoob,
             description: `
