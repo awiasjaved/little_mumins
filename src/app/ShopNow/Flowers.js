@@ -32,6 +32,7 @@ const Flowers = () => {
       >
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
+<<<<<<< Updated upstream
     </div>
   
     {/* Content */}
@@ -43,6 +44,12 @@ const Flowers = () => {
         className="pb-10 sm:pb-16 md:pb-20"
         style={{ WebkitTextStroke: "0.2px #971a32" }}
       >
+=======
+
+      {/* Content */}
+
+      <div className="relative w-full h-[70vh] flex flex-col items-center justify-center text-center px-4">
+>>>>>>> Stashed changes
         {/* Title */}
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight sm:leading-snug">
           {title.map((item, index) => (
@@ -59,6 +66,7 @@ const Flowers = () => {
         >
           &quot;Nurturing the seed of Iman in young hearts&quot;
         </p>
+<<<<<<< Updated upstream
       </motion.div>
   
       {/* Button */}
@@ -70,6 +78,20 @@ const Flowers = () => {
           </div>
         </button>
       </Link>
+=======
+
+        {/* Button with animation */}
+        <Link href="/bookshop">
+          <button className="mt-10 bg-[#f6339a] text-white py-2 px-6 hover:bg-[#d12c89] rounded-full cursor-pointer hover:animate-shakeX">
+            <div className="flex items-center gap-1">
+              Shop Now
+              <FaArrowRight />
+            </div>
+          </button>
+        </Link>
+      </div>
+    
+>>>>>>> Stashed changes
     </div>
   </div>
   
