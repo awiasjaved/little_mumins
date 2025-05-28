@@ -406,75 +406,121 @@ const products = [
 
 const AllProduct = () => {
   const { addToCart } = useCart();
-  // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 3;
-  // Pagination logic
+
+  const totalPages = Math.ceil(products.length / productsPerPage);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const paginatedProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  const totalPages = Math.ceil(products.length / productsPerPage);
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
+  const renderPagination = () => {
+    const pages = [];
 
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      pages.push(1);
 
+      if (currentPage > 3) pages.push("...");
+
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+
+      for (let i = start; i <= end; i++) pages.push(i);
+
+      if (currentPage < totalPages - 2) pages.push("...");
+
+      pages.push(totalPages);
+    }
+
+    return (
+      <div className="flex items-center gap-1 mt-10 justify-center">
+        {/* Previous button */}
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="px-2 py-1 rounded text-lg text-gray-500 disabled:opacity-30"
+        >
+          &#x2039;
+        </button>
+
+        {/* Page numbers */}
+        {pages.map((page, idx) =>
+          page === "..." ? (
+            <span key={idx} className="px-3 py-2 text-gray-400">...</span>
+          ) : (
+            <button
+              key={idx}
+              onClick={() => handlePageChange(page)}
+              className={`px-4 py-2 rounded-md ${
+                currentPage === page
+                  ? "bg-blue-500 text-white"
+                  : "bg-white border text-black"
+              }`}
+            >
+              {page}
+            </button>
+          )
+        )}
+
+        {/* Next button */}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="px-2 py-1 rounded text-lg text-gray-500 disabled:opacity-30"
+        >
+          &#x203A;
+        </button>
+      </div>
+    );
+  };
 
   return (
     <div
-    className="min-h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/back.png')" }}
-  >
-    <Container>
-    <section className="py-10 text-center">
-    <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="pb-20"
-      >
-        
-     
-        <h2 className="text-2xl font-semibold mb-8">New Arrivals</h2>
-        </motion.div>
-
-      {/* Product Grid */}
-      <motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1, ease: "easeOut" }}
-  className="pb-20"
->
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
-        {paginatedProducts.map((product) => (
-          <DynamicCard
-            key={product.id}
-            {...product}
-            onAddToCart={addToCart}
-          />
-        ))}
-      </div>
-      </motion.div>
-      {/* Pagination Controls */}
-      <div className="mt-10 flex justify-center gap-2">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => handlePageChange(i + 1)}
-            className={`px-4 py-2 border rounded-md cursor-pointer ${
-              currentPage === i + 1
-                ? "bg-[#852b02] text-white"
-                : "bg-white text-black"
-            }`}
+      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/back.png')" }}
+    >
+      <Container>
+        <section className="py-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="pb-20"
           >
-            {i + 1}
-          </button>
-        ))}
-      </div>
-    </section>
-  </Container>
-  </div>
+            <h2 className="text-2xl font-semibold mb-8">New Arrivals</h2>
+          </motion.div>
+
+          {/* Product Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="pb-20"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+              {paginatedProducts.map((product) => (
+                <DynamicCard
+                  key={product.id}
+                  {...product}
+                  onAddToCart={addToCart}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Styled Pagination */}
+          {renderPagination()}
+        </section>
+      </Container>
+    </div>
   );
 };
 
