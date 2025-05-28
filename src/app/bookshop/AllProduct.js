@@ -461,7 +461,7 @@ const AllProduct = () => {
               onClick={() => handlePageChange(page)}
               className={`px-4 py-2 rounded-md ${
                 currentPage === page
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#852b02] text-white"
                   : "bg-white border text-black"
               }`}
             >
