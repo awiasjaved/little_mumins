@@ -22,6 +22,37 @@ import Star from "../assets/images/Star.jpg";
 import Mekail from "../assets/images/mekail.jpg";
 import Revolution from "../assets/images/revelation.jpg";
 import Once from "../assets/images/once.jpg";
+import Creat from "../assets/images/photo-output.jpg";
+import Created from "../assets/images/who_created_1.jpeg";
+import Nabi from "../assets/images/Nabi.jpg";
+import Nabi1 from "../assets/images/Nabi1.jpg";
+import sahaba from "../assets/images/sahaba_stories.jpeg";
+import Count from "../assets/images/count.jpg";
+import Count1 from "../assets/images/count1.jpg";
+import Five from "../assets/images/fivesense.jpg";
+import Five1 from "../assets/images/five.jpg";
+import Goat from "../assets/images/abdullah.jpg"
+import Goat1 from "../assets/images/Abdullahs-Eid-Goat.jpg";
+import Hajj from "../assets/images/dulhaaj.jpg";
+import Hajj1 from "../assets/images/dhulhijjahadventu.png"
+import DuaJ from "../assets/images/duajournal.png";
+import DuaJ1 from "../assets/images/duajourone.jpg";
+import bella from "../assets/images/bela.jpg";
+import bella1 from "../assets/images/belasheroo.jpg";
+import janwar from "../assets/images/janwar.jpg"
+import janwar1 from "../assets/images/janwar1.jpg"
+import quran from "../assets/images/quran_sa_dosti.png"
+import quran1 from "../assets/images/quran_sa_dosti1.png"
+import artboard from "../assets/images/Artboard.jpg"
+import artboard1 from "../assets/images/Artboard1.jpg"
+import Allah from "../assets/images/Allah.png"
+import Allah1 from "../assets/images/Allah1.png"
+import firstbook from "../assets/images/first_book.jpg"
+import firstbook1 from "../assets/images/first_book1.jpg"
+import pyaraAllah from "../assets/images/pyara_Allah.jpg"
+import pyaraAllah1 from "../assets/images/pyara_Allah.jpg"
+import dulhaj from "../assets/images/dulhaaj.jpg"
+import dulhaj1 from "../assets/images/dhulhijjahadventu.png"
 
 const products = [
   {
@@ -162,6 +193,215 @@ const products = [
       The book in your hands narrates to you the detailed stories of the Prophets (peace be upon them) with eye-catching illustrations and creative text placement with focus on what we can learn from each story. Both children and adults can benefit from this book. It is a labor of love and much effort, designed to create an intimate bond with the Prophets of Allah (SWT).
     `,
   },
+          {
+              id: 10,
+              title: " Who created",
+              cloth: "○ Paper Book",
+              page: "○ English",
+              size: "○ Size 8*8 inches",
+              price: 665,
+              oldPrice: 740,
+              image: Creat,
+              hoverImage: Created,
+              description: `
+           The book in your hands is a unique bilingual book which along with introducing colours to toddlers, also instills in them the concept that the Creator of everything around us is our Lord, Allah SWT. `,
+  
+          },
+            {
+                      id: 11,
+                      title: "Our Nabi Hadith book",
+                      cloth: "○ Activity Book",
+                      size: "○ Comes with a sticker sheet",
+                      price: 610,
+                      oldPrice: 680,
+                      image: Nabi,
+                      hoverImage: Nabi1,
+                      description: `None of you will have faith, till he loves me more than his father, his children, and all mankind.”
+                      (Sahih Bukhari)`
+                  },
+                     {
+                                  id: 12,
+                                  title: "⁠Sahaba Stories",
+                                  cloth: "○ Set of 2 Books",
+                                  page: "○ English",
+                                  size: "○ Size 8*8 inches",
+                                  price: 1350,
+                                  oldPrice: 1500,
+                                  image: sahaba,
+                                  description: `
+                                   Sahaba Stories are powerful tales of the noble companions of Prophet Muhammad (PBUH), who stood by him through every trial. They sacrificed their wealth, time, and even lives for the sake of Islam. Each story carries a deep lesson in faith, patience, and truthfulness. From Abu Bakr’s loyalty to Umar’s justice,
+                                    <br/>
+                                   Uthman’s generosity to Ali’s wisdom—each companion offers a unique example to follow. These stories are spiritually uplifting for both children and adults. They teach us to love Islam, prepare for the Hereafter, and develop strong moral character.
+                                  `,
+                                },
+                                {
+                                  id: 13,
+                                  title: "Count your way to jannah",
+                                  cloth: "○ Set of 2 Books",
+                                  page: "○ English",
+                                  size: "○ Size 8*8 inches",
+                                  price: 540,
+                                  oldPrice: 600,
+                                  image: Count,
+                                  hoverImage: Count1,
+                                  description: `
+                                   Count Your Way to Jannah” is a unique counting book which aims to teach toddlers counting from 1 to 10 through Islamic concepts. Through this book, toddlers will not only learn numbers but will also learn ten different Islamic facts and concepts in a fun and exciting way along with captivating illustrations.
+                                  
+                                  `,
+                                },
+                                      {
+                                  id: 14,
+                                  title: "Five Senses, Five Blessings (Board Book)",
+                                  cloth: "○ Set of 2 Books",
+                                  page: "○ English",
+                                  size: "○ Size 8*8 inches",
+                                  price: 410,
+                                  oldPrice: 490,
+                                  image: Five,
+                                  hoverImage: Five1,
+                                  description: `
+                                   A board book which teaches toddlers the five senses and the fact that they are a gift from Allah.
+                                  
+                                  `,
+                                }, 
+                                    {
+                                  id: 15,
+                                  title: "Abdullah’s Eid Goat",
+                                  cloth: "○ Story Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 700,
+                                  oldPrice: 780,
+                                  image:  Goat,
+                                  hoverImage:  Goat1,
+                                  description: `
+                                  This book narrates the story of a boy who gets attached to his goat but ultimately learns to let go of him for the sake of Allah. It also narrates the story of Ibrahim A.S and Ismail A.S in a unique way along with giving a lot of lessons from the Quran and Sunnah
+                                  `,
+                                },
+                                       {
+                                  id: 16,
+                                  title: "Dhul-Hijjah Adventures",
+                                  cloth: "○ Activity Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 1375,
+                                  oldPrice: 1100,
+                                  image:  Hajj,
+                                  hoverImage:  Hajj1,
+                                  description: `
+                                 A unique Dhul-hijjah activity book which includes more than 30 activities, stories and poems and lessons on Deen, Science and Geography! With a child friendly style and beautiful illustrations children are bound to love this one!`,
+                                },
+                                     {
+                                  id: 17,
+                                  title: "Dua Journal",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 480,
+                                  oldPrice: 530,
+                                  image:  DuaJ,
+                                  hoverImage:  DuaJ1,
+                                  description: `A journal for kids to learn 12 quranic and sunnah duas (along with translations and unique explanations), record their thoughts and learn the etiquettes of making dua
+                                 `,
+                                },
+                                  {
+                                  id: 18,
+                                  title: "Dhul-Hijjah Adventures",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 1375,
+                                  oldPrice: 1100,
+                                  image:  dulhaj,
+                                  hoverImage:  dulhaj1,
+                                  description: `A journal for kids to learn 12 quranic and sunnah duas (along with translations and unique explanations), record their thoughts and learn the etiquettes of making dua
+                                 `,
+                                },
+                                  {
+                                  id: 19,
+                                  title: "Bela ka Sheru – Qurbani ki Kahani",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 430,
+                                  oldPrice:480,
+                                  image: bella,
+                                  hoverImage:  bella1,
+                                  description: `Qurbani ki Kahani`,
+                                },
+                                {
+                                  id: 20,
+                                  title: "Janwarun ki Dunya –  Urdu Flap Book",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 0-4years",
+                                  price: 720,
+                                  oldPrice:800,
+                                  image: janwar,
+                                  hoverImage:  janwar1,
+                                  description: `Urdu Flap Book`,
+                                },
+                                {
+                                  id: 21,
+                                  title: "Quran se Dosti –  Activity Book",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 430,
+                                  oldPrice:480,
+                                  image: quran,
+                                  hoverImage:  quran1,
+                                  description: `Activity Book`,
+                                },
+                                {
+                                  id: 22,
+                                  title: "Kaise they hamare piyare Nabi Muhammad SAW - Urdu Books",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 4-07years",
+                                  price: 430,
+                                  oldPrice:480,
+                                  image: artboard,
+                                  hoverImage:  artboard1,
+                                  description: `Kaise they hamare piyare Nabi Muhammad SAW`,
+                                },
+                                {
+                                  id: 22,
+                                  title: "Allah sab… Jante hain! –  Board Book",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 4-07years",
+                                  price: 430,
+                                  oldPrice:480,
+                                  image: Allah,
+                                  hoverImage:  Allah1,
+                                  description: `A sweet and simple board book on making children aware of the fact that Allah knows, sees and listens to everything!`,
+                                },
+                                {
+                                  id: 23,
+                                  title: "My First Book of Daily Duas",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 4-07years",
+                                  price: 405,
+                                  oldPrice:450,
+                                  image: firstbook,
+                                  hoverImage:  firstbook1,
+                                  description: `Read & Learn the Duas of daily Basis in Arabic`,
+                                },
+                                {
+                                  id: 24,
+                                  title: "Merey Pyarey Allah Taala - Board Books",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 0-04years",
+                                  price: 680,
+                                  oldPrice:610,
+                                  image: pyaraAllah,
+                                  hoverImage:  pyaraAllah1,
+                                  description: `A unique Urdu board book which encourages children to remember Allah at all times and to recognize the fact that everything around is happening by the will of Allah!`,
+                                },
+
 ];
 
 const AllProduct = () => {

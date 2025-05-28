@@ -9,6 +9,8 @@ import DynamicCard from "../Dynamic/DynamicCard"
 import Creat from "../assets/images/photo-output.jpg";
 import Created from "../assets/images/who_created_1.jpeg";
 import Container from "../Container";
+import Five from "../assets/images/fivesense.jpg";
+import Five1 from "../assets/images/five.jpg"
 const Board_books = () => {
     const products = [
        {
@@ -49,6 +51,22 @@ const Board_books = () => {
          The book in your hands is a unique bilingual book which along with introducing colours to toddlers, also instills in them the concept that the Creator of everything around us is our Lord, Allah SWT. `,
 
         },
+            {
+                                          id: 14,
+                                          title: "Five Senses, Five Blessings (Board Book)",
+                                          cloth: "○ Set of 2 Books",
+                                          page: "○ English",
+                                          size: "○ Size 8*8 inches",
+                                          price: 410,
+                                          oldPrice: 490,
+                                          image: Five,
+                                          hoverImage: Five1,
+                                          description: `
+                                           A board book which teaches toddlers the five senses and the fact that they are a gift from Allah.
+                                          
+                                          `,
+                                        },
+
     ];
     const { addToCart } = useCart();
     // Pagination states

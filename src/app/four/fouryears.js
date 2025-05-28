@@ -7,6 +7,10 @@ import Safa from "../assets/images/safa.jpg"
 import Sfa from "../assets/images/sfa.jpg"
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
+import bella from "../assets/images/bela.jpg";
+import bella1 from "../assets/images/belasheroo.jpg";
+import artboard from "../assets/images/Artboard.jpg"
+import artboard1 from "../assets/images/Artboard1.jpg"
 import Container from "../Container";
 const Fouryears = () => {
     const products = [
@@ -36,6 +40,30 @@ const Fouryears = () => {
 And when the journey ends, the fun continues with exciting activities that will make you see the vibrant world around you in a whole new light of Quran and Hadith. This unforgettable adventure will leave little readers exploring colours and nature with gratitude and wonder long after the adventure ends. `,
 
         },
+        {
+                                          id: 3,
+                                          title: "Bela ka Sheru – Qurbani ki Kahani",
+                                          cloth: "○ Activity Book / Dua Book",
+                                          page: "○ English",
+                                          size: "○ 7-13years",
+                                          price: 430,
+                                          oldPrice:480,
+                                          image: bella,
+                                          hoverImage:  bella1,
+                                          description: `Qurbani ki Kahani`,
+                                        },
+        {
+                                          id: 4,
+                                          title: "Kaise they hamare piyare Nabi Muhammad SAW - Urdu Books",
+                                          cloth: "○ Activity Book / Dua Book",
+                                          page: "○ English",
+                                          size: "○ 4-07years",
+                                          price: 430,
+                                          oldPrice:480,
+                                          image: artboard,
+                                          hoverImage:  artboard1,
+                                          description: `Kaise they hamare piyare Nabi Muhammad SAW`,
+                                        },                                
     ];
     const { addToCart } = useCart();
     // Pagination states

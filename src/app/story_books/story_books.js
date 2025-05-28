@@ -15,6 +15,8 @@ import Once from "../assets/images/once.jpg";
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
+import Goat from "../assets/images/abdullah.jpg"
+import Goat1 from "../assets/images/Abdullahs-Eid-Goat.jpg";
 const Story_books = () => {
     const products = [
         {
@@ -115,6 +117,20 @@ const Story_books = () => {
                  Uthman’s generosity to Ali’s wisdom—each companion offers a unique example to follow. These stories are spiritually uplifting for both children and adults. They teach us to love Islam, prepare for the Hereafter, and develop strong moral character.
                 `,
               },
+                   {
+                                                id: 7,
+                                                title: "Abdullah’s Eid Goat",
+                                                cloth: "○ Story Book",
+                                                page: "○ English",
+                                                size: "○ Size 8*8 inches",
+                                                price: 700,
+                                                oldPrice: 780,
+                                                image:  Goat,
+                                                hoverImage:  Goat1,
+                                                description: `
+                                                This book narrates the story of a boy who gets attached to his goat but ultimately learns to let go of him for the sake of Allah. It also narrates the story of Ibrahim A.S and Ismail A.S in a unique way along with giving a lot of lessons from the Quran and Sunnah
+                                                `,
+                                              },
     ];
     const { addToCart } = useCart();
     // Pagination states
@@ -159,7 +175,7 @@ return (
                         key={i}
                         onClick={() => handlePageChange(i + 1)}
                         className={`px-4 py-2 border rounded-md cursor-pointer ${currentPage === i + 1
-                                ? "bg-[#f6339a] text-white"
+                                ? "bg-[#852b02] text-white"
                                 : "bg-white text-black"
                             }`}
                     >

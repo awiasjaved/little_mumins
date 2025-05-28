@@ -27,7 +27,7 @@ const textAnimation = {
 const SevenYearsTitle = [
   { char: "7", color: "text-white-300"},
   { char: "-", color: "text-white-300" },
-  { char: "12", color:"text-white-300" },
+  { char: "13", color:"text-white-300" },
   { char: "", color: "" },
   { char: "Y", color: "text-white-300"},
   { char: "e", color:"text-white-300" },

@@ -10,8 +10,16 @@ import Khood from "../assets/images/khood.jpg";
 import Hoob from "../assets/images/hoob.jpg";
 import Most from "../assets/images/most.jpg";
 import Blessed from "../assets/images/blessed.jpg";
+import janwar from "../assets/images/janwar.jpg"
+import janwar1 from "../assets/images/janwar1.jpg"
 import { useCart } from "../context/CartContext";
 import DynamicCard from "../Dynamic/DynamicCard";
+import Allah from "../assets/images/Allah.png"
+import Allah1 from "../assets/images/Allah1.png"
+import pyaraAllah from "../assets/images/pyara_Allah.jpg"
+import pyaraAllah1 from "../assets/images/pyara_Allah.jpg"
+import Five from "../assets/images/fivesense.jpg";
+import Five1 from "../assets/images/five.jpg";
 import Container from "../Container";
 import { motion } from "framer-motion";
 
@@ -65,6 +73,57 @@ const ThreePic = () => {
       hoverImage: Blessed,
       description: `This Islamic cloth book will not only stimulate your babys sensory activity and boost their brain development, but also introduce them to many key Islamic concepts and serve as a great bonding opportunity for you and your baby!`,
   },
+  {
+                                    id: 5,
+                                    title: "Janwarun ki Dunya –  Urdu Flap Book",
+                                    cloth: "○ Activity Book / Dua Book",
+                                    page: "○ English",
+                                    size: "○ 0-4years",
+                                    price: 720,
+                                    oldPrice:800,
+                                    image: janwar,
+                                    hoverImage:  janwar1,
+                                    description: `Urdu Flap Book`,
+                                  },
+   {
+                                    id: 6,
+                                    title: "Allah sab… Jante hain! –  Board Book",
+                                    cloth: "○ Activity Book / Dua Book",
+                                    page: "○ English",
+                                    size: "○ 4-07years",
+                                    price: 430,
+                                    oldPrice:480,
+                                    image: Allah,
+                                    hoverImage:  Allah1,
+                                    description: `A sweet and simple board book on making children aware of the fact that Allah knows, sees and listens to everything!`,
+                                  }, 
+    {
+                                      id: 7,
+                                      title: "Merey Pyarey Allah Taala - Board Books",
+                                      cloth: "○ Activity Book / Dua Book",
+                                      page: "○ English",
+                                      size: "○ 0-04years",
+                                      price: 680,
+                                      oldPrice:610,
+                                      image: pyaraAllah,
+                                      hoverImage:  pyaraAllah1,
+                                      description: `A unique Urdu board book which encourages children to remember Allah at all times and to recognize the fact that everything around is happening by the will of Allah!`,
+                                    },
+   {
+                                     id: 8,
+                                     title: "Five Senses, Five Blessings (Board Book)",
+                                     cloth: "○ Set of 2 Books",
+                                     page: "○ English",
+                                     size: "○ Size 8*8 inches",
+                                     price: 410,
+                                     oldPrice: 490,
+                                     image: Five,
+                                     hoverImage: Five1,
+                                     description: `
+                                      A board book which teaches toddlers the five senses and the fact that they are a gift from Allah.
+                                     
+                                     `,
+                                   },                                                              
   ];
 
   const { addToCart } = useCart();

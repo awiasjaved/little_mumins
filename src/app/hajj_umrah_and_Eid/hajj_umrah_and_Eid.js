@@ -6,6 +6,12 @@ import Mekail from "../assets/images/mekail.jpg";
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
+import Goat from "../assets/images/abdullah.jpg"
+import Goat1 from "../assets/images/Abdullahs-Eid-Goat.jpg";
+import DuaJ from "../assets/images/duajournal.png";
+import DuaJ1 from "../assets/images/duajourone.jpg";
+import dulhaj from "../assets/images/dulhaaj.jpg"
+import dulhaj1 from "../assets/images/dhulhijjahadventu.png"
 const Hajj_umrah_and_Eid = () => {
     const products = [
         {
@@ -22,7 +28,46 @@ const Hajj_umrah_and_Eid = () => {
               Mikael Goes to Madinah is a fun way to introduce your children to the many charms of the city of Madinah and to create love and longing for the hometown of the Prophet ﷺ (and the Prophet ﷺ himself!) in their hearts.
             `,
           },
-
+          {
+                                            id: 2,
+                                            title: "Abdullah’s Eid Goat",
+                                            cloth: "○ Story Book",
+                                            page: "○ English",
+                                            size: "○ 7-13years",
+                                            price: 700,
+                                            oldPrice: 780,
+                                            image:  Goat,
+                                            hoverImage:  Goat1,
+                                            description: `
+                                            This book narrates the story of a boy who gets attached to his goat but ultimately learns to let go of him for the sake of Allah. It also narrates the story of Ibrahim A.S and Ismail A.S in a unique way along with giving a lot of lessons from the Quran and Sunnah
+                                            `,
+                                          },
+{
+                                  id: 3,
+                                  title: "Dhul-Hijjah Adventures",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 1375,
+                                  oldPrice: 1100,
+                                  image:  dulhaj,
+                                  hoverImage:  dulhaj1,
+                                  description: `A journal for kids to learn 12 quranic and sunnah duas (along with translations and unique explanations), record their thoughts and learn the etiquettes of making dua
+                                 `,
+                                },
+     {
+                                      id: 4,
+                                      title: "Dua Journal",
+                                      cloth: "○ Activity Book / Dua Book",
+                                      page: "○ English",
+                                      size: "○ 7-13years",
+                                      price: 480,
+                                      oldPrice: 530,
+                                      image:  DuaJ,
+                                      hoverImage:  DuaJ1,
+                                      description: `A journal for kids to learn 12 quranic and sunnah duas (along with translations and unique explanations), record their thoughts and learn the etiquettes of making dua
+                                     `,
+                                    },                            
     ];
     const { addToCart } = useCart();
     // Pagination states
