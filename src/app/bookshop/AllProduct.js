@@ -33,8 +33,6 @@ import Five from "../assets/images/fivesense.jpg";
 import Five1 from "../assets/images/five.jpg";
 import Goat from "../assets/images/abdullah.jpg"
 import Goat1 from "../assets/images/Abdullahs-Eid-Goat.jpg";
-import Hajj from "../assets/images/dulhaaj.jpg";
-import Hajj1 from "../assets/images/dhulhijjahadventu.png"
 import DuaJ from "../assets/images/duajournal.png";
 import DuaJ1 from "../assets/images/duajourone.jpg";
 import bella from "../assets/images/bela.jpg";
@@ -251,7 +249,7 @@ const products = [
                                 },
                                       {
                                   id: 14,
-                                  title: "Five Senses, Five Blessings (Board Book)",
+                                  title: "Five Senses, Five Blessings",
                                   cloth: "○ Set of 2 Books",
                                   page: "○ English",
                                   size: "○ Size 8*8 inches",
@@ -278,21 +276,8 @@ const products = [
                                   This book narrates the story of a boy who gets attached to his goat but ultimately learns to let go of him for the sake of Allah. It also narrates the story of Ibrahim A.S and Ismail A.S in a unique way along with giving a lot of lessons from the Quran and Sunnah
                                   `,
                                 },
-                                       {
-                                  id: 16,
-                                  title: "Dhul-Hijjah Adventures",
-                                  cloth: "○ Activity Book",
-                                  page: "○ English",
-                                  size: "○ 7-13years",
-                                  price: 1375,
-                                  oldPrice: 1100,
-                                  image:  Hajj,
-                                  hoverImage:  Hajj1,
-                                  description: `
-                                 A unique Dhul-hijjah activity book which includes more than 30 activities, stories and poems and lessons on Deen, Science and Geography! With a child friendly style and beautiful illustrations children are bound to love this one!`,
-                                },
                                      {
-                                  id: 17,
+                                  id: 16,
                                   title: "Dua Journal",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
@@ -305,7 +290,7 @@ const products = [
                                  `,
                                 },
                                   {
-                                  id: 18,
+                                  id: 17,
                                   title: "Dhul-Hijjah Adventures",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
@@ -318,8 +303,8 @@ const products = [
                                  `,
                                 },
                                   {
-                                  id: 19,
-                                  title: "Bela ka Sheru – Qurbani ki Kahani",
+                                  id: 18,
+                                  title: "Bela ka Sheru",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
                                   size: "○ 7-13years",
@@ -330,8 +315,8 @@ const products = [
                                   description: `Qurbani ki Kahani`,
                                 },
                                 {
-                                  id: 20,
-                                  title: "Janwarun ki Dunya –  Urdu Flap Book",
+                                  id: 19,
+                                  title: "Janwarun ki Dunya",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
                                   size: "○ 0-4years",
@@ -342,8 +327,8 @@ const products = [
                                   description: `Urdu Flap Book`,
                                 },
                                 {
-                                  id: 21,
-                                  title: "Quran se Dosti –  Activity Book",
+                                  id: 20,
+                                  title: "Quran se Dosti",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
                                   size: "○ 7-13years",
@@ -354,8 +339,8 @@ const products = [
                                   description: `Activity Book`,
                                 },
                                 {
-                                  id: 22,
-                                  title: "Kaise they hamare piyare Nabi Muhammad SAW - Urdu Books",
+                                  id: 21,
+                                  title: "Kaise they hamare piyare Nabi Muhammad SAW",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
                                   size: "○ 4-07years",
@@ -367,7 +352,7 @@ const products = [
                                 },
                                 {
                                   id: 22,
-                                  title: "Allah sab… Jante hain! –  Board Book",
+                                  title: "Allah sab… Jante hain!",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
                                   size: "○ 4-07years",
@@ -391,7 +376,7 @@ const products = [
                                 },
                                 {
                                   id: 24,
-                                  title: "Merey Pyarey Allah Taala - Board Books",
+                                  title: "Merey Pyarey Allah Taala",
                                   cloth: "○ Activity Book / Dua Book",
                                   page: "○ English",
                                   size: "○ 0-04years",
@@ -406,81 +391,29 @@ const products = [
 
 const AllProduct = () => {
   const { addToCart } = useCart();
-  const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 3;
+  const [visibleCount, setVisibleCount] = useState(3);
+const paginatedProducts = products.slice(0, visibleCount);
 
-  const totalPages = Math.ceil(products.length / productsPerPage);
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const paginatedProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  // const handlePageChange = (page) => {
+  //   if (page >= 1 && page <= totalPages) {
+  //     setCurrentPage(page);
+  //   }
+  // };
 
-  const handlePageChange = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
+ const renderLoadMore = () => {
+  if (visibleCount >= products.length) return null;
 
-  const renderPagination = () => {
-    const pages = [];
-
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      pages.push(1);
-
-      if (currentPage > 3) pages.push("...");
-
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-
-      for (let i = start; i <= end; i++) pages.push(i);
-
-      if (currentPage < totalPages - 2) pages.push("...");
-
-      pages.push(totalPages);
-    }
-
-    return (
-      <div className="flex items-center gap-1 mt-10 justify-center">
-        {/* Previous button */}
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-2 py-1 rounded text-lg text-gray-500 disabled:opacity-30"
-        >
-          &#x2039;
-        </button>
-
-        {/* Page numbers */}
-        {pages.map((page, idx) =>
-          page === "..." ? (
-            <span key={idx} className="px-3 py-2 text-gray-400">...</span>
-          ) : (
-            <button
-              key={idx}
-              onClick={() => handlePageChange(page)}
-              className={`px-4 py-2 rounded-md ${
-                currentPage === page
-                  ? "bg-[#852b02] text-white"
-                  : "bg-white border text-black"
-              }`}
-            >
-              {page}
-            </button>
-          )
-        )}
-
-        {/* Next button */}
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="px-2 py-1 rounded text-lg text-gray-500 disabled:opacity-30"
-        >
-          &#x203A;
-        </button>
-      </div>
-    );
-  };
+  return (
+    <div className="flex justify-center mt-10">
+      <button
+        onClick={() => setVisibleCount((prev) => prev + 3)}
+        className="px-6 py-2 bg-[#852b02] text-white rounded hover:bg-[#a03b12] transition"
+      >
+        More Books
+      </button>
+    </div>
+  );
+};
 
   return (
     <div
@@ -517,7 +450,7 @@ const AllProduct = () => {
           </motion.div>
 
           {/* Styled Pagination */}
-          {renderPagination()}
+          {renderLoadMore()}
         </section>
       </Container>
     </div>

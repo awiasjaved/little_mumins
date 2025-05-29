@@ -6,9 +6,13 @@ import Nabi from "../assets/images/Nabi.jpg";
 import Nabi1 from "../assets/images/Nabi1.jpg";
 import Our from "../assets/images/our.jpg";
 import Star from "../assets/images/Star.jpg";
+import bella from "../assets/images/bela.jpg";
+import bella1 from "../assets/images/belasheroo.jpg";
 import { useCart } from '../context/CartContext';
 import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
+import artboard from "../assets/images/Artboard.jpg"
+import artboard1 from "../assets/images/Artboard1.jpg"
 const Hadith_Seerah_and_islamic_history = () => {
     const products = [
        {
@@ -52,6 +56,30 @@ const Hadith_Seerah_and_islamic_history = () => {
                          Uthman’s generosity to Ali’s wisdom—each companion offers a unique example to follow. These stories are spiritually uplifting for both children and adults. They teach us to love Islam, prepare for the Hereafter, and develop strong moral character.
                         `,
                       },
+     {
+                                       id: 4,
+                                       title: "Bela ka Sheru",
+                                       cloth: "○ Activity Book / Dua Book",
+                                       page: "○ English",
+                                       size: "○ 7-13years",
+                                       price: 430,
+                                       oldPrice:480,
+                                       image: bella,
+                                       hoverImage:  bella1,
+                                       description: `Qurbani ki Kahani`,
+                                     },
+     {
+                                       id: 5,
+                                       title: "Kaise they hamare piyare Nabi Muhammad SAW",
+                                       cloth: "○ Activity Book / Dua Book",
+                                       page: "○ English",
+                                       size: "○ 4-07years",
+                                       price: 430,
+                                       oldPrice:480,
+                                       image: artboard,
+                                       hoverImage:  artboard1,
+                                       description: `Kaise they hamare piyare Nabi Muhammad SAW`,
+                                     },                                                 
     ];
     const { addToCart } = useCart();
     // Pagination states

@@ -12,6 +12,8 @@ import Hajj from "../assets/images/dulhaaj.jpg";
 import Hajj1 from "../assets/images/dhulhijjahadventu.png";
 import DuaJ from "../assets/images/duajournal.png";
 import DuaJ1 from "../assets/images/duajourone.jpg";
+import quran from "../assets/images/quran_sa_dosti.png"
+import quran1 from "../assets/images/quran_sa_dosti1.png"
 const Activity_books = () => {
     const products = [
         {
@@ -62,6 +64,18 @@ const Activity_books = () => {
             hoverImage: DuaJ1,
             description: `A journal for kids to learn 12 quranic and sunnah duas (along with translations and unique explanations), record their thoughts and learn the etiquettes of making dua`,
         },
+     {
+                                       id: 5,
+                                       title: "Quran se Dosti ",
+                                       cloth: "○ Activity Book / Dua Book",
+                                       page: "○ English",
+                                       size: "○ 7-13years",
+                                       price: 430,
+                                       oldPrice:480,
+                                       image: quran,
+                                       hoverImage:  quran1,
+                                       description: `Activity Book`,
+                                     },   
     ];
     const { addToCart } = useCart();
     // Pagination states

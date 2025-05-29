@@ -42,7 +42,7 @@ And when the journey ends, the fun continues with exciting activities that will 
         },
         {
                                           id: 3,
-                                          title: "Bela ka Sheru – Qurbani ki Kahani",
+                                          title: "Bela ka Sheru ",
                                           cloth: "○ Activity Book / Dua Book",
                                           page: "○ English",
                                           size: "○ 7-13years",
@@ -54,7 +54,7 @@ And when the journey ends, the fun continues with exciting activities that will 
                                         },
         {
                                           id: 4,
-                                          title: "Kaise they hamare piyare Nabi Muhammad SAW - Urdu Books",
+                                          title: "Kaise they hamare piyare Nabi Muhammad SAW",
                                           cloth: "○ Activity Book / Dua Book",
                                           page: "○ English",
                                           size: "○ 4-07years",

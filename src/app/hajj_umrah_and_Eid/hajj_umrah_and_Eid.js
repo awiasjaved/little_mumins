@@ -12,6 +12,10 @@ import DuaJ from "../assets/images/duajournal.png";
 import DuaJ1 from "../assets/images/duajourone.jpg";
 import dulhaj from "../assets/images/dulhaaj.jpg"
 import dulhaj1 from "../assets/images/dhulhijjahadventu.png"
+import bella from "../assets/images/bela.jpg";
+import bella1 from "../assets/images/belasheroo.jpg";
+import quran from "../assets/images/quran_sa_dosti.png"
+import quran1 from "../assets/images/quran_sa_dosti1.png"
 const Hajj_umrah_and_Eid = () => {
     const products = [
         {
@@ -67,7 +71,31 @@ const Hajj_umrah_and_Eid = () => {
                                       hoverImage:  DuaJ1,
                                       description: `A journal for kids to learn 12 quranic and sunnah duas (along with translations and unique explanations), record their thoughts and learn the etiquettes of making dua
                                      `,
-                                    },                            
+                                    }, 
+{
+                                  id: 5,
+                                  title: "Bela ka Sheru",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 7-13years",
+                                  price: 430,
+                                  oldPrice:480,
+                                  image: bella,
+                                  hoverImage:  bella1,
+                                  description: `Qurbani ki Kahani`,
+                                },
+     {
+                                       id: 6,
+                                       title: "Quran se Dosti",
+                                       cloth: "○ Activity Book / Dua Book",
+                                       page: "○ English",
+                                       size: "○ 7-13years",
+                                       price: 430,
+                                       oldPrice:480,
+                                       image: quran,
+                                       hoverImage:  quran1,
+                                       description: `Activity Book`,
+                                     },                                                                                          
     ];
     const { addToCart } = useCart();
     // Pagination states

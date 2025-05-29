@@ -97,7 +97,7 @@ const SevenYears = () => {  // Changed to Uppercase
                                      },
                                      {
                                                                        id: 7,
-                                                                       title: "Quran se Dosti –  Activity Book",
+                                                                       title: "Quran se Dosti",
                                                                        cloth: "○ Activity Book / Dua Book",
                                                                        page: "○ English",
                                                                        size: "○ 7-13years",

@@ -75,7 +75,7 @@ const ThreePic = () => {
   },
   {
                                     id: 5,
-                                    title: "Janwarun ki Dunya –  Urdu Flap Book",
+                                    title: "Janwarun ki Dunya ",
                                     cloth: "○ Activity Book / Dua Book",
                                     page: "○ English",
                                     size: "○ 0-4years",
@@ -87,7 +87,7 @@ const ThreePic = () => {
                                   },
    {
                                     id: 6,
-                                    title: "Allah sab… Jante hain! –  Board Book",
+                                    title: "Allah sab… Jante hain!",
                                     cloth: "○ Activity Book / Dua Book",
                                     page: "○ English",
                                     size: "○ 4-07years",
@@ -99,7 +99,7 @@ const ThreePic = () => {
                                   }, 
     {
                                       id: 7,
-                                      title: "Merey Pyarey Allah Taala - Board Books",
+                                      title: "Merey Pyarey Allah Taala",
                                       cloth: "○ Activity Book / Dua Book",
                                       page: "○ English",
                                       size: "○ 0-04years",
@@ -111,7 +111,7 @@ const ThreePic = () => {
                                     },
    {
                                      id: 8,
-                                     title: "Five Senses, Five Blessings (Board Book)",
+                                     title: "Five Senses, Five Blessings",
                                      cloth: "○ Set of 2 Books",
                                      page: "○ English",
                                      size: "○ Size 8*8 inches",

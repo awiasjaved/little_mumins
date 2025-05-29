@@ -17,6 +17,10 @@ import DynamicCard from "../Dynamic/DynamicCard"
 import Container from "../Container";
 import Goat from "../assets/images/abdullah.jpg"
 import Goat1 from "../assets/images/Abdullahs-Eid-Goat.jpg";
+import bella from "../assets/images/bela.jpg";
+import bella1 from "../assets/images/belasheroo.jpg";
+import janwar from "../assets/images/janwar.jpg"
+import janwar1 from "../assets/images/janwar1.jpg"
 const Story_books = () => {
     const products = [
         {
@@ -131,6 +135,30 @@ const Story_books = () => {
                                                 This book narrates the story of a boy who gets attached to his goat but ultimately learns to let go of him for the sake of Allah. It also narrates the story of Ibrahim A.S and Ismail A.S in a unique way along with giving a lot of lessons from the Quran and Sunnah
                                                 `,
                                               },
+ {
+                                   id: 8,
+                                   title: "Bela ka Sheru",
+                                   cloth: "○ Activity Book / Dua Book",
+                                   page: "○ English",
+                                   size: "○ 7-13years",
+                                   price: 430,
+                                   oldPrice:480,
+                                   image: bella,
+                                   hoverImage:  bella1,
+                                   description: `Qurbani ki Kahani`,
+                                 },
+ {
+                                   id: 9,
+                                   title: "Janwarun ki Dunya",
+                                   cloth: "○ Activity Book / Dua Book",
+                                   page: "○ English",
+                                   size: "○ 0-4years",
+                                   price: 720,
+                                   oldPrice:800,
+                                   image: janwar,
+                                   hoverImage:  janwar1,
+                                   description: `Urdu Flap Book`,
+                                 },                                                                             
     ];
     const { addToCart } = useCart();
     // Pagination states

@@ -11,6 +11,12 @@ import Created from "../assets/images/who_created_1.jpeg";
 import Container from "../Container";
 import Five from "../assets/images/fivesense.jpg";
 import Five1 from "../assets/images/five.jpg"
+import janwar from "../assets/images/janwar.jpg"
+import janwar1 from "../assets/images/janwar1.jpg"
+import Allah from "../assets/images/Allah.png"
+import Allah1 from "../assets/images/Allah1.png"
+import pyaraAllah from "../assets/images/pyara_Allah.jpg"
+import pyaraAllah1 from "../assets/images/pyara_Allah.jpg"
 const Board_books = () => {
     const products = [
        {
@@ -52,8 +58,8 @@ const Board_books = () => {
 
         },
             {
-                                          id: 14,
-                                          title: "Five Senses, Five Blessings (Board Book)",
+                                          id: 3,
+                                          title: "Five Senses, Five Blessings",
                                           cloth: "○ Set of 2 Books",
                                           page: "○ English",
                                           size: "○ Size 8*8 inches",
@@ -66,7 +72,42 @@ const Board_books = () => {
                                           
                                           `,
                                         },
-
+     {
+                                       id: 4,
+                                       title: "Janwarun ki Dunya",
+                                       cloth: "○ Activity Book / Dua Book",
+                                       page: "○ English",
+                                       size: "○ 0-4years",
+                                       price: 720,
+                                       oldPrice:800,
+                                       image: janwar,
+                                       hoverImage:  janwar1,
+                                       description: `Urdu Flap Book`,
+                                     },
+      {
+                                       id: 5,
+                                       title: "Allah sab… Jante hain!",
+                                       cloth: "○ Activity Book / Dua Book",
+                                       page: "○ English",
+                                       size: "○ 4-07years",
+                                       price: 430,
+                                       oldPrice:480,
+                                       image: Allah,
+                                       hoverImage:  Allah1,
+                                       description: `A sweet and simple board book on making children aware of the fact that Allah knows, sees and listens to everything!`,
+                                     },                                                                   
+{
+                                  id: 6,
+                                  title: "Merey Pyarey Allah Taala",
+                                  cloth: "○ Activity Book / Dua Book",
+                                  page: "○ English",
+                                  size: "○ 0-04years",
+                                  price: 680,
+                                  oldPrice:610,
+                                  image: pyaraAllah,
+                                  hoverImage:  pyaraAllah1,
+                                  description: `A unique Urdu board book which encourages children to remember Allah at all times and to recognize the fact that everything around is happening by the will of Allah!`,
+                                },
     ];
     const { addToCart } = useCart();
     // Pagination states
